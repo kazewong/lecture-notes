@@ -43,7 +43,13 @@ There are multiple ways to tokenize a sentence, including character-level tokeni
 
 If we just feed the vector representing our sentence into a transformer, it will not do what one may expect it to do since it is lacking some understanding of the order of token. Imagine processing the sentence: "Tom Marvolo Riddle" with a character level tokenization, since the transformer does not know the order of the token, the representations "I am Lord Voldemort" and "IaLVoldmorte or dm " are indistinguishable from the original sentence.
 
+@Su2021RoFormerET
+
 == Attention Mechanism
+
+The core of a transformer is the attention mechanism, as suggested by the name of the original paper which popularized the transformer architecture: "Attention is all you need" @Vaswani2017AttentionIA. Nowadays there are many different tricks to make the attention mechanism runs more efficiently in a practical setting. Here we are sticking with the vanilla version for simplicity.
+
+
 
 = Difference between MLP and Transformer
 
