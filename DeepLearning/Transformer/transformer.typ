@@ -35,13 +35,13 @@ If we just feed the vector representing our sentence into a transformer, it will
 
 The core of a transformer is the attention mechanism, as suggested by the name of the original paper which popularized the transformer architecture: "Attention is all you need" @Vaswani2017AttentionIA. Nowadays there are many different tricks to make the attention mechanism runs more efficiently in a practical setting. Here we are sticking with the vanilla version for simplicity.
 
-
-
 = Difference between MLP and Transformer
 
 = Common architectures
 
 = Multimodal Transformers
+
+== Vision transformer
 
 = Applications
 
