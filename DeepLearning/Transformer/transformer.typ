@@ -14,8 +14,7 @@
 In the first part of this lecture, we are going to explore the basic idea behind a transformer with language modeling.
 Once you have the foundation down, generalizing the idea to other modality is conceptually straightforward.
 
-Here are some useful references for interested students:
-@Phuong2022FormalAF
+I will have some equations here and there for the purpose of examining them and explain the idea. However, for longer equations and algorithms, I think it rather unnecessary for me to retype them, even though I may put some explaination here.
 
 = Transformer Architecture
 
@@ -34,8 +33,14 @@ If we just feed the vector representing our sentence into a transformer, it will
 == Attention Mechanism
 
 The core of a transformer is the attention mechanism, as suggested by the name of the original paper which popularized the transformer architecture: "Attention is all you need" @Vaswani2017AttentionIA. Nowadays there are many different tricks to make the attention mechanism runs more efficiently in a practical setting. Here we are sticking with the vanilla version for simplicity.
+The way I like to think about attention is it is essentially learning a soft mask, such that only the relevant
 
-= Difference between MLP and Transformer
+The basic idea of attention in a transformer is well captured by algorithms 3 in @Phuong2022FormalAF.
+
+What do people mean when they said attention is a dot-product?
+
+
+== Difference between MLP and Transformer
 
 = Common architectures
 
