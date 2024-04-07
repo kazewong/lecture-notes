@@ -60,4 +60,10 @@ What do people mean when they said attention is a dot-product?
 
 = Applications
 
+= Alternative architectures
+
+Mixer @Tolstikhin2021MLPMixerAA
+
+S4 @Gu2021EfficientlyML @Gu2023MambaLS @Cirone2024TheoreticalFO
+
 #bibliography("transformer.bib")
