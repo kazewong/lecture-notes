@@ -5,7 +5,12 @@
   ]),
   numbering: "1",
 )
-#outline()
+
+#set heading(numbering: "1.")
+
+#outline(
+  indent: 1em
+)
 
 #set text(
   font: "Times New Roman",
