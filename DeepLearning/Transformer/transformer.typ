@@ -7,6 +7,11 @@
 )
 #outline()
 
+#set text(
+  font: "Times New Roman",
+  size: 11pt
+)
+
 #set par(justify: true)
 
 = Background
