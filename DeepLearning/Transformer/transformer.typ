@@ -28,7 +28,7 @@ I will have some equations here and there for the purpose of examining them and 
 
 = Transformer Architecture
 
-== Tokenization and embedding
+== Tokenization
 
 Given a sentence, the first step we need is to represent the sentence in a format that a computer can understand, i.e. numbers.
 To do that, we need to tokenize the sentence.
@@ -39,12 +39,12 @@ The detail of specific tokenization scheme is beyond the scope of this lecture, 
  
 If we live in a quality civilization which every word has exactly one meaning and one meaning only, then we could just stop at the tokenization level. Unfortunately this is not ture for any languages (at least the ones that I know of). The meaning of a word depends on the context, so representing a token with a single number is limiting how much we are allowed to process the token. Say my tokenizer has a vocabulary size of 100, and I want to multiply their value by 2, you can see quickly why this is a problem, since some tokens now will be indistinguishable from other token after the multiplication. If "success" is mapped to 1 and "failure" is mapped to 2, multiplying by 2 is not a very nice process. In other word, the representation space our tokens live in is too dense, which means tokens will run into each other and collide with each other often. In a physicist word, the two tokens become "degenerate" after the mapping.
 
+== Embedding
 
 To solve this issue, we can go to a higher dimension, where the tokens live in a much sparer space that they will rarely run into each other.
 $ bold(e) in N#sub[embed] $
 The tokenization matrix is basically a N#sub[feature] X N#sub[token] matrix. When you want to get the embedding of a particular token, which is a vector of length N#sub[token] with 1 at the specific token location and 0 elsewhere, you can multiply the tokenization matrix with your token vector, then one will have the embedding vector.
 While this sounds like a fancy way to say just build a look-up table, and in some sense it is, representing the tokenizer and input sequence as matrix and vector allows us to process the sequence on a computer way faster than writing a for-loop.
-Now instead of going through the token in a
 
 == Position encoding
 
