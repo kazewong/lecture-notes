@@ -59,18 +59,23 @@ In order to put the information related to the ordering of the words into the in
 The core of a transformer is the attention mechanism, as suggested by the name of the original paper which popularized the transformer architecture: "Attention is all you need" @Vaswani2017AttentionIA. Nowadays there are many different tricks to make the attention mechanism runs more efficiently in a practical setting. Here we are sticking with the vanilla version for simplicity.
 The way I like to think about attention is it is essentially learning a soft mask, such that only the relevant
 
-The basic idea of attention in a transformer is well captured by algorithms 3 in @Phuong2022FormalAF.
-
-What do people mean when they said attention is a dot-product?
-
+The basic idea of attention in a transformer is well captured by algorithms 3 in @Phuong2022FormalAF. 
 
 == Difference between MLP and Transformer
+
+*Disclaimer: these are my thoughts instead of rigourusly proven math. Everyone in the community is still trying to understand how exactly does transformer work, and if I have the answer, I think I will be writing a formal review article instead of this informal lecture notes.*
+
+For attentive students, you might be asking your self: "What is the difference between an MLP and a transformer?" Sure, there is the attention bit, but isn't attention still using MLP do really do the prediction in the end? And the answer is indeed the attention. But the question is really what exactly the attention does to separate itself from an MLP?
+
 
 = Common architectures
 
 = Multimodal Transformers
 
-==
+One major advantage of transformer is its universality. CNN deals with images, RNN deals with series, but it takes quite a lot of engineering effort to put them together as an unified model.
+This is not the case for transformer. As long as you can find a way to represent your data as an embedding vector, then building a transformer for that specific dataset is as easy as any other dataset. And what is more important is once you have an embedding vector for data with a specific modality, you can combine it with data with other modality.
+For example, say you have a dataset with annotated images, then you can easily build two transformers for the texts and the images, then combine their result as if you only have one transformer.
+This is great for engineering, this means one have a magical hammer that can be used across a large variety of tasks, so one does not have to replicate different engineering effort for different tasks.
 
 = Applications
 
