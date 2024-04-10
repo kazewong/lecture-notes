@@ -77,12 +77,32 @@ This is not the case for transformer. As long as you can find a way to represent
 For example, say you have a dataset with annotated images, then you can easily build two transformers for the texts and the images, then combine their result as if you only have one transformer.
 This is great for engineering, this means one have a magical hammer that can be used across a large variety of tasks, so one does not have to replicate different engineering effort for different tasks.
 
+As I mentioned above, the main grunt work in throwing a transformer at different data comes in processing the data, i.e. the tokenizer. We have seen the tokenizer for text data so far, what does it means to tokenizer a dataset in the context of other data modality?
+
+== Vision Transformer
+
+In the case of an image, a common strategy is to treat the image as a collection of "patches". In {VisionTransformer paper}, they split the image into a sequence of 16x16 pixel patches, then use a linear model (projection head) to get an embedding out of the patch, i.e. $bold(e) = f(bold(p))$, where bold(p) is the flatten vector of the patch pixel value.
+
+The position encoding is also a bit different from the one in text.
+
+== Audio Transformer
+
 = Applications
+
+== Token prediction
+
+The downstream task that most of you are probably familiar with is token prediction, either 
+
+== Sequence classification
+
+== Translation and embedding
 
 = Alternative architectures
 
+== MLP mixer
 Mixer @Tolstikhin2021MLPMixerAA
 
+== State space model 
 S4 @Gu2021EfficientlyML @Gu2023MambaLS @Cirone2024TheoreticalFO
 
 #bibliography("transformer.bib")
