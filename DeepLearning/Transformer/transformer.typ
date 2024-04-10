@@ -35,7 +35,7 @@ To do that, we need to tokenize the sentence.
 There are multiple ways to tokenize a sentence, including character-level tokenization, word-level tokenization, and subword-level tokenization. // Add citation.
 The tokenizer is basically a bag of words that each element in that bag has an id, whenever one see the corresponding pattern, then one can replace the pattern with that id. One of the most commonly used tokenizers these days is the subword-level tokenizer, which means we can have token like "th" and "e". So let say my tokenizer has two elements, "th" as 0 and "e" as 1, then the representation of "the" with my tokenizer will be [0, 1].
 Now this is a horrible tokenizer since we cannot represent special characters such as the start or the end of a sentence, empty space, or any Chinese character. To construct a useful tokenizer in practice, there are specific procedures to recursively build the vocabulary such that they can cover most of the basis.
-The detail of specific tokenization scheme is beyond the scope of this lecture, for interested students, these could be useful material for understanding how tokenizers work. 
+The detail of specific tokenization scheme is beyond the scope of this lecture, for interested students, these could be useful material for understanding how tokenizers work @Philip1994 @Sennrich2015NeuralMT. 
  
 If we live in a quality civilization which every word has exactly one meaning and one meaning only, then we could just stop at the tokenization level. Unfortunately this is not ture for any languages (at least the ones that I know of). The meaning of a word depends on the context, so representing a token with a single number is limiting how much we are allowed to process the token. Say my tokenizer has a vocabulary size of 100, and I want to multiply their value by 2, you can see quickly why this is a problem, since some tokens now will be indistinguishable from other token after the multiplication. If "success" is mapped to 1 and "failure" is mapped to 2, multiplying by 2 is not a very nice process. In other word, the representation space our tokens live in is too dense, which means tokens will run into each other and collide with each other often. In a physicist word, the two tokens become "degenerate" after the mapping.
 
@@ -67,9 +67,6 @@ The basic idea of attention in a transformer is well captured by algorithms 3 in
 
 For attentive students, you might be asking your self: "What is the difference between an MLP and a transformer?" Sure, there is the attention bit, but isn't attention still using MLP do really do the prediction in the end? And the answer is indeed the attention. But the question is really what exactly the attention does to separate itself from an MLP?
 
-
-= Common architectures
-
 = Multimodal Transformers
 
 One major advantage of transformer is its universality. CNN deals with images, RNN deals with series, but it takes quite a lot of engineering effort to put them together as an unified model.
@@ -89,13 +86,17 @@ The position encoding is also a bit different from the one in text.
 
 = Applications
 
-== Token prediction
+== Sequence classification (Encoder only)
+
+== Token prediction (Decoder only)
+
+
 
 The downstream task that most of you are probably familiar with is token prediction, either 
 
-== Sequence classification
 
-== Translation and embedding
+
+== Translation and embedding (Encoder and Decoder)
 
 = Alternative architectures
 
