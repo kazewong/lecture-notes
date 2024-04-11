@@ -67,6 +67,10 @@ The basic idea of attention in a transformer is well captured by algorithms 3 in
 
 For attentive students, you might be asking your self: "What is the difference between an MLP and a transformer?" Sure, there is the attention bit, but isn't attention still using MLP do really do the prediction in the end? And the answer is indeed the attention. But the question is really what exactly the attention does to separate itself from an MLP?
 
+The answer lies in the context. 
+
+$ tilde(v) = sum_t (e^((q^T k_t) slash sqrt(d#sub[attn])) #h(3pt) bold(v)_t) / (sum_u e^((q^T k_u) slash sqrt(d#sub[attn]))) $
+
 = Multimodal Transformers
 
 One major advantage of transformer is its universality. CNN deals with images, RNN deals with series, but it takes quite a lot of engineering effort to put them together as an unified model.
