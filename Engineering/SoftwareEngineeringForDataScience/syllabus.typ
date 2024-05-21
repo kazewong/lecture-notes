@@ -6,7 +6,6 @@
   numbering: "1",
 )
 
-
 #set text(
   font: "Times New Roman",
   size: 11pt
@@ -24,7 +23,7 @@
 
 = Course Description
 
-This course aims to expose the student to many modern software engineering practices. We will cover topics such as programming lanugages, popular packages for data science, tooling and best practices, and deployment. This course focuses on hands-on experience, labs and tutorials, which the student will develop a semester-long project with the guidance of the instructor. While each student should have their own project for the course, students are encouraged to work with each other.
+This course aims to expose the students to many modern software engineering practices. We will cover topics such as programming lanugages, popular packages for data science, tooling and best practices, and deployment. This course focuses on hands-on experience, labs and tutorials, which the students will develop a semester-long project with the guidance of the instructor. While each students should have their own project for the course, students are encouraged to work with each other. The most important part of this course is to have fun, and by the end of the course the students should have build some small products that will be available to the general public.
 
 = Philosophy
 
@@ -42,7 +41,7 @@ Whatever tools I teach you today, they will be outdated in the near future. Mayb
 
 == I can help you to get your A, but you have to get it yourself
 
-Since this is a class that suppose to teach you practical skills instead of the truth of the universe, I do not see the point in quizing and grading you. Instead, I value whether you can build some software and serve the community in the end, so that is how the assessment scheme is going to work: for the official grading, we will set up some simple labs for each topics, as long as you have done all of them, you will get an A. However, the true A in this class will be a software that you build and make it available to the world, and I will not be the (only) judge of whether you get an A or not. Alongside with the labs, you will pick a software project at the beginning of the course and build it as we progress in the class. At the end of the course, we will have a showcase of everyone's project. This *do not* contribute to your grade in any way. The catch is, hopefully you pick something that you are truly passionate about instead of just something that you think will be easy to build for the class, and you can actually show the world what software you have made. As a continuation of the course, I will help you publish and leverage your software for your career path, whether that involves publishing a code paper, or submitting to conferences.
+Since this is a class that suppose to teach you practical skills instead of the truth of the universe, I do not see the point in quizing and grading you. Instead, I value whether you can build some software and serve the community in the end, so that is how the assessment scheme is going to work: for the official grading, we will set up some simple labs for each topics, as long as you have done all of them, you will get an A. However, the true A in this class will be a software that you build and make it available to the world, and I will not be the (only) judge of whether you get an A or not. Alongside with the labs, you will pick a software project at the beginning of the course and build it as we progress in the class. At the end of the course, we will have a showcase of everyone's project. This *do not* contribute to your grade in any way. The catch is, hopefully you pick something that you are truly passionate about instead of just something that you think will be easy to build for the class, and you can actually show the world what software you have made. As a continuation of the course, I will help you publish and leverage your software for your career path, whether that involves publishing a code paper, or submitting to conferences. In the end, I think the grading is mutual, the grade for my teaching is how much fun you have, and the grade for your coursework is how proud of your software you are. 
 
 
 = Topics
