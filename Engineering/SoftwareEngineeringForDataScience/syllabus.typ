@@ -33,16 +33,31 @@ If you want to learn how to build a certain neural network, this is not the cour
 
 == I am just your guide
 
-There are different schools of thought when it comes to building software, just look at how many javascript frameworks and linux distro there. In the end, it is more about what you are trying to achieve and your style more than anything. There are general principles, best practice and anti-pattern, but a lot of engineering is about trade-offs and taste. I am structuring this coruse and the material according to my taste and preference, which is aligned with scientific computing and open source software developement. This may not be the best option in a different environment, such as in cyber security space. I am designing to course not only to show you the tools and workflows I prefer, but also why I pick the way I program. Style evolves over time as well, so remember to be agile and be ready to change if betters options are available.
-
-== Learn the spirit, not the knowledge
-
-Whatever tools I teach you today, they will be outdated in the near future. Maybe a couple years, maybe a couple months. Furthermore, you 
+There are different schools of thought when it comes to building software, just look at how many javascript frameworks and linux distro there. In the end, it is more about what you are trying to achieve and your style more than anything. There are general principles, best practice and anti-pattern, but a lot of engineering is about trade-offs and taste. I am structuring this course and the material according to my taste and preference, which is aligned with scientific computing and open source software developement. This may not be the best option in a different environment, such as in cyber security space. I am designing to course not only to show you the tools and workflows I prefer, but also why I pick the way I program. Style evolves over time as well, so remember to be agile and be ready to change if betters options are available.
 
 == I can help you to get your A, but you have to get it yourself
 
 Since this is a class that suppose to teach you practical skills instead of the truth of the universe, I do not see the point in quizing and grading you. Instead, I value whether you can build some software and serve the community in the end, so that is how the assessment scheme is going to work: for the official grading, we will set up some simple labs for each topics, as long as you have done all of them, you will get an A. However, the true A in this class will be a software that you build and make it available to the world, and I will not be the (only) judge of whether you get an A or not. Alongside with the labs, you will pick a software project at the beginning of the course and build it as we progress in the class. At the end of the course, we will have a showcase of everyone's project. This *do not* contribute to your grade in any way. The catch is, hopefully you pick something that you are truly passionate about instead of just something that you think will be easy to build for the class, and you can actually show the world what software you have made. As a continuation of the course, I will help you publish and leverage your software for your career path, whether that involves publishing a code paper, or submitting to conferences. In the end, I think the grading is mutual, the grade for my teaching is how much fun you have, and the grade for your coursework is how proud of your software you are. 
 
+= Logistics
+
+== Labs
+
+The labs serve two purposes: first, it is good to have some very well defined tasks you can practice whatever we have learning during the lectures. It is beneficial to you to get that muscle memory, at the same time to have some reference points if you want to do the same task in the future. Second, the labs are going to be 100% of your grade. I fundamentally do not value the labs as much as all the other non-graded activites, so my policy is as long as you complete all the labs as intended in time, then you will get an A. They should be relatively straight forward and should not take too much of your time on average. However, let me be clear here that the labs taking up a 100% of the grade does not mean you can slack off the other activites. I make the labs simple in order to make room for all the other fun stuffs, so they are the highlights. If you just want an easy A from doing the labs and planning to go easy on the other activities, I will strongly advise against taking this course.
+
+== "Pitch" session
+
+At the beginning of the course, you will pick a project that you will work on throughout the semester, which I have a couple examples of what I think is reasonable for this course in terms of size. A couple weeks in the course, we will have a "pitch" session which everyone presents the idea of their project to the class, specify the scope and layout a couple of milestones. It is a pitch session in qoutation because there is no seed money for this, but it is a good practice to go through the thought process which helps you laying down a solid plan for the project. This will not contribute toward your final, but I value this more 
+
+
+
+== Showcase
+
+By the end of the semester, I think it will be really fun to showcase your tools to each other and people outside the class. I will organize a showcase event which everyone will have an opportunity to present their project. 
+
+== Continuous feedback
+
+Even though I have a particular plan for this course, I think it makes the most 
 
 = Topics
 
@@ -59,3 +74,4 @@ Since this is a class that suppose to teach you practical skills instead of the 
 11. Frontend
 12. Database
 13. Contrainerization
+14. Benchmarking and Profiling
