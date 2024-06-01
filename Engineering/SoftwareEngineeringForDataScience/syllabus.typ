@@ -25,7 +25,7 @@
 
 Software engineering in data science requires a wide variety of technical skills. Not only ones need to know how to build a model for their data, but also engineer around the model from continous ingestion of new data to produce a deployable product. This course aims to expose the students to many modern software engineering practices for software engineering. We will start with problem analysis, programming languages, toolings such as version control, testing, debugging, to MLOps such as data base interaction and experiment tracking, all the way to open source developement cycle and governance, continous integration and deployment, and user interface and experience design. After this course, the student should have working knowledge to design and start an end-to-end data science project. This course focuses on hands-on experience, labs and tutorials, which the students will design and develop a semester-long project with the guidance of the instructor. Prerequisite(s): prior experience with programming is highly recommended.
 
- While each students should have their own project for the course, students are encouraged to work with each other. The most important part of this course is to have fun, and by the end of the course the students should have build some small products that will be available to the general public.
+While each students should have their own project for the course, students are encouraged to work with each other. The most important part of this course is to have fun, and by the end of the course the students should have build some small products that will be available to the general public.
 
 
 = Philosophy
@@ -52,8 +52,6 @@ The labs serve two purposes: first, it is good to have some very well defined ta
 
 At the beginning of the course, you will pick a project that you will work on throughout the semester, which I have a couple examples of what I think is reasonable for this course in terms of size. A couple weeks in the course, we will have a "pitch" session which everyone presents the idea of their project to the class, specify the scope and layout a couple of milestones. It is a pitch session in qoutation because there is no seed money for this, but it is a good practice to go through the thought process which helps you laying down a solid plan for the project. This will not contribute toward your final, but I value this more 
 
-
-
 == Showcase
 
 By the end of the semester, I think it will be really fun to showcase your tools to each other and people outside the class. I will organize a showcase event which everyone will have an opportunity to present their project. 
@@ -63,6 +61,8 @@ By the end of the semester, I think it will be really fun to showcase your tools
 Even though I have a particular plan for this course, I think it makes the most 
 
 = Topics
+
+This course can be divided into two secitons: in the first half of the course, we are going to look at more "research" side of this course. You will learn about how to choose your programming languages, popular libraries, tools for debugging, documentations, etc. This is going to be closer to traditional research. The second part we are going to switch gear to more "engineering" side. You will learn about some tools around the model, including database, containerization, frontend and backend development, and continous integration and deployment.
 
 1. Problem analysis
 2. Programming languages
