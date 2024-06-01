@@ -25,6 +25,21 @@ The purpose of this lab is to expose you to three languages I think is relevant 
 
 = python
 
+interpreted
+duck typing
+garbage collection
+
+
 = julia
 
+JIT
+multiple dispatch
+metaprogramming
+
+
 = rust
+
+static analysis
+Strongly typed
+borrow checker
+compiled
