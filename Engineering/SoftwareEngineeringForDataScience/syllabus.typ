@@ -78,3 +78,30 @@ This course can be divided into two secitons: in the first half of the course, w
 12. Database
 13. Contrainerization
 14. Benchmarking and Profiling
+
+= Schedule
+
+While there are a few sessions that are going to be a bit different in format, such as the pitch session and the showcase session, the majority of the sessions is going to share the following structure:
+
+1. *Overview*: A brief lecture about the topics of the day (\~30 mins)
+2. *Lab*: Pre-defined assingments (\~30 mins)
+3. *Break*: Stretch, get coffee, walk around. Long sitting is unhealthy. (\~10 mins)
+4. *Hacking*: Integrating newly learned techniques into semester long project (\~1 hrs)
+5. *Wrap-up*: Summarize and report the progress of the day (\~20mins)
+
+During the lab session and integration session, I will go around help people with their problems.
+
+#set enum(numbering: "Week 1")
+1. *Introduction to the course:* There will not be lab, instead we will have brainstorming sessions to guide you to formalize your semester long project.
+2. *Programming languages:* In the hacking session, you will try to figure out your technology stack.
+3. *Version control:*
+4. *Documentation and testing:*
+5. *Tooling, Benchmarking and Profiling:*
+6. *Pitch session*
+7. *Fall break*
+8. *Continous integration:*
+9. *Frontend:*
+10. *Database:*
+11. *Containerization:*
+12. *Open source practice:*
+13. *Final Presenation*:
