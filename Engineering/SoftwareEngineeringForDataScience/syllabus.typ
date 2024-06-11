@@ -60,25 +60,6 @@ By the end of the semester, I think it will be really fun to showcase your tools
 
 Even though I have a particular plan for this course, I think it makes the most 
 
-= Topics
-
-This course can be divided into two secitons: in the first half of the course, we are going to look at more "research" side of this course. You will learn about how to choose your programming languages, popular libraries, tools for debugging, documentations, etc. This is going to be closer to traditional research. The second part we are going to switch gear to more "engineering" side. You will learn about some tools around the model, including database, containerization, frontend and backend development, and continous integration and deployment.
-
-1. Problem analysis
-2. Programming languages
-3. Version control
-4. Testing
-5. Debugging
-6. Code review
-7. Documentation
-8. Tooling
-9. Deployment
-10. Continuous integration
-11. Frontend
-12. Database
-13. Contrainerization
-14. Benchmarking and Profiling
-
 = Schedule
 
 While there are a few sessions that are going to be a bit different in format, such as the pitch session and the showcase session, the majority of the sessions is going to share the following structure:
