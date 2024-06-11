@@ -1,7 +1,7 @@
 #set page(
   paper: "us-letter",
   header: align(center, text(17pt)[
-    *Semester project template*
+    *Problem analysis*
   ]),
   numbering: "1",
 )
@@ -19,4 +19,6 @@
   it.body
 )
 
-By the time 
+1. Gradio
+2. JS
+3. Rust
