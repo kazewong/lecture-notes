@@ -80,7 +80,7 @@ During the lab session and integration session, I will go around help people wit
 5. *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
 6. *Pitch session:* There will be no lab, and hacking. Instead, people should present their progress so far.
 7. *Fall break*
-8. *Continous integration:* 
+8. *Continous integration:* You will learn how to use actions to continously update and test your code.
 9. *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
 10. *Database:* You will learn the basic of database and storage. 
 11. *Containerization:* You will learn how to containerize your applications and deploy it.
