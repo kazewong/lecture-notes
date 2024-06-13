@@ -17,7 +17,14 @@ There are a couple of milestones I would like you to hit during this course, whi
 
 == Step 1: Go wild
 
-The first step of 
+The first step of finding your potential project is to come up with a list of dream projects. Here are some questions that will help you brainstorm what could be interesting:
+
+1. What are your hobbies? Is there anything that you want related to your hobbies that can benefit from data science?
+2. What chores do you dislike? Can it benefit from automation?
+3. Ask you friends to rant about something, what could possibly make their life better?
+4. Is there a dataset that you think it is cool and always wants to try your hands on it but never find the time?
+
+Come up with at least 5 projects that might interest you, discuss with your peers, and come up with some more ideas!
 
 == Step 2: Come back to reality
 
