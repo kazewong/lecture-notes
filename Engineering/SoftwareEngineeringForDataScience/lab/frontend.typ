@@ -1,23 +1,17 @@
 #set page(
   paper: "us-letter",
   header: align(center, text(17pt)[
-    *Problem analysis*
+    *Frontend design*
   ]),
   numbering: "1",
 )
 
-#set text(
-  font: "Times New Roman",
-  size: 11pt
-)
+#import "../style.typ": style_template
+#show: doc => style_template(doc,)
 
-#show heading.where(
-  level: 1,
-): it => text(
-  size: 18pt,
-  weight: "extrabold",
-  it.body
-)
+= Background
+
+In this lab, we are going to design a simple frontend interface 
 
 1. Gradio
 2. JS

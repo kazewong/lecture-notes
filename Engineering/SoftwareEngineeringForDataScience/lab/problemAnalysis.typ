@@ -20,7 +20,21 @@ The moral of the story is really just think before you commit to a big plan. *Wh
 For this lecture specifically, we 
 In this lecture, we will go through a list of important question
 
-= Semester project template
+= Features
+
+== Storage
+== Compute
+== Platform
+== Latency
+== Development and deployment cycle
+== Timeline
+== Privacy issues
+== Data type
+== Data collection
+== Automated training
+
+
+= Semester project brainstorming
 
 Since this is a one-semester project, it will be helpful to keep the scope of the project relatively small. 
 
@@ -54,6 +68,11 @@ When you are choosing your potential projects, keep these three milestone in min
 
 == Examples
 
-Here is a list of potential projects to give you some ideas what is in the scope of this course, but I always encourage and prefer people work on something they are truly passion about:
+Here is a list of sample projects to give you some ideas what is in the scope of this course. _Disclaimer: These projects are closely related to my personal interests, which 
+may put them out of the possible projects list because of conflict of interest. As mentioned, the only assignment that is relevant to your grade is the labs, so even if you pick any of the projects listed below, it will not affect your grade at all. But to stay on the safe side, I will not approve any project that is *exactly the same as described below*. Outside of this course, I am truly passionate about these projects. If people are interested in these projects, we can discuss what we can do together._
 
-Example 1: using computing vision algorithm to track the take-off velocity of myself in my high jump tapes is a good example.
+Example 1: Improving my high jump techniques through computer vision
+
+Example 2: Using LLM to parse relevant grants information
+
+Example 3: 
