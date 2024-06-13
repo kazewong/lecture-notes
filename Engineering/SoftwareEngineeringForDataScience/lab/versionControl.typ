@@ -6,18 +6,8 @@
   numbering: "1",
 )
 
-#set text(
-  font: "Times New Roman",
-  size: 11pt
-)
-
-#show heading.where(
-  level: 1,
-): it => text(
-  size: 18pt,
-  weight: "extrabold",
-  it.body
-)
+#import "../style.typ": style_template
+#show: doc => style_template(doc,)
 
 There are many great guides on the internet about how to use git (#link("https://rogerdudler.github.io/git-guide/")[This] being my favorite guide), and it is not very useful for me to go through every existing git commands anyway.
 
