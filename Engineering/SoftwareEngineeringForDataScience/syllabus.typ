@@ -81,8 +81,8 @@ During the lab session and integration session, I will go around help people wit
 6. *Pitch session:* There will be no lab, and hacking. Instead, people should present their progress so far.
 7. *Fall break*
 8. *Continous integration:* You will learn how to use actions to continously update and test your code.
-9. *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
-10. *Database:* You will learn the basic of database and storage. 
-11. *Containerization:* You will learn how to containerize your applications and deploy it.
+9. *Containerization:* You will learn how to containerize your applications and deploy it.
+10. *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
+11. *Database:* You will learn the basic of database and storage. 
 12. *Open source practice:* You will learn some of the open source practice such as governance and code review.
 13. *Show case*: There will be no lab and hacking. Instead, we will celerate everyone's hardwork!
