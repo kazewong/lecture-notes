@@ -14,7 +14,6 @@
 Choosing a programming languages fitting the project's need is probably the most important decision you will need to make before starting the project, and many factors will affect your choice, including performance, your familarity with the language, your team's familarity with the language, community support, and the availability of libraries.
 The purpose of this lab is to expose you to three languages I think is relevant for a data scientist career, which are #smallcaps[Python], #smallcaps[Julia], and #smallcaps[Rust].
 
-
 == Python
 
 === Features
@@ -27,6 +26,9 @@ garbage collection
 
 === What would I use python for?
 
+Because of the large ecosystem of python, #smallcaps[Python] is a great choice for a wide range of tasks, from building neural network to building fullstack web app.
+However, if your task demands high throughput or low latency, and there is no existing package which some wizards have already built to exactly solve your task, it may be worth thinking about the next two alternatives.
+
 == Julia
 
 === Features
@@ -34,8 +36,11 @@ garbage collection
 JIT
 multiple dispatch
 metaprogramming
+Somewhat messed up eco system
 
 === What would I use Julia for?
+
+
 
 == Rust
 
@@ -45,6 +50,8 @@ static analysis
 Strongly typed
 borrow checker
 compiled
+
+Need to go hardcore
 
 === Pros and cons
 
