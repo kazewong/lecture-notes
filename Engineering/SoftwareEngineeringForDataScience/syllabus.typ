@@ -50,15 +50,19 @@ The labs serve two purposes: first, it is good to have some very well defined ta
 
 == "Pitch" session
 
-At the beginning of the course, you will pick a project that you will work on throughout the semester, which I have a couple examples of what I think is reasonable for this course in terms of size. A couple weeks in the course, we will have a "pitch" session which everyone presents the idea of their project to the class, specify the scope and layout a couple of milestones. It is a pitch session in qoutation because there is no seed money for this, but it is a good practice to go through the thought process which helps you laying down a solid plan for the project. This will not contribute toward your final, but I value this more 
+At the beginning of the course, you will pick a project that you will work on throughout the semester, which I have a couple examples of what I think is reasonable for this course in terms of size. In the middle of this course, we will have a "pitch" session which everyone presents the idea of their project to the class, specify the scope and layout a couple of milestones. It is a pitch session in qoutation because there is no seed money for this, but it is a good practice to go through the thought process which helps you laying down a solid plan for the project. This will not contribute toward your final grade, but I value this more than your lab.
 
 == Showcase
 
-By the end of the semester, I think it will be really fun to showcase your tools to each other and people outside the class. I will organize a showcase event which everyone will have an opportunity to present their project. 
+By the end of the semester, I think it will be really fun to showcase your tools to each other and people outside the class. I will organize a showcase event which everyone will have an opportunity to present their project. In the ideal scenario, everyone should have some codes together with a demo web app we can all play with. The idea of having the pitch session and the showcase session is to give you the full experience of how to present your projects. Once again this will not count toward your final grade, but I also value this more than your lab.
 
 == Continuous feedback
 
-Even though I have a particular plan for this course, I think it makes the most 
+Even though I have a particular plan for this course, I think it makes the most sense if you tell me what could be useful to you. I cannot promise I will always be able to accomodate your need by switching up my lecture plan, but I do leave some flexibility when I am designing the syllabus for this course, so there is some chance I can touch on some popular topics. If there is really popular demand, I may also hold additional hacking session outside this course. For more granular feedbacks such as finding bugs in assignments or have general questions, feel free to open issues or pull requests on Github.
+
+== Debugging help
+
+As much as I want to promise you everything will be smooth, I would lying if I told you there will not be any bugs and problems during your lab. And during the class, I will probably need to resolve multiple situations in a relatively short time scale.
 
 = Schedule
 
