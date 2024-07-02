@@ -15,5 +15,5 @@ In this lab, we are going to design a simple frontend interface
 
 1. Gradio/streamlit
 2. JS
-3. Rust
+3. rust - leptos
 
