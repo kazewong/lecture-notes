@@ -42,6 +42,12 @@ There are different schools of thought when it comes to building software, just 
 
 Since this is a class that suppose to teach you practical skills instead of the truth of the universe, I do not see the point in quizing and grading you. Instead, I value whether you can build some software and serve the community in the end, so that is how the assessment scheme is going to work: for the official grading, we will set up some simple labs for each topics, as long as you have done all of them, you will get an A. However, the true A in this class will be a software that you build and make it available to the world, and I will not be the (only) judge of whether you get an A or not. Alongside with the labs, you will pick a software project at the beginning of the course and build it as we progress in the class. At the end of the course, we will have a showcase of everyone's project. This *do not* contribute to your grade in any way. The catch is, hopefully you pick something that you are truly passionate about instead of just something that you think will be easy to build for the class, and you can actually show the world what software you have made. As a continuation of the course, I will help you publish and leverage your software for your career path, whether that involves publishing a code paper, or submitting to conferences. In the end, I think the grading is mutual, the grade for my teaching is how much fun you have, and the grade for your coursework is how proud of your software you are. 
 
+== Use of AI-assistant
+
+I am very okay with students using AI-assistant tools such as copilot or ChatGPT in labs and projects. I uses copilot extensively in my daily workflow, and it has been a great productivity boost to what I do. In the end, your clients will not care whether you use copilot or voodoo magic to cook up the products, all they care is whether the product is good or not. On top of that, as much as I want AI to take over my job, it still kind of fails miserably. I am not even talking about the science bits of it, which we can go into hours of why AI may struggle on that. I am talking about the engineering part of AI. I dropped my ChatGPT subscription quick a while ago, since it just constantly fail to give me an answer that will work out of the box. Instead, I use ChatGPT like a search engine, usually in order to find the keyword that is related to what I want to search, then I just punch them into Google.
+
+My bottom line with AI-assistant is it has to make you a better engineer, not worse. If ChatGPT helps you find new concepts and write codes that are more efficient than what you would have written on your own, by all mean go for it. However, if you start to rely too much on ChatGPT, and produce inefficient code or buggy code, that is an issue. The goal of this course is to make you a capable software engineer in the era which AI-assistant exists, and whatever we can do to achieve that is appericated.
+
 = Logistics
 
 == Labs
@@ -63,6 +69,8 @@ Even though I have a particular plan for this course, I think it makes the most 
 == Debugging help
 
 As much as I want to promise you everything will be smooth, I would lying if I told you there will not be any bugs and problems during your lab. And during the class, I will probably need to resolve multiple situations in a relatively short time scale.
+
+
 
 = Schedule
 
