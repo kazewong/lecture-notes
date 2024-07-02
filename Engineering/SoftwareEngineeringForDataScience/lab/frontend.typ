@@ -17,3 +17,8 @@ In this lab, we are going to design a simple frontend interface
 2. JS
 3. rust - leptos
 
+= Exercises
+
+= Conclusion
+
+= References

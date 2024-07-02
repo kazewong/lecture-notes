@@ -8,3 +8,9 @@
 
 #import "../style.typ": style_template
 #show: doc => style_template(doc,)
+
+= Exercises
+
+= Conclusion
+
+= References

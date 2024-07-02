@@ -41,3 +41,9 @@ Here is a top level view of what the git function you will learn and use
   [tag], [],
   [submodule], [],
 )
+
+= Exercises
+
+= Conclusion
+
+= References

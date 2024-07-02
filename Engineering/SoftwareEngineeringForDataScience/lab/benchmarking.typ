@@ -22,3 +22,9 @@
 == Memoization
 
 == Accelerators
+
+= Exercises
+
+= Conclusion
+
+= References

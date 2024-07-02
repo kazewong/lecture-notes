@@ -37,3 +37,9 @@ The problem with code as documentationa is reading and understanding source code
 = Testing
 
 = Deploying
+
+= Exercises
+
+= Conclusion
+
+= References

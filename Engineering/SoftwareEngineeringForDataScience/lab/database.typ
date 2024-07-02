@@ -16,3 +16,9 @@ In my experience, collecting and interfacing with data are usually by far the mo
 = postgresql
 
 = data management software
+
+= Exercises
+
+= Conclusion
+
+= References
