@@ -103,6 +103,6 @@ Decide which day(s) in the week you are going to work on this, and what time in 
 
 == What about set backs?
 
-As much as we all want to stick with the plan, life happens. 
+As much as we all want to stick with the plan, life happens. It is inevitable that something will go wrong and you have to move back the schedule. That's fine and that's why we need a clear timeline. If you cannot achieve what are supposed to do this week, no big deal, just move it to next week. However, it is important to recognize setbacks should not happen every week, or more often than the rate you are making progress.
 
 = Choosing your champion
