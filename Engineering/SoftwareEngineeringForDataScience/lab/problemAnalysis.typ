@@ -17,22 +17,11 @@ A data science intern these days is not exactly cheap, so developing such a solu
 
 The moral of the story is to just think before you commit to a big plan. *What are you trying to achieve in this project?* Right here is the most important question you have to ask yourself every time you come back to this project. Is it to sell it to millions? Is it to get a promotion? Is it just for fun? The answer to this question should be dedicated to the answer to the following questions we will go through in this lecture. And every time you have to make a decision or whenever you are lost, ask yourself this question again. The more clear your answer is, the more clear which choice you should go for is, and the rest is detail. The objective of this course is to train you to be an independent data scientist, I want you to be able to do a project on your own as well as work with others. So instead of going through just a list of technical skills, I will also put my focus on making decisions: what programming language should I use? What should my documentation look like? How do I want to manage the code base? Should I rewrite yet another javascript framework? These are examples of questions you will ask yourself throughout this course.
 
-For this lecture specifically, we 
-In this lecture, we will go through a list of important question
-
-= Features
-
-== Storage
-== Compute
-== Platform
-== Latency
-== Development and deployment cycle
-== Timeline
-== Privacy issues
-== Data type
-== Data collection
-== Automated training
-
+The logistics of today's session is going to go as the following:
+1. First, we are going to brainstorm some potential project ideas, just defining the problem and the objective.
+2. The next step is work out the details of some of these project.
+3. Then we are going to plan a timeline for these projects.
+4. Finally, we have to choose one project to work on.
 
 = Semester project brainstorming
 
@@ -75,4 +64,45 @@ Example 1: Use computer vision model to extract joint positions from video
 
 Example 2: Using LLM to parse relevant grants information
 
-Example 3:
+Example 3: Build a drone that can track athlete well while keeping them in frame
+
+
+= Filling in the technical detail
+
+== Storage
+== Compute
+== Platform
+== Latency
+== Development and deployment cycle
+== Timeline
+== Privacy issues
+== Data type
+== Data collection
+== Automated training
+
+= Making a timeline
+
+Now we have figured out the scope of the project and what features we want the ideal product to have, let's make a timeline for the project so we can stick to the plan.
+
+== Setting milestones
+
+Jumping on top of mount Everest is straightly impossible to any human being, but with the right training and dedication, considerable amount of people have hiked it. The same goes for your project, any interesting project should sound like impossible if you are only thinking about the end result. The importance of milestones is to breakdown this impossible task and make a pathway which you can eventually hike up to the top of the mountain. As a starter, let's imagine you are walking up a multistory building, the goal is to reach the top floor, and your task now is to figure out what are the floors in between, and how should you get to the next floor. Here are some questions to guide you through this process:
+
+1. Look through your feature lists, which ones are easier to implement, and which ones are more difficult? What are the relationship between features? For example, if I am trying to build a drone that will track me moving around, first I need to assemble the drone before I can flash its software.
+2. After you figure out where are the floors, now what are the steps to go from one floor to another? Going back to the drone example, say I now know I need to assemble the drone first, the steps I will need to take are first list all the parts I need, find ways to buy them, them assemble them.
+
+== How much time are you willing to commit to this?
+
+Everyone has different capacity and constraints, so it is important to make sure you are honest to yourself how much time you are willing to put into building this project. Is it 2 hrs per day for 7 days a week? Or 2 days a week? Is that going to interfere with your other commitments? Is this time commitment realistic given the scope of the project? The most important part of this question is to be honest and realistic, you don't have to tell me you are going to dedicate 8 days a week and 25 hours a day to work on this project.
+
+== Consistency is key
+
+The main reason I am asking you to construct a detail timeline and break it down into acheivable steps is so that you can keep making differential progress, and after a while, just like climbing a mountain or a tall building, you will find yourself in places where you couldn't have possible been if you are trying to make one big jump. And in this process, consistency and habit are you best friends. 
+
+Decide which day(s) in the week you are going to work on this, and what time in the day you are going to work on the project. Try to stick with the plan as much as possible. If you find yourself not able to stick with the plan, then that needs to be addressed.
+
+== What about set backs?
+
+As much as we all want to stick with the plan, life happens. 
+
+= Choosing your champion
