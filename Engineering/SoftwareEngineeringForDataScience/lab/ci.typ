@@ -9,6 +9,10 @@
 #import "../style.typ": style_template
 #show: doc => style_template(doc,)
 
+= Background
+
+
+
 = Exercises
 
 = Conclusion

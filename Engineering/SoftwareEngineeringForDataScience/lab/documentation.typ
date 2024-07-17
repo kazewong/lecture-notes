@@ -36,9 +36,9 @@ The problem with code as documentationa is reading and understanding source code
 
 = Testing
 
-= Deploying
-
 = Exercises
+
+In this lab, we once again return to insertion sort example with the three languages. We will look into how to write and build documentation for all of the languages, and how to write tests for the code.
 
 = Conclusion
 

@@ -12,5 +12,7 @@
     it.body,
   )
 
+  #show link: underline
+
   #doc
 ]

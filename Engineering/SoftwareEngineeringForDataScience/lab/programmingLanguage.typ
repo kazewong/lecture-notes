@@ -69,13 +69,7 @@ Cons:
 
 = Exercise
 
-In this lab, your task is to build a k-d tree in each of the three languages. A k-d tree is a space-partitioning data structure for organizing points in a k-dimensional space. It is a binary tree in which every node is a k-dimensional point. Every non-leaf node generates a splitting hyperplane that divides the space into two half-spaces. 
-
-We will start with python, then move to Julia, and finally Rust.
-
-Task:
-1. Implement a k-d tree in Python
-
+In this lab, your task is to write an insertion sort algorithm in each of the three languages. You will find the more specific instruction in the #link("https://github.com/KazeClasses/Programming_languages")[class repository]
 
 = Conclusion
 
