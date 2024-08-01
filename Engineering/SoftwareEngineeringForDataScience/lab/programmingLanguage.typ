@@ -14,11 +14,14 @@
 Choosing a programming languages fitting the project's need is probably the most important decision you will need to make before starting the project, and many factors will affect your choice, including performance, your familarity with the language, your team's familarity with the language, community support, and the availability of libraries.
 The purpose of this lab is to expose you to three languages I think is relevant for a data scientist career, which are #smallcaps[Python], #smallcaps[Julia], and #smallcaps[Rust].
 
+= Plan for today's session
+
 == Python
 
 Python is probably the first language you learn from a data science course, because of the simple learning experience. Here are some features of python that worth noticing:
 
-=== Features
+=== Syntax
+
 
 === Pros and cons
 

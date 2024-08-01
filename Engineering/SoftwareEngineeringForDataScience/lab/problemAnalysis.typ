@@ -17,7 +17,7 @@ A data science intern these days is not exactly cheap, so developing such a solu
 
 The moral of the story is to just think before you commit to a big plan. *What are you trying to achieve in this project?* Right here is the most important question you have to ask yourself every time you come back to this project. Is it to sell it to millions? Is it to get a promotion? Is it just for fun? The answer to this question should be dedicated to the answer to the following questions we will go through in this lecture. And every time you have to make a decision or whenever you are lost, ask yourself this question again. The more clear your answer is, the more clear which choice you should go for is, and the rest is detail. The objective of this course is to train you to be an independent data scientist, I want you to be able to do a project on your own as well as work with others. So instead of going through just a list of technical skills, I will also put my focus on making decisions: what programming language should I use? What should my documentation look like? How do I want to manage the code base? Should I rewrite yet another javascript framework? These are examples of questions you will ask yourself throughout this course.
 
-= Today's session plan
+= Plan for today's session
 
 By the end of today's session, 
 1. A github repository for your project.
