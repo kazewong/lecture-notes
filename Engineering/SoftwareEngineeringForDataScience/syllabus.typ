@@ -85,16 +85,18 @@ While there are a few sessions that are going to be a bit different in format, s
 During the lab session and integration session, I will go around help people with their problems.
 
 #set enum(numbering: "Week 1")
-1. *Introduction to the course:* There will not be lab, instead we will have brainstorming sessions to guide you to formalize your semester long project.
-2. *Programming languages:* We will introduce three languages that are relevant to your project, which are python, julia, and rust. In the hacking session, you will try to figure out your technology stack.
-3. *Version control:* You will learn how to do version control with git.
-4. *Documentation and testing:* You will learn how to build documentation and tests for your project.
-5. *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
-6. *Pitch session:* There will be no lab, and hacking. Instead, people should present their progress so far.
-7. *Fall break*
-8. *Continous integration:* You will learn how to use actions to continously update and test your code.
-9. *Containerization:* You will learn how to containerize your applications and deploy it.
-10. *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
-11. *Database:* You will learn the basic of database and storage. 
-12. *Open source practice:* You will learn some of the open source practice such as governance and code review.
-13. *Show case*: There will be no lab and hacking. Instead, we will celerate everyone's hardwork!
++ *Introduction to the course:* There will not be lab, instead we will have brainstorming sessions to guide you to formalize your semester long project.
++ *Version control:* We will learn how to do version control with git.
++ *Python*: We will introduce python, some best practices in python, and how to set up a package in python.
++ *Julia*: We will introduce julia, and learn about how to set up a project in julia.
++ *Rust*: We will introduce rust, some unique features of rust, and how to set up a project in rust.
++ *Documentation and testing:* You will learn how to build documentation and tests for your project.
++ *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
++ *Pitch session:* There will be no lab, and hacking. Instead, people should present their progress so far.
++ *Fall break*
++ *Continous integration:* You will learn how to use actions to continously update and test your code.
++ *Containerization:* You will learn how to containerize your applications and deploy it.
++ *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
++ *Database:* You will learn the basic of database and storage. 
++ *Open source practice:* You will learn some of the open source practice such as governance and code review.
++ *Show case*: There will be no lab and hacking. Instead, we will celerate everyone's hardwork!
