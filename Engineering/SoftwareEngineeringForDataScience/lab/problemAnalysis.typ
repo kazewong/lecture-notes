@@ -17,11 +17,19 @@ A data science intern these days is not exactly cheap, so developing such a solu
 
 The moral of the story is to just think before you commit to a big plan. *What are you trying to achieve in this project?* Right here is the most important question you have to ask yourself every time you come back to this project. Is it to sell it to millions? Is it to get a promotion? Is it just for fun? The answer to this question should be dedicated to the answer to the following questions we will go through in this lecture. And every time you have to make a decision or whenever you are lost, ask yourself this question again. The more clear your answer is, the more clear which choice you should go for is, and the rest is detail. The objective of this course is to train you to be an independent data scientist, I want you to be able to do a project on your own as well as work with others. So instead of going through just a list of technical skills, I will also put my focus on making decisions: what programming language should I use? What should my documentation look like? How do I want to manage the code base? Should I rewrite yet another javascript framework? These are examples of questions you will ask yourself throughout this course.
 
+= Today's session plan
+
+By the end of today's session, 
+1. A github repository for your project.
+2. A README.md made by following the guide below.
+
 The logistics of today's session is going to go as the following:
 1. First, we are going to brainstorm some potential project ideas, just defining the problem and the objective.
 2. The next step is work out the details of some of these project.
 3. Then we are going to plan a timeline for these projects.
 4. Finally, we have to choose one project to work on.
+
+#pagebreak()
 
 = Semester project brainstorming
 
@@ -41,7 +49,7 @@ The first step of finding your potential project is to come up with a list of dr
 3. Ask you friends to rant about something, what could possibly make their life better?
 4. Is there a dataset that you think it is cool and always wants to try your hands on it but never find the time?
 
-Come up with at least 5 projects that might interest you, discuss with your peers, and come up with some more ideas!
+Come up with at least 5 projects that might interest you, discuss with your peers, and come up with more ideas!
 
 == Step 2: Come back to reality
 
@@ -53,7 +61,6 @@ After you have finished brainstorming a list of potential projects, here is a li
 5. *What are the features you want your product to have?* Is it to serve a dataset with some interactibility? Does it have to be very accurate?
 6. *Are you excited about the project?* Choosing something you are excited about is almost always beneficial.
 
-When you are choosing your potential projects, keep these three milestone in mind. I think your enjoyment of the class will be maximized if you choose your project according to 
 
 == Examples
 
@@ -67,18 +74,33 @@ Example 2: Using LLM to parse relevant grants information
 Example 3: Build a drone that can track athlete well while keeping them in frame
 
 
-= Filling in the technical detail
+= Filling in more specific details
 
-== Storage
-== Compute
-== Platform
-== Latency
-== Development and deployment cycle
-== Timeline
-== Privacy issues
-== Data type
-== Data collection
-== Automated training
+Once we have the brief scope of some projects, let's narrow it down to three potential candidates and work out more specific details, here are a list of bullet points to help you with that:
+
+*Data*
++ *Data type*: What kind of data are you going to use? Text? Image? Video? Tables?
++ *Storage*: How much data are you going to store? Where are you planning to store them?
++ *Data collection*: How are you planning to collect the data?
++ *Privacy issues*: Will your data collection process violate any privacy issues?
+
+*Compute*
++ *Compute*: Do you need a lot of computing power? Do you have access to it?
++ *Platform*: Are you going to host the project on Web? Mobile? Desktop?
++ *Latency*: Does you project need low latency response?
+
+*Developement cycle*
++ *Development tools*: What environment you are going to develop in? 
++ *CI/CD*: What kind of continous integration you will want to set up? 
++ *Rewrite*: Do you anticipate major rewrite of the code?
+
+*User Exerpience*
++ *User group*: Who are your target users?
++ *User interface*: What is the user interface going to look like?
++ *User interaction*: Do you want to interact with your users?
+
+
+Now you should have a pretty good grasp of the specification of each project. While there is some chance you might want to change your project during the semester for whatever reason, let's pick one to start with. If it does not work out as well as you thought, the other two should be in a ready state to be picked up.
 
 = Making a timeline
 
@@ -105,4 +127,3 @@ Decide which day(s) in the week you are going to work on this, and what time in 
 
 As much as we all want to stick with the plan, life happens. It is inevitable that something will go wrong and you have to move back the schedule. That's fine and that's why we need a clear timeline. If you cannot achieve what are supposed to do this week, no big deal, just move it to next week. However, it is important to recognize setbacks should not happen every week, or more often than the rate you are making progress.
 
-= Choosing your champion

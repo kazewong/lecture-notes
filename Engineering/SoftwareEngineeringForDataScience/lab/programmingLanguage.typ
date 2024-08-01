@@ -16,6 +16,8 @@ The purpose of this lab is to expose you to three languages I think is relevant 
 
 == Python
 
+Python is probably the first language you learn from a data science course, because of the simple learning experience. Here are some features of python that worth noticing:
+
 === Features
 
 === Pros and cons
