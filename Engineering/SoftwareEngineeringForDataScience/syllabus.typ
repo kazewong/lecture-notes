@@ -54,9 +54,9 @@ My bottom line with AI-assistant is it has to make you a better engineer, not wo
 
 The labs serve two purposes: first, it is good to have some very well defined tasks you can practice whatever we have learning during the lectures. It is beneficial to you to get that muscle memory, at the same time to have some reference points if you want to do the same task in the future. Second, the labs are going to be 100% of your grade. I fundamentally do not value the labs as much as all the other non-graded activites, so my policy is as long as you complete all the labs as intended in time, then you will get an A. They should be relatively straight forward and should not take too much of your time on average. However, let me be clear here that the labs taking up a 100% of the grade does not mean you can slack off the other activites. I make the labs simple in order to make room for all the other fun stuffs, so they are the highlights. If you just want an easy A from doing the labs and planning to go easy on the other activities, I will strongly advise against taking this course.
 
-== "Pitch" session
+== "Pitch" session and Mid-semester update
 
-At the beginning of the course, you will pick a project that you will work on throughout the semester, which I have a couple examples of what I think is reasonable for this course in terms of size. In the middle of this course, we will have a "pitch" session which everyone presents the idea of their project to the class, specify the scope and layout a couple of milestones. It is a pitch session in qoutation because there is no seed money for this, but it is a good practice to go through the thought process which helps you laying down a solid plan for the project. This will not contribute toward your final grade, but I value this more than your lab.
+At the beginning of the course, you will pick a project that you will work on throughout the semester, which I have a couple examples of what I think is reasonable for this course in terms of size. We will have a pitch session, which everyone will introduce their project to the class, specify the scope and layout a couple of milestones. It is a pitch session in qoutation because there is no seed money for this, but it is a good practice to go through the thought process which helps you laying down a solid plan for the project.  In the middle of the semester, we will have an update session which everyone presents their progress they have been makeing to the class. These will not contribute toward your final grade, but I value this more than your lab.
 
 == Showcase
 
@@ -86,13 +86,13 @@ During the lab session and integration session, I will go around help people wit
 
 #set enum(numbering: "Week 1")
 + *Introduction to the course:* There will not be lab, instead we will have brainstorming sessions to guide you to formalize your semester long project.
-+ *Version control:* We will learn how to do version control with git.
++ *Version control:* We will learn how to do version control with git. Since this is at the beginning of the course, instead of a hacking session, we will go around and pitch our project to each other.
 + *Python*: We will introduce python, some best practices in python, and how to set up a package in python.
 + *Julia*: We will introduce julia, and learn about how to set up a project in julia.
 + *Rust*: We will introduce rust, some unique features of rust, and how to set up a project in rust.
 + *Documentation and testing:* You will learn how to build documentation and tests for your project.
 + *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
-+ *Pitch session:* There will be no lab, and hacking. Instead, people should present their progress so far.
++ *Mid-semester update:* There will be no lab, and hacking. Instead, people should present their progress so far.
 + *Fall break*
 + *Continous integration:* You will learn how to use actions to continously update and test your code.
 + *Containerization:* You will learn how to containerize your applications and deploy it.
