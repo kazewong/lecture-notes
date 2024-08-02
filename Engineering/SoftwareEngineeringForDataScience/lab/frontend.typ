@@ -19,6 +19,8 @@ In this lab, we are going to design a simple frontend interface so you can decid
 
 == Adding interactability
 
+== Prototyping with penpot
+
 = Exercises
 
 1. Gradio/streamlit
