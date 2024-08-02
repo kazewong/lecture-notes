@@ -48,15 +48,41 @@ By the end of this session, you will know how to use all of the following comman
 )
 
 #pagebreak()
+#set align(left)
+= Key concepts
 
-= Starting a repository
 
-= Working on code
 
-= Branching off
+#figure(
+  image("./assets/git-snapshots.png"),
+  caption: [Git versioning system, taken from #link("https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F")[git]],
+)
 
-= Examining history
+= Exercises
 
-= Online collaboration
+== Starting a repository
 
-= Dealing with conflicts
+To start a git repository on your local machine, first create a new directory for your semester project, then navigate to it. For example, on my local machine, it is going to be a series of command like this:
+
+```bash
+mkdir ./semester_project
+cd ./semester_project
+```
+
+Once in the directory, you can do ```bash ls -a``` to see all the files in the directory, which should be completely empty at this point.
+
+Then we will run the command ```bash git init``` to initialize a new git repository.
+
+Now if you do ```bash ls -a``` again, you will see a new directory called ```.git```. This is where git stores all the information about your repository.
+
+== Working on code
+
+Now let's try to move the ReadME.md file you created last week into this directory, and 
+
+== Branching off
+
+== Examining history
+
+== Online collaboration
+
+== Dealing with conflicts
