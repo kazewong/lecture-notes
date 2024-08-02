@@ -107,13 +107,47 @@ What happened here is you have created a new commit in the repository, which wil
 
 Now we can see the biggest reason why you should always use git: to prevent accidental deletion of files. You have worked so hard on the ReadME.md file, and you accidentally deleted it with ```bash rm ReadME.md```. Normally you would go through the five stages of grief, but with git, your file can be recovered. Let's check the status of the repository with ```bash git status```. You will see that git has detected that the file has been deleted. To get your file back, you can simply run ```bash git restore ReadME.md```. Now you should see the file back in the directory, and the status of the repository is clean.
 
-=== Rules of thumb for Committing
+If you really hate your ```bash ReadME.md``` for some reason and you want to nuke it out of existence
 
+=== Rules of thumb for committing
+
+You should develop the habit of committing your changes frequently. A good rule of thumb is to commit your changes whenever you have made a significant change to the code, or whenever you are about to leave your computer. It doesn't matter whether your code is perfect or not (At least considering you are only working locally), you can always go back to the previous commit if you mess up.
+
+#pagebreak()
 
 == Branching off
 
-== Examining history
+The next important features of git is branching. For a small personal project it might not be very useful, but for any real world applications that you are planning to release, maintain a code base, and keep adding new features, branching is an awesome feature that you should use.
+
+The idea of branching is you can maintain multiple "branches" of the code, which could be different from each other. Say you are maintaining a codebase that is catered to an audience, and their scientific workflow depends on your code, you may not want to put untested changes in the public such that it breaks downstream workflows. Instead of commiting everything to the main branch (assuming that's where the published version of the code based on), we can create different development branches of the code, make our changes and test them there, and only merge the changes to the main branch when we are sure that the changes are good. A schematic of the branching system is shown below.
+
+#figure(
+  image("./assets/git-branch.png"),
+  caption: [Git branching system, taken from #link("https://ottagit.gitbooks.io/git-push-freshman-open-curriculum/content/git-branching.html")[gitbook]],
+)
+
+In my daily work, there are a lot of boxes my collaborators and I need to check before we merge changes to the main branch, such as testing and code review. These are good practices we will go through in the later part of this course.
+
+=== Step 1 - Creating a branch
+
+In order to create a new branch, you can run ```bash git branch [branch_name]```. You can then run ```bash git branch``` to see all the branches in the repository. You can then run ```bash git checkout [branch_name]``` or ```bash git switch [branch_name]``` to switch to the new branch. I also use a one-liner ```bash git checkout -b [branch_name]``` to create a new branch and switch to it at the same time.
+Once you create the branch, you can view the branch you are on by running ```bash git branch```.
+
+If you are running out of idea for naming the branch, let's use development for now.
+
+=== Step 2 - Making changes on the branch
+
+Now you can make changes to the code on the development branch. 
+
+=== Rules of thumb for branching
+
 
 == Online collaboration
 
+=== Rules of thumb for collaboration
+
 == Dealing with conflicts
+
+Conflicts can arise when the same files are worked on by multiple people at the same time. This is a common problem and can be annoying from time to time, espeically when it happens close to a deadline.
+
+=== Rules of thumb for conflicts
