@@ -68,7 +68,7 @@ Even though I have a particular plan for this course, I think it makes the most 
 
 == Debugging help
 
-As much as I want to promise you everything will be smooth, I would lying if I told you there will not be any bugs and problems during your lab. And during the class, I will probably need to resolve multiple situations in a relatively short time scale.
+As much as I want to promise you everything will be smooth, I would lying if I told you there will not be any bugs and problems during your lab. And during the class, I will probably need to resolve multiple situations in a relatively short time scale. There will be an office hour from the TA the day after the class, which the TA will help you tackle the problems you have during the lab.
 
 
 
@@ -85,13 +85,13 @@ While there are a few sessions that are going to be a bit different in format, s
 During the lab session and integration session, I will go around help people with their problems.
 
 #set enum(numbering: "Week 1")
-+ *Introduction to the course:* There will not be lab, instead we will have brainstorming sessions to guide you to formalize your semester long project.
++ *Introduction to the course:* There will not be lab, instead, we will go through the class logistics, and have a brainstorming session help you formalize your semester long project.
 + *Version control:* We will learn how to do version control with git. Since this is at the beginning of the course, instead of a hacking session, we will go around and pitch our project to each other.
 + *Python*: We will introduce python, some best practices in python, and how to set up a package in python.
 + *Julia*: We will introduce julia, and learn about how to set up a project in julia.
 + *Rust*: We will introduce rust, some unique features of rust, and how to set up a project in rust.
 + *Documentation and testing:* You will learn how to build documentation and tests for your project.
-+ *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
+// + *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
 + *Mid-semester update:* There will be no lab, and hacking. Instead, people should present their progress so far.
 + *Fall break*
 + *Continous integration:* You will learn how to use actions to continously update and test your code.
@@ -99,4 +99,5 @@ During the lab session and integration session, I will go around help people wit
 + *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
 + *Database:* You will learn the basic of database and storage. 
 + *Open source practice:* You will learn some of the open source practice such as governance and code review.
++ *Fall Recess*
 + *Show case*: There will be no lab and hacking. Instead, we will celerate everyone's hardwork!
