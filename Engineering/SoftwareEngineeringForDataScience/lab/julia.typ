@@ -8,7 +8,27 @@
 
 #import "../style.typ": style_template
 #show: doc => style_template(doc,)
-== Julia
+
+= Foreword
+
+= Introduction to rust
+
+== Basic Syntax
+
+== Writing a bubble sort algorithm
+
+= Packaging code
+
+= Building documentation
+
+= Writing tests
+
+= Best practices
+
+= Development tips
+
+= Noteworthy libraries
+
 
 === Features
 
