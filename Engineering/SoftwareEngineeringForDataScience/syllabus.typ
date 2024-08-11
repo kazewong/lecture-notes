@@ -70,8 +70,6 @@ Even though I have a particular plan for this course, I think it makes the most 
 
 As much as I want to promise you everything will be smooth, I would lying if I told you there will not be any bugs and problems during your lab. And during the class, I will probably need to resolve multiple situations in a relatively short time scale. There will be an office hour from the TA the day after the class, which the TA will help you tackle the problems you have during the lab.
 
-
-
 = Schedule
 
 While there are a few sessions that are going to be a bit different in format, such as the pitch session and the showcase session, the majority of the sessions is going to share the following structure:

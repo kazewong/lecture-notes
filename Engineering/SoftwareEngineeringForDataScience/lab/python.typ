@@ -1,7 +1,7 @@
 #set page(
   paper: "us-letter",
   header: align(center, text(17pt)[
-    *Programming Languages*
+    *Introduction to Python*
   ]),
   numbering: "1",
 )
@@ -36,43 +36,7 @@ garbage collection
 Because of the large ecosystem of python, #smallcaps[Python] is a great choice for a wide range of tasks, from building neural network to building fullstack web app.
 However, if your task demands high throughput or low latency, and there is no existing package which some wizards have already built to exactly solve your task, it may be worth thinking about the next two alternatives.
 
-== Julia
 
-=== Features
-
-JIT
-multiple dispatch
-metaprogramming
-Somewhat messed up eco system
-
-=== What would I use Julia for?
-
-
-
-== Rust
-
-=== Features
-
-static analysis
-Strongly typed
-borrow checker
-compiled
-
-Need to go hardcore
-
-=== Pros and cons
-
-Pros:
-1. It is a compiled language. No JIT overhead and very fast.
-2. Very memory safe through the borrow checker pattern
-
-Cons:
-1. Steep learning curve
-2. Small ecosystem
-3. Lower level comparing to the other two languages
-
-
-=== What would I use Rust for?
 
 = Exercise
 
