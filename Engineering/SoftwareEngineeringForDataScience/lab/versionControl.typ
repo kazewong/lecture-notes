@@ -43,7 +43,7 @@ By the end of this session, you will know how to use all of the following comman
   [prune], [Remove remote branches that no longer exist],
   [reset], [Reset current HEAD to the specified state],
   [revert], [Revert some existing commits],
-  [tag], [Create, list, delete or verify a tag object signed with GPG],
+  [tag], [Actions related to a specific tag in the code base],
   [submodule], [Initialize, update or inspect submodules],
 )
 
@@ -137,12 +137,33 @@ If you are running out of idea for naming the branch, let's use development for 
 
 === Step 2 - Making changes on the branch
 
-Now you can make changes to the code on the development branch. 
+Now you can make changes to the code on the development branch. Let's add some more text to the ReadME.md file. Once you are done, you can run ```bash git status``` to see the status of the repository. You will see that git has detected that the file has been modified. Commit it like you did before.
+
+=== Step 3 - Merging the branch
+
+The changes you have made in this branch has not propagated back to the main branch you were working on. Assuming most of your collaborators or your community is not working on this sepecfic new branch you were working on, it would be good to push the changes back to the main branch. The way to do this is through merging the branch. First, you have to switch to your "target" branch, which is the branch you want to merge the changes to. In this case, it is the main branch. Then you can run ```bash git merge development``` to merge the changes from the development branch to the main branch. Once you have merge the changes, you should be able to see the commit history of the main branch by running ```bash git log```. Once you are satisfied with the changes, you can delete the development branch by running ```bash git branch -d development```.
 
 === Rules of thumb for branching
 
+1. *You should not be afraid of branching out.* There is basically no overhead or price you have to pay for branching, so there is no reason not to branch off when you want to work on something significant. Branching is a powerful feature to keep different development tasks separated. Sometimes you want to fix a bug, sometimes you want to inroduce a new feature. The rules of thumb here is whenever you have *independent* tasks, you should branch off.
+2. *You can branch off from another branch too.* When there is a significant change you want to make to the codebase, say you want to refactor the core of the code, you can first branch off the main branch such that only tested and reviewed changes are merged to the main branch. And then, you can branch off from the development branch into smaller feature branches to work on the smaller features. Once you are done with the smaller features, instead of merging back to the main branch directly, you can merge the changes into the development branch for further testing and review.
 
 == Online collaboration
+
+Now you have tried to work with `git` locally, it is time to go online. `git` can prevent you from accidental `rm -rf`, but if the only copy of the code is on your computer, it will not be able to save your data if the computer itself is compromised. The most popular online platform for `git` is `GitHub` If you do not have an account on `GitHub` yet, go to this link to create one: #link("https://github.com/join")[https://github.com/join].
+Once you have an account, you are ready to push your code online.
+
+=== Step 1 - Creating a repository on GitHub
+
+Go to the `GitHub` website and log in. You should see a `+` sign on the top right corner of the page. Click on it and select `New repository`. You will be asked to fill in some information about the repository, such as the name of the repository, whether it is public or private, and whether you want to add a README file. Let's keep the repository public from the get-go, and skip adding the README and other files. 
+
+=== Step 2 - Pushing the code to GitHub
+
+Once you have created the repository, you will see a page with a URL on the top, choose the https URL instead of the ssh URL and copy it (If you choose private repositories, this will not work and you will have to use the ssh URL). Run the following command in your terminal to add the remote repository to your local repository: ```bash git remote add origin [URL]```. You can then run ```bash git remote -v``` to see the remote repository you have added, which should have the URL you just copied. You can then run ```bash git push -u origin main``` to push the code to the remote repository. If everything goes well, you should be able to see the code on the GitHub page.
+
+=== Step 3 - Pulling the code from GitHub
+
+Now `GitHub` is not only a one-way cloud drive for you to store your code, but an online platform such that a community can work on the same code together. This means you will have to pull the changes from `GitHub` to your local machine from time to time. Let's modified the ReadME.md file on the `GitHub` page using its online editor, then commit the changes to the main branch. It doeesn't have to be a significant change, just add a line of text to the file. Once you have committed the changes, you can run ```bash git pull``` to pull the changes from the remote repository to your local machine. You should see the changes you made on the `GitHub` page reflected in the ReadME.md file on your local machine. Another option as opposed to pulling is to run ```bash git fetch``` to fetch the changes from the remote repository, and then run ```bash git merge origin/main``` to merge the changes to your local repository.
 
 === Rules of thumb for collaboration
 
