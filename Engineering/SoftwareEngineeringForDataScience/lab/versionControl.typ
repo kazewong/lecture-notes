@@ -44,7 +44,6 @@ By the end of this session, you will know how to use all of the following comman
   [reset], [Reset current HEAD to the specified state],
   [revert], [Revert some existing commits],
   [tag], [Actions related to a specific tag in the code base],
-  [submodule], [Initialize, update or inspect submodules],
 )
 
 #pagebreak()
