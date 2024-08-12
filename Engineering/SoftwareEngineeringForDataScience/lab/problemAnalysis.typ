@@ -73,6 +73,8 @@ Example 2: Using LLM to parse relevant grants information
 
 Example 3: Build a drone that can track athlete well while keeping them in frame
 
+Other than these examples, I have a list of projects related to a couple of people I chatted with in JHU. These will be real research projects, so they may not necessarily be suitable for this course due to the complexity of the project. Nevertheless, if you are really interested in looking into these projects, we can discuss in more detail.
+
 
 = Filling in more specific details
 
