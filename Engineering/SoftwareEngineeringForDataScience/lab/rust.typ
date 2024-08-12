@@ -19,10 +19,11 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 
 1. Some basic concept and syntax for `rust`, once again we are going to write an insertion sort algorithm in `rust`.
 2. Building your code with `cargo`
-3. Writing documentation with `rustdoc`
+3. Writing documentation with `rustdoc`.
 4. Writing tests with `cargo`
-5. Some best practices and development tips
-6. Some noteworthy libraries in `rust`
+5. Benchmarking with `criterion`
+6. Some best practices and development tips
+7. Some noteworthy libraries in `rust`
 
 = Introduction to rust
 
