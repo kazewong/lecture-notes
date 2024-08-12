@@ -11,9 +11,12 @@
 
 = Foreword
 
-`Python` is probably the most popular programming language by many measure these days, due to its simple learning experience and large ecosystem. However, being simple to learn also means it is easy to write bad code. So in this lab, we are going to go through the following topics:
+`Python` is probably the most popular programming language by many measure these days, due to its simple learning experience and large ecosystem. In fact, I bet most of the people who are reading this note already know `python`. `python` has a long history and a huge community which you can probably do everything you want in `python`. However, being simple to learn also means it is easy to write bad code. Getting your calculation is one thing, building a nice package which people can use happily is another. There are many tricks and know-hows in `python` that you may not be aware of. And this is what we are going to focus in this lab.
 
-1. Some basic syntax for python, and try to write a simple insertion sort algorithm in python.
+
+In this lab, we are going to go through the following topics:
+
+1. Some basic concepts and syntax for python, and try to write a simple insertion sort algorithm in python.
 2. Basic of structuring and packaging a python project. 
 3. Building documentation with `mkdocs`.
 4. Adding tests to the project.
@@ -21,6 +24,8 @@
 6. Some noteworthy libraries in python.
 
 = Introduction to python
+
+== Key Concepts
 
 == Basic Syntax
 
