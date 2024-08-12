@@ -13,19 +13,24 @@
 
 `Python` is probably the most popular programming language by many measure these days, due to its simple learning experience and large ecosystem. However, being simple to learn also means it is easy to write bad code. So in this lab, we are going to go through the following topics:
 
-1. We are going to cover some basic syntax for python, and try to write a simple insertion sort algorithm in python.
-2. Then we will 
-3. We will then look into how to package 
+1. Some basic syntax for python, and try to write a simple insertion sort algorithm in python.
+2. Basic of structuring and packaging a python project. 
+3. Building documentation with `mkdocs`.
+4. Adding tests to the project.
+5. Some best practices and development tips.
+6. Some noteworthy libraries in python.
 
 = Introduction to python
 
 == Basic Syntax
 
+=== Variables
+
+=== Control flow
+
+=== Functions
+
 == Writing an insertion sort algorithm
-
-== Multi paradiagm
-
-Somehow people often associate python with object oriented programming, but it is actually a multi-paradigm language. You can write code in an objective oriented way, or in a functional way, or in a procedural way, or in a mix of all of them. 
 
 == Running a python script
 
@@ -36,6 +41,8 @@ Somehow people often associate python with object oriented programming, but it i
 = Writing tests
 
 = Best practices/Development tips
+
+== IPython
 
 == Virtual environment
 
