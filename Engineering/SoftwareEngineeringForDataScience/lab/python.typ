@@ -53,24 +53,44 @@ def add(a, b):
     return a + b
 ```
 
-Now there is one tricky thing about `python`, which is the passed-by-object-reference. Some of you may have already ran into this in an unfortunate way, but for those who are not aware, here is a very sneaky failure mode one may spend hours trying figure out what's going on. Say I have defined
-
-== Writing an insertion sort algorithm
-
+Now there is one tricky thing about `python`, which is the passed-by-object-reference. Some of you may have already ran into this in an unfortunate way, but for those who are not aware, here is a very sneaky failure mode one may spend hours trying figure out what's going on. Say I have defined a list `x = [0, 1]`, and I have a function that wants to modify 
 
 == Running a python script
 
+== Exercise: Writing an insertion sort algorithm
+
+Now given the information above, let's try to write an insertion algorithm.
+
+
 = Packaging code
+
+== Modules and import
+
+== Setuptools
+
+== Exercise: Setting up directory structure and build a binary
 
 = Building documentation
 
+== Mkdocs
+
+== Style it with Material with mkdocs
+
+== Exercise: Adding documentation to the code and build the documentation
+
 = Writing tests
+
+== Unit tests with pytest
+
+== How to write unit pytest?
+
+== Exercise: Adding tests and test it
 
 = Best practices/Development tips
 
-== IPython
-
 == Virtual environment
+
+== IPython and Jupyter
 
 == Typing
 
@@ -94,36 +114,6 @@ I like to start with `jax` probably because I am a heavy `jax` user. Don't get m
 
 `numpy`, `scipy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`, `pytorch`,
 
-= Plan for today's session
+= Checklist
 
-+ We will go through an introduction 
-
-== Python
-
-Python is probably the first language you learn from a data science course, because of the simple learning experience. Here are some features of python that worth noticing:
-
-=== Syntax
-
-
-=== Pros and cons
-
-interpreted
-duck typing
-garbage collection
-
-=== What would I use python for?
-
-Because of the large ecosystem of python, #smallcaps[Python] is a great choice for a wide range of tasks, from building neural network to building fullstack web app.
-However, if your task demands high throughput or low latency, and there is no existing package which some wizards have already built to exactly solve your task, it may be worth thinking about the next two alternatives.
-
-
-
-= Exercise
-
-In this lab, your task is to write an insertion sort algorithm in each of the three languages. You will find the more specific instruction in the #link("https://github.com/KazeClasses/Programming_languages")[class repository]
-
-= Conclusion
-
-What we have covered in this lab is the tip of the iceberg for each language, and it certainly does not give enough information about whether you choose language A over language B. Remember there is trade-off 
-
-= References
+By now, you should have completed all of the following items:
