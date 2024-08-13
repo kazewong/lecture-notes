@@ -150,7 +150,7 @@ The changes you have made in this branch has not propagated back to the main bra
 == Online collaboration
 
 Now you have tried to work with `git` locally, it is time to go online. `git` can prevent you from accidental `rm -rf`, but if the only copy of the code is on your computer, it will not be able to save your data if the computer itself is compromised. The most popular online platform for `git` is `GitHub` If you do not have an account on `GitHub` yet, go to this link to create one: #link("https://github.com/join")[https://github.com/join].
-Once you have an account, you are ready to push your code online.
+Once you have an account, you are ready to push your code online. \* In preparing this lecture note, somehow one of my local filesystem actually get corrupted and I couldn't perform any update on my files. Thanks to `GitHub`, I just nuked the directory and cloned the repository back to my local machine. Nothing is lost.
 
 === Step 1 - Creating a repository on GitHub
 
