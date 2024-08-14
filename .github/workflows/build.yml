@@ -17,11 +17,15 @@ jobs:
         with:
           source_file: |
             Engineering/SoftwareEngineeringForDataScience/syllabus.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/versionControl.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/python.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/julia.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/rust.typ
 
       - name: MoveFiles
         run: |
           mkdir pdfs
-          mv Engineering/SoftwareEngineeringForDataScience/syllabus.pdf pdfs/
+          mv **/*.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
