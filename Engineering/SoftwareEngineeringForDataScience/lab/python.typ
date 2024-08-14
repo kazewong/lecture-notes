@@ -303,7 +303,7 @@ pytest
 
 This should run all the test in the `test` directory. If everything goes well, you should a long green line saying how many tests passed.
 
-=== Rule of thumb
+=== Rules of thumb
 
 People have different opinions on writing tests. I usually keep two sets of tests in my test directory, `integration` and `unit` test. `integration` tests are aiming to test the entire code base in the way we anticipate the user to use it, while `unit` tests are testing the individual function in the code base. I usually write `unit` tests for all the functions I wrote, and I only write `integration` tests when I am done with the development and I want to make sure the code is working as expected.
 
