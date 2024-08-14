@@ -15,17 +15,10 @@ jobs:
         with:
           source_file: |
             Engineering/SoftwareEngineeringForDataScience/syllabus.typ
-      - name: Configure Git
-        run: |
-          git config --local user.email "kazewong.physics@gmail.com"
-          git config --local user.name "Kaze Wong"
   
       - name: Commit changes
-        run: |
-          git add -f **/*.pdf
-          git commit -m "Add generated file"
-          git push
+        uses: s0/git-publish-subdir-action@develop
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: self
           BRANCH: pdf
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
