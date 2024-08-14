@@ -21,7 +21,7 @@ jobs:
       - name: MoveFiles
         run: |
           mkdir pdfs
-          mv **/*.typ pdfs/
+          mv **/*.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
