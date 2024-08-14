@@ -1,6 +1,9 @@
 name: Build Typst document
-on: push
-
+  
+on:
+  push:
+    branches:
+      - main # Replace with the branch where the file is generated
 jobs:
   build_typst_documents:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
   
       - name: Commit changes
         run: |
-          git add Engineering/*
+          git add *.pdf
           git commit -m "Add generated file"
           git push origin pdf # Replace with the desired branch
         env:
