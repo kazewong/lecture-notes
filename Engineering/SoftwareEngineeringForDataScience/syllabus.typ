@@ -89,7 +89,6 @@ During the lab session and integration session, I will go around help people wit
 + *Julia*: We will introduce julia, and learn about how to set up a project in julia.
 + *Rust*: We will introduce rust, some unique features of rust, and how to set up a project in rust.
 + *Machine Learning frameworks in the three languages*: We will play with three machine larning (-related) libraries in the three languages we learned, including `jax` in `python`, `flux` in `julia`, and `burn` in `rust`.
-// + *Tooling, Benchmarking and Profiling:* You will be introduced to some developer tools such as formatter, benchmarking and profiling tools.
 + *Mid-semester update:* There will be no lab, and hacking. Instead, people should present their progress so far.
 + *Fall break*
 + *Continous integration:* You will learn how to use actions to continously update and test your code.
