@@ -20,12 +20,14 @@ jobs:
         run: |
           git config --local user.email "kazewong.physics@gmail.com"
           git config --local user.name "Kaze Wong"
-  
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: pdf
       - name: Commit changes
         run: |
           git add -f **/*.pdf
           git commit -m "Add generated file"
-          git checkout pdf
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
