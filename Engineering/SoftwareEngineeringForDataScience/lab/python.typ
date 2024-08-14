@@ -185,7 +185,7 @@ We included the `script` section since I want to show you how to build a bbinary
 
 === Step 4: Build and install
 
-It is time to build and install our package! To build binary that you can distribute, you can run the following command:
+It is time to build and install our package! To build binary that you can distribute, first install `build` with `pip install build`, then you can run the following command:
 ```bash
 python -m build
 ```
