@@ -6,7 +6,7 @@
   numbering: "1",
 )
 
-#import "../style.typ": style_template
+#import "./style.typ": style_template
 #show: doc => style_template(doc,)
 
 = Foreword
