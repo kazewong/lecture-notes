@@ -25,7 +25,11 @@ jobs:
       - name: MoveFiles
         run: |
           mkdir pdfs
-          mv *.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/syllabus.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/versionControl.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/python.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/julia.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/rust.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
