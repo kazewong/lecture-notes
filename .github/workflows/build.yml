@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          path: pdf
+          ref: pdf
       - name: Commit changes
         run: |
           git add -f **/*.pdf
