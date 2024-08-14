@@ -23,6 +23,7 @@ In this lab, we are going to go through the following topics:
 5. Some best practices and development tips.
 6. Some noteworthy libraries in python.
 
+#pagebreak()
 == Key Concepts
 
 === Python is an interpreted language
@@ -33,6 +34,7 @@ In this lab, we are going to go through the following topics:
 
 `Python` files has the extension of `.py`. You can run a python script by running `python <script_name>.py`. For example, if you have a script named `hello.py`, you can run it by running `python hello.py`.
 
+#pagebreak()
 == Basic Syntax
 
 In this section, we are going to go through some basic syntax of python. We are only cover the minimum you need to know to write a simple insertion sort algorithm, especially most of you are already familiar with the `python` syntax.
@@ -104,6 +106,7 @@ Tests passed!
 ```
 This means your sorting algorithm is correct.
 
+#pagebreak()
 = Packaging code
 
 Now the code is running, let's try to put it in a package so people has an easier time to use it.
@@ -125,12 +128,29 @@ source insertion_sort/bin/activate
 
 You should see your terminal prompt has changed to something like `(insertion_sort) $`. This means you are now in the virtual environment. You can deactivate the virtual environment by running `deactivate`.
 
-=== Step 2: Modules and import
+=== Step 2: Modules and imports
 
+A `python` package usually contains many modules, which can be imported like `from package.module import function`. The goal here is structure our code such that it can be imported as a package.
+
+Now the code is just living the root directory, which is not ideal when you start adding more and more files to the project. Instead, let's follow some standard structure and put our files in the right place.
+
+In the root directory of your project, create a directory named `src`, within it create a directory named `insertion_sort`. Create a file named `sort.py` in the `insertion_sort` directory. Move the `insertion_sort` function from `test_sort.py` to `sort.py`.
+
+There is one more step to make this work. In order to turn the `insertion_sort` directory into a module, you need to create a file named `__init__.py` in the `insertion_sort` directory. This file can be empty, but it is necessary to make the directory a module when it is packaged.
+
+Now your project structure should look like this:
+```
+root
+├── src
+│   └── insertion_sort
+│       └── __init__.py
+│       └── sort.py
+└── test_sort.py
+```
 
 === Step 3: pyproject.toml
 
-I used to use `setup.cfg` to set up my project because that was the convention a couple years back. Now the standard way to set up a project is through `pyproject.toml`, which can still use `setuptools` as its backend. There are a lot of options to choose from for `pyproject.toml`, which we are not going to cover all of them. We are going to cover the minimum you need to know to build a binary. For a more complete tutorial and all the different options, you can find more information in the #link("https://packaging.python.org/en/latest/guides/writing-pyproject-toml/")[write your `pyproject.toml` guide]. 
+The next thing to add to the package is a description of project such that the standard build tool can package that information. I used to use `setup.cfg` to set up my project because that was the convention a couple years back. Now the standard way to set up a project is through `pyproject.toml`, which can still use `setuptools` as its backend. There are a lot of options to choose from for `pyproject.toml`, which we are not going to cover all of them. We are going to cover the minimum you need to know to build a binary. For a more complete tutorial and all the different options, you can find more information in the #link("https://packaging.python.org/en/latest/guides/writing-pyproject-toml/")[write your `pyproject.toml` guide]. 
 
 At the root directory of your project, create a file named `pyproject.toml`. Add the following content to the file:
 
@@ -177,8 +197,9 @@ To install the package locally using the binary we just build, you can run the f
 pip install dist/insertion_sort-0.0.1-py3-none-any.whl
 ```
 
-Now you should be able to import the package in your python script. On top of that, you should also be able to run the `insertion_sort_cli` binary in your terminal.
+Now you should be able to import the package in your python script. On top of that, you should also be able to run the `insertion_sort_cli` binary in your terminal. Try running it and see whether it works.
 
+#pagebreak()
 = Building documentation
 
 == Mkdocs
@@ -187,6 +208,7 @@ Now you should be able to import the package in your python script. On top of th
 
 == Exercise: Adding documentation to the code and build the documentation
 
+#pagebreak()
 = Writing tests
 
 == Unit tests with pytest
@@ -195,6 +217,7 @@ Now you should be able to import the package in your python script. On top of th
 
 == Exercise: Adding tests and test it
 
+#pagebreak()
 = Best practices/Development tips
 
 == Virtual environment
