@@ -44,6 +44,8 @@ One thing to remember is everything is an object in Python, meaning they (almost
 
 === Control flow
 
+
+
 === Functions
 
 In order to define a function in python, you use the `def` keyword. For example, to define a function `add` which takes two arguments `a` and `b` and return the sum of `a` and `b`, you can do:
@@ -52,8 +54,29 @@ In order to define a function in python, you use the `def` keyword. For example,
 def add(a, b):
     return a + b
 ```
+Now there is one tricky thing about `python`, which is the passed-by-object-reference. Some of you may have already ran into this in an unfortunate way, but for those who are not aware, here is a very sneaky failure mode one may spend hours trying figure out what's going on. Say I have defined a list `x = [0, 1]`, and I have a function that wants to modify the element in the list and return the modified list, what would you do? You may think you can do something like this:
 
-Now there is one tricky thing about `python`, which is the passed-by-object-reference. Some of you may have already ran into this in an unfortunate way, but for those who are not aware, here is a very sneaky failure mode one may spend hours trying figure out what's going on. Say I have defined a list `x = [0, 1]`, and I have a function that wants to modify 
+```python
+def modify_list(x):
+    x[0] = 1
+    return x
+
+x = [0, 1]
+y = modify_list(x)
+```
+
+Now run try running this in a `python` interpreter, what do you get? Indeed, `y` will have the correct value. However, if you check `x`, you will find `x` is also modified. This is because when dealing with mutable objects such as lists or dictionaries, python passes a reference to the object instead of copying its value. This means when the interpreter is executing the line `x[0] = 1`, it is actually modifying the original object being passed it, causing this problem.
+
+To avoid this, you can either make a copy of the object before modifying it, or you can return a new object instead of modifying the original object. For example, you can do:
+
+```python
+def modify_list(x):
+    x = x.copy()
+    x[0] = 1
+    return x
+```
+
+Copying the object may have some implication on memory usage and performance, so you may want to be careful when doing this.
 
 == Running a python script
 
