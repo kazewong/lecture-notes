@@ -22,7 +22,7 @@ jobs:
   
       - name: Commit changes
         run: |
-          git add *.pdf
+          git add Engineering/SoftwareEngineeringForDataScience/*.pdf
           git commit -m "Add generated file"
           git push origin pdf # Replace with the desired branch
         env:
