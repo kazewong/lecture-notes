@@ -24,6 +24,7 @@ jobs:
         run: |
           git add -f **/*.pdf
           git commit -m "Add generated file"
-          git push -u origin pdf # Replace with the desired branch
+          git branch
+          git push -mv origin pdf # Replace with the desired branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
