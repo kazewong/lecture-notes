@@ -21,7 +21,7 @@ jobs:
       - name: MoveFiles
         run: |
           mkdir pdfs
-          mv **/*.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/syllabus.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
