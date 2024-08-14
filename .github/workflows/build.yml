@@ -24,8 +24,7 @@ jobs:
         run: |
           git add -f **/*.pdf
           git commit -m "Add generated file"
-          git remote get-url origin
-          git checkout origin/pdf
+          git checkout pdf
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
