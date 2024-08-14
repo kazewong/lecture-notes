@@ -202,11 +202,77 @@ Now you should be able to import the package in your python script. On top of th
 #pagebreak()
 = Building documentation
 
-== Mkdocs
-
-== Style it with Material with mkdocs
+The structure of the code starting to look nice, however, nothing bring more trust to your code more than a nice documentation page. Once you have some serious documentation going, people will more likely to trust your code and use it. There are many different tools to build documentation in `python`. The more traditionally taught one is sphinx, but I personally find it unnecessarily complicated and looking dull, so I prefer to use `mkdocs` and style it with `material` instead. `Mkdocs` let you write your documenation pages in the `Markdown` format, which is pretty easy to write.
 
 == Exercise: Adding documentation to the code and build the documentation
+
+=== Step 1: Install mkdocs and build basic documentation
+
+The first thing to do is to install `mkdocs`. With your environment activated, you can run the following command:
+```bash
+pip install mkdocs
+```
+
+Then in the root directory of your project, create a file named `mkdocs.yml`. Add the following content to the file:
+```yaml
+site_name: Insertion Sort
+nav:
+  - Home: index.md
+```
+
+Now, create a fold named `docs` in the root directory of your project. In the `docs` directory, create a file named `index.md`. Add some random content to the file. Then in the root directory of your project, run the following command:
+```bash
+mkdocs serve
+```
+
+This will start a local server that serves the documentation. You can then click the link shown in the terminal and you should see your documentation page up and running.
+For more reference related to `mkdocs`, the official page is #link("https://www.mkdocs.org/")[here].
+
+=== Step 2: Style it with Material with mkdocs
+
+Plain `mkdocs` actually look quite depressing too. Let's add some style to make it looks nice. I use Material for MkDocs to style my documentation page. You can install it by running the following command:
+```bash
+pip install mkdocs-material
+```
+
+Then in the `mkdocs.yml` file, change the content to the following:
+```yaml
+site_name: Insertion Sort
+theme:
+  name: material
+nav:
+  - Home: index.md
+```
+
+Now if you go back to your doc page, you should see it suddenly looks much nicer already. There are many choices you can make to customize the look of the documentation page, you can find more information in the #link("https://squidfunk.github.io/mkdocs-material/")[official documentation page].
+
+=== Step 3: API documentation
+
+Now this could be a bit more indepth since it needs to install your package, read the doc strings in your code and automatically generate the documentation page for API. I am not going into the detail of how to configure this, but you look for the voodoo magic I cooked up in one of my public repo #link("https://github.com/kazewong/flowMC/tree/main")[flowMC]. Here, I will show you the bare minimum of getting an API documentation page up and running. The package you will need here is `mkdocstrings` and its python handler. You can install it by running the following command:
+```bash
+pip install mkdocstrings mkdocstrings-python
+```
+
+In `docs` directory, create a file named `api.md`. Add the following content to the file:
+```markdown
+# API Documentation
+
+::: insertion_sort.sort
+```
+
+Then in the `mkdocs.yml` file, change the content to the following:
+```yaml
+site_name: Insertion Sort
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - API: api.md
+plugins:
+  - mkdocstrings:
+```
+
+Now if you look at the page, you should see the API documentation there.
 
 #pagebreak()
 = Writing tests
