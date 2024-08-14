@@ -277,11 +277,37 @@ Now if you look at the page, you should see the API documentation there.
 #pagebreak()
 = Writing tests
 
-== Unit tests with pytest
+If you do not like writing documentation, there is a high likelihood that you do not like writing unit tests for your code. Unit tests are great way to catch any errors in your code, and when more contributors start to work on the same code, it is also a great way to catch any unexpected failure. The thing is, writing tests sound like some extra chores you have to do on top of the already dreadful development, so no body likes to do it. Here is how I trick myself into writing tests: we often write a bunch of scrappy scripts in development to se whether the code we created are function in the way we expected. I always create these scripts in either `test/integration` or `test/unit`, and only move them out if I want to make them an example. In this way, when I am done with my development, the tests are automatically there.
 
-== How to write unit pytest?
+== Exercise: Unit tests with pytest
 
-== Exercise: Adding tests and test it
+The most popular package used for testing `python` code is `pytetst`, and it is quite easy to use. You can find more information in #link("https://docs.pytest.org/en/stable/")[here].
+
+=== Step 1: Install pytest
+
+With your environment activated, you can run the following command to install `pytest`:
+```bash
+pip install pytest
+```
+
+Now for all the test we want to write, we have to write it with the prefix `test_`, so `pytest` know it is a test. This includes the test function name and the test file name.
+
+=== Step 2: Move the test code to a test directory
+
+I have this default test script `test_sort.py` in the root directory, let's create a `test` directory in the root directory and move the `test_sort.py` to the `test` directory. The next thing you will have to do is to take off the extra function definition in the test file, including the `__main__` block, and import the package we wrote.
+
+Once that is done, you can run the following command in the root directory of your project:
+```bash
+pytest
+```
+
+This should run all the test in the `test` directory. If everything goes well, you should a long green line saying how many tests passed.
+
+=== Rule of thumb
+
+People have different opinions on writing tests. I usually keep two sets of tests in my test directory, `integration` and `unit` test. `integration` tests are aiming to test the entire code base in the way we anticipate the user to use it, while `unit` tests are testing the individual function in the code base. I usually write `unit` tests for all the functions I wrote, and I only write `integration` tests when I am done with the development and I want to make sure the code is working as expected.
+
+When you write tests, you want to make sure they are as brutal as possible. The more brutal the test is, the more likely it is going to catch any unexpected failure. There is no point in writing a test that is going to pass no matter what. Use `assert <condition>` to make sure the test is going to fail if the condition is not met.
 
 #pagebreak()
 = Best practices/Development tips
@@ -290,7 +316,7 @@ Now if you look at the page, you should see the API documentation there.
 
 In general it is good to have a virtual environment for each project you are working on. This is because different projects may have different dependencies, and you do not want to have a conflict between the dependencies of different projects. This is especially important when you are working on a project that has a lot of dependencies, or you are working on a project that has a lot of dependencies that are not compatible with each other. However, this means you may potentially create a lot of files and unwanted stress for the file system, so make sure you clean up the virtual environment when you are done with the project.
 
-== IPython and Jupyter
+== IPython
 
 == Typing
 
@@ -313,7 +339,3 @@ I like to start with `jax` probably because I am a heavy `jax` user. Don't get m
 == Too common/Too obscure
 
 `numpy`, `scipy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`, `pytorch`,
-
-= Checklist
-
-By now, you should have completed all of the following items:
