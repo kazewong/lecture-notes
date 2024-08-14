@@ -12,18 +12,15 @@ jobs:
         with:
           source_file: |
             Engineering/SoftwareEngineeringForDataScience/syllabus.typ
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDFs
-          path: |
-            Engineering/SoftwareEngineeringForDataScience/syllabus.pdf
-      - name: Get current date
-        id: date
-        run: echo "DATE=$(date +%Y-%m-%d-%H:%M)" >> $GITHUB_ENV
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: github.ref_type == 'tag'
-        with:
-          name: "${{ github.ref_name }} — ${{ env.DATE }}"
-          files: "*.pdf"
+      - name: Configure Git
+        run: |
+          git config --local user.email "kazewong.physics@gmail.com"
+          git config --local user.name "Kaze Wong"
+  
+      - name: Commit changes
+        run: |
+          git add Engineering/*
+          git commit -m "Add generated file"
+          git push origin pdf # Replace with the desired branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
