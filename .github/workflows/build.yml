@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Typst
         uses: lvignoli/typst-action@main
         with:
           source_file: |
-            Engineering/SoftwareEngineeringForDataScience/syllabus.typ
+            **/*.typ
   
       - name: Checkout pdf branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: pdf
       - name: Commit changes
