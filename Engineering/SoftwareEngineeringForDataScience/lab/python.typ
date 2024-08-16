@@ -20,7 +20,11 @@
 
 == Python is an interpreted language
 
+Why do people say `python` is slow? The reaons is it is, and that is because `python` is an interpreted language, meaning it does not have a compiler that turns your human-readable code into machine code that can be executed. Instead, `python` has an interpreter that reads your code line by line and execute it. The interpreter pays an overhead everytime it is trying to execute a line because it needs to figure out what you are trying to do. In exchange, you get a very interactive experience when you are writing code, and you can see the result of your code without going through compilation.
+
 == Everything is an object
+
+
 
 == Running a python script
 
@@ -42,7 +46,7 @@ One thing to remember is everything is an object in Python, meaning they (almost
 
 == Control flow
 
-
+`python` has most of the basic contorl flow that you will find in another language, such as `if-else`, `for`, and `while` loops. 
 
 == Functions
 
