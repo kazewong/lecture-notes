@@ -13,33 +13,25 @@
 
 `Python` is probably the most popular programming language by many measure these days, due to its simple learning experience and large ecosystem. In fact, I bet most of the people who are reading this note already know `python`. `python` has a long history and a huge community which you can probably do everything you want in `python`. However, being simple to learn also means it is easy to write bad code. Getting your calculation is one thing, building a nice package which people can use happily is another. There are many tricks and know-hows in `python` that you may not be aware of. And this is what we are going to focus in this lab.
 
-
-In this lab, we are going to go through the following topics:
-
-1. Some basic concepts and syntax for python, and try to write a simple insertion sort algorithm in python.
-2. Basic of structuring and packaging a python project. 
-3. Building documentation with `mkdocs`.
-4. Adding tests to the project.
-5. Some best practices and development tips.
-6. Some noteworthy libraries in python.
+#outline(title: [Outline \ ], depth: 2, indent: 1em)
 
 #pagebreak()
-== Key Concepts
+= Key Concepts
 
-=== Python is an interpreted language
+== Python is an interpreted language
 
-=== Everything is an object
+== Everything is an object
 
-=== Running a python script
+== Running a python script
 
 `Python` files has the extension of `.py`. You can run a python script by running `python <script_name>.py`. For example, if you have a script named `hello.py`, you can run it by running `python hello.py`.
 
 #pagebreak()
-== Basic Syntax
+= Basic Syntax
 
 In this section, we are going to go through some basic syntax of python. We are only cover the minimum you need to know to write a simple insertion sort algorithm, especially most of you are already familiar with the `python` syntax.
 
-=== Variables
+== Variables
 
 To define a variable in python, you simply assign a value to a variable name. For example, to define a variable `a` with value `1`, you can do: `a = 1`. There are a couple of basic data types in `python`, like numbers, string, boolean. Three slightly more complicated datatypes are list, tuple, and dictionary.
 
@@ -48,11 +40,11 @@ They all can be accessed using `variable[index/key]`
 
 One thing to remember is everything is an object in Python, meaning they (almost) all have some attributes and methods to themselves. If you have a background in `C` or some similiarly low level language, you may find be able to define something like `a = [0, "this", true]` blasphemous. There is certainly performance and stability implication to this feature, but I believe this flexibility is what makes `python` easy to get into.
 
-=== Control flow
+== Control flow
 
 
 
-=== Functions
+== Functions
 
 In order to define a function in python, you use the `def` keyword. For example, to define a function `add` which takes two arguments `a` and `b` and return the sum of `a` and `b`, you can do:
 
@@ -84,18 +76,18 @@ def modify_list(x):
 
 Copying the object may have some implication on memory usage and performance, so you may want to be careful when doing this.
 
-== Exercise: Writing an insertion sort algorithm
+= Exercise: Writing an insertion sort algorithm
 
 Now given the information above, let's try to write an insertion sort algorithm.
 The insertion sort algorithm is pretty simple. Imagine you are holding a hand of unsorted poker cards, and you want to sort the hand by the cards' rank. Let say we start from left and we are going to scan to the right. When ever we are about to sort a card, we compare the current card to the card on the left, if it has a lower rank than the card on its left, we swap their order (say I am trying to sort the second card which is a 2, and the first card is a 5, I will swap them). We keep doing this until we reach the end of the hand. At the end, the hand should be sorted.
 
-=== Step 1 - Clone the repository
+== Step 1 - Clone the repository
 Fork #link("https://github.com/KazeClasses/python_guide")[this github template repository], then clone it to your local machine. You should see the file named "test_sort.py" in the root directory.
 
-=== Step 2 - Implement the sorting algorithm
+== Step 2 - Implement the sorting algorithm
 Open it with your favorite text editor, then change the body of the inerstion_sort function to an insertion sort algorithm.
 
-=== Step 3 - Test the algorithm
+== Step 3 - Test the algorithm
 Run the test_sort.py script with the following command:
 ```bash
 python test_sort.py
@@ -113,9 +105,8 @@ Now the code is running, let's try to put it in a package so people has an easie
 You can find more reference in the #link("https://packaging.python.org/tutorials/packaging-projects/")[official python packaging guide].
 *PSA*: We are making the code base unnecessarily complicated for the sake of learning. The core code we have here is extremely small so there is absolutely no reason to go through all this hassle in practice, but this should be a good exercise to understand how to package a python project.
 
-== Exercise: Setting up directory structure and build a binary
 
-=== Step 1: Setting up virtual environment
+== Step 1: Setting up virtual environment
 
 Before we start playing with the code and package it, we do not want these potentially unstable code to be in our global python environment, which may cause some unexpected headache. So let's create a virtual environment for this project. You can do this by running the following command outside the project or in a directory where you want to store the virtual environment:
 ```bash
@@ -128,7 +119,7 @@ source insertion_sort/bin/activate
 
 You should see your terminal prompt has changed to something like `(insertion_sort) $`. This means you are now in the virtual environment. You can deactivate the virtual environment by running `deactivate`.
 
-=== Step 2: Modules and imports
+== Step 2: Modules and imports
 
 A `python` package usually contains many modules, which can be imported like `from package.module import function`. The goal here is structure our code such that it can be imported as a package.
 
@@ -148,7 +139,7 @@ root
 └── test_sort.py
 ```
 
-=== Step 3: pyproject.toml
+== Step 3: pyproject.toml
 
 The next thing to add to the package is a description of project such that the standard build tool can package that information. I used to use `setup.cfg` to set up my project because that was the convention a couple years back. Now the standard way to set up a project is through `pyproject.toml`, which can still use `setuptools` as its backend. There are a lot of options to choose from for `pyproject.toml`, which we are not going to cover all of them. We are going to cover the minimum you need to know to build a binary. For a more complete tutorial and all the different options, you can find more information in the #link("https://packaging.python.org/en/latest/guides/writing-pyproject-toml/")[write your `pyproject.toml` guide]. 
 
@@ -183,7 +174,7 @@ There are three parts in this file. The first part is the `build-system` section
 
 We included the `script` section since I want to show you how to build a bbinary that also provide a command line tool. This is optional but it can be quite convinient for the user. That script is equivalent to running `from insertion_sort.sort import run_sort; run_sort()` in a python shell.
 
-=== Step 4: Build and install
+== Step 4: Build and install
 
 It is time to build and install our package! To build binary that you can distribute, first install `build` with `pip install build`, then you can run the following command:
 ```bash
@@ -204,9 +195,7 @@ Now you should be able to import the package in your python script. On top of th
 
 The structure of the code starting to look nice, however, nothing bring more trust to your code more than a nice documentation page. Once you have some serious documentation going, people will more likely to trust your code and use it. There are many different tools to build documentation in `python`. The more traditionally taught one is sphinx, but I personally find it unnecessarily complicated and looking dull, so I prefer to use `mkdocs` and style it with `material` instead. `Mkdocs` let you write your documenation pages in the `Markdown` format, which is pretty easy to write.
 
-== Exercise: Adding documentation to the code and build the documentation
-
-=== Step 1: Install mkdocs and build basic documentation
+== Step 1: Install mkdocs and build basic documentation
 
 The first thing to do is to install `mkdocs`. With your environment activated, you can run the following command:
 ```bash
@@ -228,7 +217,7 @@ mkdocs serve
 This will start a local server that serves the documentation. You can then click the link shown in the terminal and you should see your documentation page up and running.
 For more reference related to `mkdocs`, the official page is #link("https://www.mkdocs.org/")[here].
 
-=== Step 2: Style it with Material with mkdocs
+== Step 2: Style it with Material with mkdocs
 
 Plain `mkdocs` actually look quite depressing too. Let's add some style to make it looks nice. I use Material for MkDocs to style my documentation page. You can install it by running the following command:
 ```bash
@@ -246,7 +235,7 @@ nav:
 
 Now if you go back to your doc page, you should see it suddenly looks much nicer already. There are many choices you can make to customize the look of the documentation page, you can find more information in the #link("https://squidfunk.github.io/mkdocs-material/")[official documentation page].
 
-=== Step 3: API documentation
+== Step 3: API documentation
 
 Now this could be a bit more indepth since it needs to install your package, read the doc strings in your code and automatically generate the documentation page for API. I am not going into the detail of how to configure this, but you look for the voodoo magic I cooked up in one of my public repo #link("https://github.com/kazewong/flowMC/tree/main")[flowMC]. Here, I will show you the bare minimum of getting an API documentation page up and running. The package you will need here is `mkdocstrings` and its python handler. You can install it by running the following command:
 ```bash
@@ -278,12 +267,9 @@ Now if you look at the page, you should see the API documentation there.
 = Writing tests
 
 If you do not like writing documentation, there is a high likelihood that you do not like writing unit tests for your code. Unit tests are great way to catch any errors in your code, and when more contributors start to work on the same code, it is also a great way to catch any unexpected failure. The thing is, writing tests sound like some extra chores you have to do on top of the already dreadful development, so no body likes to do it. Here is how I trick myself into writing tests: we often write a bunch of scrappy scripts in development to se whether the code we created are function in the way we expected. I always create these scripts in either `test/integration` or `test/unit`, and only move them out if I want to make them an example. In this way, when I am done with my development, the tests are automatically there.
-
-== Exercise: Unit tests with pytest
-
 The most popular package used for testing `python` code is `pytetst`, and it is quite easy to use. You can find more information in #link("https://docs.pytest.org/en/stable/")[here].
 
-=== Step 1: Install pytest
+== Step 1: Install pytest
 
 With your environment activated, you can run the following command to install `pytest`:
 ```bash
@@ -292,7 +278,7 @@ pip install pytest
 
 Now for all the test we want to write, we have to write it with the prefix `test_`, so `pytest` know it is a test. This includes the test function name and the test file name.
 
-=== Step 2: Move the test code to a test directory
+== Step 2: Move the test code to a test directory
 
 I have this default test script `test_sort.py` in the root directory, let's create a `test` directory in the root directory and move the `test_sort.py` to the `test` directory. The next thing you will have to do is to take off the extra function definition in the test file, including the `__main__` block, and import the package we wrote.
 
@@ -303,7 +289,7 @@ pytest
 
 This should run all the test in the `test` directory. If everything goes well, you should a long green line saying how many tests passed.
 
-=== Rules of thumb
+== Rules of thumb
 
 People have different opinions on writing tests. I usually keep two sets of tests in my test directory, `integration` and `unit` test. `integration` tests are aiming to test the entire code base in the way we anticipate the user to use it, while `unit` tests are testing the individual function in the code base. I usually write `unit` tests for all the functions I wrote, and I only write `integration` tests when I am done with the development and I want to make sure the code is working as expected.
 
