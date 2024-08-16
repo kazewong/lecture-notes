@@ -93,7 +93,7 @@ During the lab session and integration session, I will go around help people wit
 + *Fall break*
 + *Continous integration:* You will learn how to use actions to continously update and test your code.
 + *Containerization:* You will learn how to containerize your applications and deploy it.
-+ *Frontend:* We will introduce a couple frontend frameworks in python, javascript, and rust.
++ *Frontend:* We will learn about the basic of building frontend with svelte.
 + *Database:* You will learn the basic of database and storage. 
 + *Open source practice:* You will learn some of the open source practice such as governance and code review.
 + *Fall Recess*

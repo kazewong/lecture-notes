@@ -15,31 +15,48 @@
 
 Nonetheless, `julia` is a fun language to play with. `julia` often offers more flexibility and performance than `python`, and its ecosystem has a lot of interesting research codes which are often not found in other ecosystem. So in this lab, we are going to go through 
 
+#outline(title: [Outline \ ], depth: 2, indent: 1em)
 
-= Introduction to rust
+#pagebreak()
 
-== Basic Syntax
+= Key Concepts
 
-== Writing a bubble sort algorithm
+== Julia has a JIT compiler
+
+== Julia has multiple dispatch
+
+For the people who learn `python` as their first programming language, and perhaps engaged in some projects related to `python`, you may find `julia` quite odd in the sense that *it does not have classes*.
+
+== Julia has a package manager
+
+
+
+= Basic Syntax
+
+== Variables
+
+== Functions
+
+== Control Flow
+
+== Writing an insertion sort algorithm
 
 = Packaging code
 
+
 = Building documentation
+
+== Documenter.jl
 
 = Writing tests
 
 = Best practices
 
+
+== Type stability
+
+== Write functions
+
 = Development tips
 
 = Noteworthy libraries
-
-
-=== Features
-
-JIT
-multiple dispatch
-metaprogramming
-Somewhat messed up eco system
-
-=== What would I use Julia for?

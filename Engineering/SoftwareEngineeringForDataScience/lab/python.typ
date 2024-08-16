@@ -310,6 +310,9 @@ In general it is good to have a virtual environment for each project you are wor
 
 == Typing
 
+Typing is probably one thing that is overlooked and never taught in `python`, and yet it is quite essential in making your code more readable and maintainable, espcially when it comes to machine learning code.
+
+
 == Linting and formatting
 
 == Debugging
