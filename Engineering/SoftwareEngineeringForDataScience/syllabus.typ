@@ -92,7 +92,7 @@ During the lab session and integration session, I will go around help people wit
 + *Mid-semester update:* There will be no lab, and hacking. Instead, people should present their progress so far.
 + *Fall break*
 + *Continous integration:* You will learn how to use actions to continously update and test your code.
-+ *Containerization:* You will learn how to containerize your applications and deploy it.
++ *Environment management and Containerization:* You will learn how to manage your environment with nix and containerize your applications with docker.
 + *Frontend:* We will learn about the basic of building frontend with svelte.
 + *Database:* You will learn the basic of database and storage. 
 + *Open source practice:* You will learn some of the open source practice such as governance and code review.
