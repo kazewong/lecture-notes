@@ -9,7 +9,9 @@
 #import "../style.typ": style_template
 #show: doc => style_template(doc,)
 
-= Background
+= Foreword
+
+
 
 Most of your customer will not be tech savy veteran like you are. Most people on Earth do not know how to use #smallcaps[PYTHON], let alone #smallcaps[Julia] or #smallcaps[rust]. It is fully legitimate to build a package which likeminded academics or engineers can pick up and use, but if your goal is to make a product that can reach a larger audience, building a frontend is an inevitable step. 
 
