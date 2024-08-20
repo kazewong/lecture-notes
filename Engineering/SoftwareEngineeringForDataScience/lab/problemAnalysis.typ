@@ -90,6 +90,7 @@ Once we have the brief scope of some projects, let's narrow it down to three pot
 + *Compute*: Do you need a lot of computing power? Do you have access to it?
 + *Platform*: Are you going to host the project on Web? Mobile? Desktop?
 + *Latency*: Does you project need low latency response?
++ *Network*: Do you need to communicate with other services? Do you plan to host a server?
 
 *Developement cycle*
 + *Development tools*: What environment you are going to develop in? 
