@@ -62,6 +62,10 @@ At the beginning of the course, you will pick a project that you will work on th
 
 By the end of the semester, I think it will be really fun to showcase your tools to each other and people outside the class. I will organize a showcase event which everyone will have an opportunity to present their project. In the ideal scenario, everyone should have some codes together with a demo web app we can all play with. The idea of having the pitch session and the showcase session is to give you the full experience of how to present your projects. Once again this will not count toward your final grade, but I also value this more than your lab.
 
+== Attendance
+
+Since the course is very hands-on and we meet only once a week, it does not really make sense to skip the class. I understand life happens from time to time, and if there is very legitimate reason you cannot make it to a particular class, there is a quota for missing the class once, not including the mid-semester update session and the show case session. If you miss the class more than once, every missed class will limit your highest grade by one letter grade, e.g. if you missed the class twice, the highest grade you can get is a B. If you miss the mid-semester update session or the show case session without an extremely legitimate reason, you will not be able to pass the course. I believe coming to the class on time and participate in the class is critical to learning from this course, so I will be completely strict with this policy.
+
 == Continuous feedback
 
 Even though I have a particular plan for this course, I think it makes the most sense if you tell me what could be useful to you. I cannot promise I will always be able to accomodate your need by switching up my lecture plan, but I do leave some flexibility when I am designing the syllabus for this course, so there is some chance I can touch on some popular topics. If there is really popular demand, I may also hold additional hacking session outside this course. For more granular feedbacks such as finding bugs in assignments or have general questions, feel free to open issues or pull requests on Github.
