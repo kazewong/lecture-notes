@@ -95,10 +95,10 @@ During the lab session and integration session, I will go around help people wit
 + *Machine Learning frameworks in the three languages*: We will play with three machine larning (-related) libraries in the three languages we learned, including `jax` in `python`, `flux` in `julia`, and `burn` in `rust`.
 + *Mid-semester update:* There will be no lab, and hacking. Instead, people should present their progress so far.
 + *Fall break*
-+ *Continous integration:* You will learn how to use actions to continously update and test your code.
++ *Frontend:* We will learn about the basic of building web frontend with svelte.
++ *Backend and database:* You will learn the basic of database and storage.
 + *Environment management and Containerization:* You will learn how to manage your environment with nix and containerize your applications with docker.
-+ *Frontend:* We will learn about the basic of building frontend with svelte.
-+ *Database:* You will learn the basic of database and storage. 
++ *Continous integration:* You will learn how to use actions to continously update and test your code.
 + *Open source practice:* You will learn some of the open source practice such as governance and code review.
 + *Fall Recess*
 + *Show case*: There will be no lab and hacking. Instead, we will celerate everyone's hardwork!
