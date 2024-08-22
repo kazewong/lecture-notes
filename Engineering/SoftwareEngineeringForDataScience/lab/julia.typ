@@ -29,20 +29,34 @@ For the people who learn `python` as their first programming language, and perha
 
 == Julia has a package manager
 
-
-
 = Basic Syntax
 
 == Variables
 
 == Functions
 
+It is fair to say `julia` centers around writing functions
+
 == Control Flow
 
-== Writing an insertion sort algorithm
+= Exercise: Writing an insertion sort algorithm again
+
+== Step 1: Clone the repository
+
+== Step 2: Implement the sorting algorithm
+
+== Step 3: Test the algorithm
 
 = Packaging code
 
+Packaging code in `julia` could take a while to get used to. Instead of creating submodules by directories and `__init__.py`, fundamentally in `julia` you just ```julia include("file.jl")``` in your main module. Any subdirectories is just to group those files together. And instead of using syntax like ```python from scipy.optimize import minimize``` to import a function from a submodules, one needs to export functions that are written such that they can be imported by the main module. 
+
+== Step 0: Looking at some examples
+Have a look these three examples: #link("https://github.com/SciML/DifferentialEquations.jl")[DifferentialEquations.jl], #link("https://github.com/FluxML/Flux.jl/tree/master")[Flux.jl], and #link("https://github.com/JuliaGPU/CUDA.jl/tree/master")[CUDA.jl]. 
+
+== Step 1: Create the main module
+
+== Step 2: Create a sub-module
 
 = Building documentation
 
@@ -52,10 +66,18 @@ For the people who learn `python` as their first programming language, and perha
 
 = Best practices
 
+== All roads lead to Rome
+
+In `python`, the intention of the language is to have only one obvious way to a solution. Although that is often violated and people dunk on their motto, it is still largely true. Creating modules, writing classes, and writing tests, they can all be done in a similar fashion. On the other hand, there are many ways to do the same thing in `julia`. We have seen the three different ways to build your package hierarchy, and the support of metaprogramming in `julia` together with multiple dispatch allows you to come with wild solutions to your problems.
+
+
+
 
 == Type stability
 
 == Write functions
+
+This is something that took me a while to really understand what do they mean by 
 
 = Development tips
 

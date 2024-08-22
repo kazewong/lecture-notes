@@ -85,13 +85,13 @@ Copying the object may have some implication on memory usage and performance, so
 Now given the information above, let's try to write an insertion sort algorithm.
 The insertion sort algorithm is pretty simple. Imagine you are holding a hand of unsorted poker cards, and you want to sort the hand by the cards' rank. Let say we start from left and we are going to scan to the right. When ever we are about to sort a card, we compare the current card to the card on the left, if it has a lower rank than the card on its left, we swap their order (say I am trying to sort the second card which is a 2, and the first card is a 5, I will swap them). We keep doing this until we reach the end of the hand. At the end, the hand should be sorted.
 
-== Step 1 - Clone the repository
+== Step 1: Clone the repository
 Fork #link("https://github.com/KazeClasses/python_guide")[this github template repository], then clone it to your local machine. You should see the file named "test_sort.py" in the root directory.
 
-== Step 2 - Implement the sorting algorithm
+== Step 2: Implement the sorting algorithm
 Open it with your favorite text editor, then change the body of the inerstion_sort function to an insertion sort algorithm.
 
-== Step 3 - Test the algorithm
+== Step 3: Test the algorithm
 Run the test_sort.py script with the following command:
 ```bash
 python test_sort.py
