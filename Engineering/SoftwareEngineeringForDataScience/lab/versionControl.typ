@@ -40,7 +40,7 @@ By the end of this session, you will know how to use all of the following comman
   [diff], [Show changes between commits],
   [rebase], [Reapply commits on top of another base tip],
   [merge], [Join two or more development histories together],
-  [prune], [Remove remote branches that no longer exist],
+  [blame], [Show what revision and author last modified each line of a file],
   [reset], [Reset current HEAD to the specified state],
   [revert], [Revert some existing commits],
   [tag], [Actions related to a specific tag in the code base],
@@ -195,8 +195,11 @@ You can then decide which content you want to keep, or you can keep both content
 1. *Check with the person who made the conflicting changes.* If you are not sure which content to keep, you can always ask the person who made the conflicting changes. They might have a good reason for making the changes, and they might be able to help you resolve the conflict. You can use ```bash git blame ReadME.md``` to see who made the conflicting changes.
 2. *Don't panic.* Conflicts are a normal part of working with git, and they are not the end of the world. You can always resolve them by following the steps above.
 
-== Working with public repositories
+=== Nuke buttons for conflicts - `git reset` and `git revert`
 
+Sometimes you may regret making a particular changes (or regret you accepted someone's changes) and you want to roll them back, ```bash git revert``` and ```bash git reset``` comes in handy. If someone did something to your repo that you decide you want to roll back the changes, you should use ```bash git revert```. This will create a new commit that undoes the changes made in the previous commit, meaning if you check ```bash git log```, you should be able to see both the unwanted the commits and the commits that you use to undo those changes. On the other hand, if you have some commits you want to get rid of entirely, say some local commits which you have not send it to the public repo, you can use ```bash git reset --hard [commit hash]```. This will reset the HEAD to the commit you specified, and all the commits after that will be gone. In general, you should use ```bash git revert``` over a hard reset. Having the commit history available is better for decision making down the road
+
+== Working with public repositories
 
 
 === Step 1 - Forking a repository
