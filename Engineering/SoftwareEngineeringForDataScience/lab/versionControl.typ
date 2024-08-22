@@ -168,13 +168,41 @@ Now `GitHub` is not only a one-way cloud drive for you to store your code, but a
 2. *You should always pull before you start working.* This is to make sure that you are working on the latest version of the code. If you start working on an old version of the code, you might have to resolve a lot of conflicts when you try to push your changes to the remote repository.
 3. *Read the CONTRIBUTING.md file.* This is a file that is usually included in the repository to tell you how to contribute to the repository. It usually tells you how to format your commit messages, how to create a pull request, and how to get your changes reviewed.
 
-== Working with public repositories
-
 == Dealing with conflicts
 
-Conflicts can arise when the same files are worked on by multiple people at the same time. This is a common problem and can be annoying from time to time, espeically when it happens close to a deadline.
+Conflicts can arise when the same files are worked on by multiple people at the same time. This is a common problem and can be annoying from time to time, espeically when it happens close to a deadline. If you adhere to the best practices we mentioned above, there should be minimal conflicts. But in case it does happen, here is how you can resolve it.
+
+=== Step 1 - Creating a conflict
+
+Let's create a conflict by modifying the ReadME.md file on the `GitHub` page using its online editor, and commit the changes to the main branch. Then modify the ReadME.md file on your local machine (Make sure you are changing the same content in a different way, e.g. modified the same line but with different input), and commit the changes to the main branch. Once you have committed the changes, you can run ```bash git pull``` to pull the changes from the remote repository to your local machine. You should see a message saying that there is a conflict in the ReadME.md file.
+
+=== Step 2 - Resolving the conflict
+
+To resolve the conflict, you can open the ReadME.md file in your text editor. You will see something like this:
+
+```markdown
+<<<<<<< HEAD
+This is the content you have on your local machine
+=======
+This is the content you have on the remote repository
+>>>>>>> [commit hash]
+```
+
+You can then decide which content you want to keep, or you can keep both contents. Just go ahead and edit your file and make sure those lines includes <<< and >>> are gone. Once you have resolved the conflict, you can run ```bash git add ReadME.md``` to add the file to the staging area, and then run ```bash git commit -m "Resolve conflict"``` to commit the changes. You can then run ```bash git push``` to push the changes to the remote repository.
 
 === Rules of thumb for conflicts
+
+1. *Check with the person who made the conflicting changes.* If you are not sure which content to keep, you can always ask the person who made the conflicting changes. They might have a good reason for making the changes, and they might be able to help you resolve the conflict. You can use ```bash git blame ReadME.md``` to see who made the conflicting changes.
+2. *Don't panic.* Conflicts are a normal part of working with git, and they are not the end of the world. You can always resolve them by following the steps above.
+
+== Working with public repositories
+
+
+
+=== Step 1 - Forking a repository
+
+
+
 
 == Add your project to the class's awesome list
 
