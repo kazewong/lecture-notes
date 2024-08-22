@@ -55,6 +55,10 @@ By the end of this session, you will know how to use all of the following comman
   caption: [Git versioning system, taken from #link("https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F")[git]],
 )
 
+Before we dive right into learning git, it is useful to learn a bit about the concept behind the git system. The main idea behind git is to keep track of the changes you make to your code such that if there are any problems, you can always go back to a previous version of the code. This also enable collaboration between multiple people seamlessly. The way git does this is by taking snapshots of the code at different points in time. This is different from other version control systems, which keep track of the changes you make to the code. As seen from the user, this provides the advantage of being able to quickly checkout any version of the code.
+
+To learn more about some of git's main features, visit the #link("https://git-scm.com/about/branching-and-merging")[About] page on the git website.
+
 = Exercises
 
 == Starting a repository
@@ -201,11 +205,19 @@ Sometimes you may regret making a particular changes (or regret you accepted som
 
 == Working with public repositories
 
+Now that you have learned how to work with `git` locally and online, it is time to work with public repositories. The main difference between what we have been doing and working with public repositories is you often do not have the permission to push directly to the repository unless you are given permission to. In this case, you will have to "fork" the repository, i.e. create a copy of the repository on your own account, make your changes, and then create a "pull request" to the original repository to ask the maintainer to merge your changes. As a final exercise, you will fork a repository related to this class, add a link to your project, then create a pull request to ask me to merge your changes.
 
 === Step 1 - Forking a repository
 
+Go to https://github.com/KazeClasses/AwesomeKazeClassProject, and click on the "Fork" button on the top right corner of the page. This will create a copy of the repository on your own account.
 
+=== Step 2 - Making changes
 
+Go to the repository on your account, and click on the "README.md" file. You can then click on the pencil icon on the top right corner of the page to edit the file. Add a link to your project in the file according to the contributing guide, then scroll down to the bottom of the page and click on the "Commit changes" button.
 
-== Add your project to the class's awesome list
+=== Step 3 - Creating a pull request
+
+Once you have made the changes, you can click on the "Pull requests" tab on the top of the page, then click on the "New pull request" button. You will be asked to fill in some information about the pull request, such as the title and the description. Once you have filled in the information, you can click on the "Create pull request" button. This will create a pull request to the original repository, and the maintainer of the repository will be able to review your changes and merge them if they are good. Once the pull request is merged, you will see the changes on the original repository.
+
+If you go through this process successful, congratulations! Now your project will be listed in the list of project for this course, and you have learned the basic of `git` and `GitHub`!
 
