@@ -48,9 +48,7 @@ By the end of this session, you will know how to use all of the following comman
 
 #pagebreak()
 #set align(left)
-= Key concepts
-
-== Git system
+= Git system
 
 #figure(
   image("./assets/git-snapshots.png"),
@@ -166,8 +164,17 @@ Now `GitHub` is not only a one-way cloud drive for you to store your code, but a
 
 === Rules of thumb for collaboration
 
+1. *You should always pull before you push.* This is to make sure that you are not overwriting someone else's changes. If you push your changes without pulling the changes from the remote repository, you might overwrite someone else's changes, which is not a good practice.
+2. *You should always pull before you start working.* This is to make sure that you are working on the latest version of the code. If you start working on an old version of the code, you might have to resolve a lot of conflicts when you try to push your changes to the remote repository.
+3. *Read the CONTRIBUTING.md file.* This is a file that is usually included in the repository to tell you how to contribute to the repository. It usually tells you how to format your commit messages, how to create a pull request, and how to get your changes reviewed.
+
+== Working with public repositories
+
 == Dealing with conflicts
 
 Conflicts can arise when the same files are worked on by multiple people at the same time. This is a common problem and can be annoying from time to time, espeically when it happens close to a deadline.
 
 === Rules of thumb for conflicts
+
+== Add your project to the class's awesome list
+
