@@ -17,27 +17,33 @@ In case you do not realize how interesting it is, let me break it down for you. 
 
 Beside, I really had a great time coding rust in general. It takes some time to get used to the language, but once you are more familiar with rust, it is a great language to go hard core with. In this lab, we are going to go through the following topics:
 
-1. Some basic concept and syntax for `rust`, once again we are going to write an insertion sort algorithm in `rust`.
-2. Building your code with `cargo`
-3. Writing documentation with `rustdoc`.
-4. Writing tests with `cargo`
-5. Benchmarking with `criterion`
-6. Some best practices and development tips
-7. Some noteworthy libraries in `rust`
+// 1. Some basic concept and syntax for `rust`, once again we are going to write an insertion sort algorithm in `rust`.
+// 2. Building your code with `cargo`
+// 3. Writing documentation with `rustdoc`.
+// 4. Writing tests with `cargo`
+// 5. Benchmarking with `criterion`
+// 6. Some best practices and development tips
+// 7. Some noteworthy libraries in `rust`
 
-= Introduction to rust
+= Key Concepts
 
-== Basic Syntax
+== Rust is a compiled language
 
-=== Variables
+== Rust is strongly and statically typed
 
-=== Control flow
+== Borrow checker for memory management
 
-=== Functions
+= Basic Syntax
 
-=== Borrow checker
+== Variables
 
-== Writing a insertion sort algorithm
+== Control flow
+
+== Functions
+
+== Borrowing
+
+= Writing a insertion sort algorithm for the third time
 
 = Packaging code
 
@@ -50,26 +56,3 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 = Development tips
 
 = Noteworthy libraries
-
-=== Features
-
-static analysis
-Strongly typed
-borrow checker
-compiled
-
-Need to go hardcore
-
-=== Pros and cons
-
-Pros:
-1. It is a compiled language. No JIT overhead and very fast.
-2. Very memory safe through the borrow checker pattern
-
-Cons:
-1. Steep learning curve
-2. Small ecosystem
-3. Lower level comparing to the other two languages
-
-
-=== What would I use Rust for?
