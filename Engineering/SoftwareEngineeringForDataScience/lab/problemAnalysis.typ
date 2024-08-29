@@ -65,7 +65,7 @@ After you have finished brainstorming a list of potential projects, here is a li
 == Examples
 
 Here is a list of sample projects to give you some ideas what is in the scope of this course. _Disclaimer: These projects are closely related to my personal interests, which 
-may put them out of the possible projects list because of conflict of interest. As mentioned, the only assignment that is relevant to your grade is the labs, so even if you pick any of the projects listed below, it will not affect your grade at all. But to stay on the safe side, I will not approve any project that is *exactly the same as described below*. Outside of this course, I am truly passionate about these projects. If people are interested in these projects, we can discuss what we can do together, but notice this is straightly outside the scope of this class._
+may put them out of the possible projects list because of conflict of interest. As mentioned, the only assignment that is relevant to your grade is the labs, so even if you pick any of the projects listed below, it will not affect your grade at all. But to stay on the safe side, I will not approve any project that is *exactly the same as described below*. Outside of this course, I am truly passionate about these projects. If people are interested in these projects, we can discuss what we can do together, but notice this is straightly outside the scope of this class.
 
 Example 1: Use computer vision model to extract joint positions from video
 
