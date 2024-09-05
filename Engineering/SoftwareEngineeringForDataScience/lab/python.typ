@@ -341,11 +341,24 @@ I like to start with `jax` probably because I am a heavy `jax` user. Don't get m
 
 == Flask
 
-Flask is a minimalistic web framework for `python`. It is really easy to get started 
+Flask is a minimalistic web framework for `python`, which is very easy to get start, making it a great choice for beginners and a starting point for small-scale projects. A quick start can be done in 5 lines of code
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+```
+
+If you save the file under the name `hello.py`, then you can start a development server by running ```bash flask --app hello run```. Once your server is up and running, you can visit the url in your browser and you should see the message `Hello, World!`.
+We are going to build some simple web app later in the course, so we will come back to this. You can find more information in the #link("https://flask.palletsprojects.com/en/3.0.x/")[official page].
 
 == HoloViews
 
-== FastHTML
+The most common introductory plotting library in python is probably `matplotlib`, which is pretty straight forward to get start with. However, sometimes it may seem to be hard to interact with plot and iterate over your projects quickly. To do this, I discovered `HoloViews` not too long ago, which I find it to be great for data exploration. You can find some of `HoloViews` killer features #link("https://holoviews.org/getting_started/Introduction.html#effortlessly-exploring-data")[here].
 
 == Too common/Too obscure
 
