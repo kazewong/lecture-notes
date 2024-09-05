@@ -308,22 +308,40 @@ In general it is good to have a virtual environment for each project you are wor
 
 == IPython
 
+One tool I use for quick experiment quite a lot is just plain old IPython. These days people prefer to use Jupyter notebook whenever they experiment, but if I am on a cluster environment or I just need to test a couple of easy thing, I prefer ipython over Jupyter notebook simply because in this way I can (am required to) navigate with my keyboard, which is much faster for me than mouse.
+
+== Debugging
+
+There are many ways to debug a python code. You can use the `print` statement method of course, and fundamentally there is nothing wrong about that. There is two more methods I use quite often, first is with `IPython`, you can use the `pdb` module to debug your code. Say you are running some code and hit an error, instead of running the code again and wait for the print statement, you can actually do `%debug` in `IPython` to enter a `pdb` session immediately to investigate the stack. This method also works in Jupyter notebook, but it gets pretty clumsy pretty quickly if you don't have the set up. Another method you can use is the debugger integration in your IDE. I use `VSCode`, which allows you to set breakpoints and run the code in debug mode. This is especially useful when you are working on a large code base and you want to investigate the code step by step, but sometimes the debugger can get caught in some environment issue related to VSCode, making it slightly less reliable.
+
 == Typing
 
-Typing is probably one thing that is overlooked and never taught in `python`, and yet it is quite essential in making your code more readable and maintainable, espcially when it comes to machine learning code.
+Typing is probably one thing that is overlooked and never taught in `python`, and yet it is quite essential in making your code more readable and maintainable, espcially when it comes to machine learning code. Typing refers to syntax like the following
 
+```python
+def add(a: int, b: int) -> int:
+    return a + b
+```
+
+Instead of just `def add(a, b):`, you can add type hint to the function signature to make it clear what type of argument the function is expecting and what type of value it is returning. In an IDE, there are usually plugins associated with `python` that can scan through your local code base and relay typing information, which can be very useful during development. For example, if you have a custom class defined within your project with cetain methods and attrbiutes, if the typing information is available, you can see what methods are available and their function signature when hovering your cursor over the instance, and the IDE can automcomplete your code.
 
 == Linting and formatting
 
-== Debugging
+Linting and formatting are essential to ensure the quality of your code. Linting is the process of checking your code for potential errors, while formatting is the process of making your code look consistent. The linter I use is #link("https://github.com/astral-sh/ruff")[ruff]. The formatter is #link("https://github.com/psf/black")[black]. You can also install plugin in your IDE to show linting errors and format your code automatically.
+
+== Pre-commit
+
+Pre-commit is very useful tool enforce linting and formatting for your code. It runs linter and formatting automatically before you are allow to commit. It is espcially useful when you are managing a project with multiple contributors, such that we can ensure code on the repository is well format and clean from common mistakes. You can find more information in the #link("https://pre-commit.com/")[official page].
 
 = Noteworthy libraries
 
 == Jax
 
-I like to start with `jax` probably because I am a heavy `jax` user. Don't get me wrong, I use `PyTorch` too, but I use `jax` more because of its performance but also the workflow I have in `jax` is very close to the workflow I had before machine learning library became a thing. Basically, if you are familiar with `numpy` and `scipy`, you should find `jax` is basically `numpy` on steroids.
+I like to start with `jax` probably because I am a heavy `jax` user. Don't get me wrong, I use `PyTorch` too, but I use `jax` more because of its performance but also the workflow I have in `jax` is very close to the workflow I had before machine learning library became a thing. Basically, if you are familiar with `numpy` and `scipy`, you should find `jax` is basically `numpy` on steroids. We are going to do a deeper diver later in the course.
 
 == Flask
+
+Flask is a minimalistic web framework for `python`. It is really easy to get started 
 
 == HoloViews
 
