@@ -24,11 +24,18 @@ Why do people say `python` is slow? The reaons is it is, and that is because `py
 
 == Everything is an object
 
+In `python`, everything is an object. This means everything has some attributes and methods to themselves. This is a very powerful feature in `python`, which makes it very flexible and easy to use. For example, you can define a list `a = [0, 1]`, and you can access the first element of the list by `a[0]`. You can also call the `append` method on the list to append an element to the list by `a.append(2)`. This is an example for some built-in object, but you can also define your own object with attributes and methods.
 
+== Indentation is important
 
-== Running a python script
+One thing that people who started learning programming in other languages may find this a bit annoying is the indentation in `python`. In `python`, the indentation is not just for readability, it is actually part of the syntax. Instead of using curly braces like `C` or `Java`, `python` uses indentation to define the scope of the code. For example, if you write a for-loop in `python` like the following:
 
-`Python` files has the extension of `.py`. You can run a python script by running `python <script_name>.py`. For example, if you have a script named `hello.py`, you can run it by running `python hello.py`.
+```python
+for i in range(10):
+    print(i)
+```
+
+The `print(i)` line is indented by 4 spaces, which means it is inside the for-loop. If you do not indent the line, the interpreter will throw an error.
 
 #pagebreak()
 = Basic Syntax
@@ -46,7 +53,31 @@ One thing to remember is everything is an object in Python, meaning they (almost
 
 == Control flow
 
-`python` has most of the basic contorl flow that you will find in another language, such as `if-else`, `for`, and `while` loops. 
+`python` has most of the basic contorl flow that you will find in another language, such as `if-else`, `for`, and `while` loops.
+`if-else` and `while` loops are similar to other languages. Here are an example for each of them:
+
+```python
+# if-else
+a = 1
+if a == 1:
+    print("a is 1")
+else:
+    print("a is not 1")
+
+# while loop
+a = 0
+while a < 10:
+    print(a)
+    a += 1
+```
+
+If you come from a `C` background, you may find the `for` loop in `python` a bit strange. In `python`, the `for` loop is actually a `for-each` loop, which means it iterates over the elements in a list or a dictionary, instead of reling on counter. Here is an example of a `for` loop in `python`:
+
+```python
+a = [0, 1, 2, 3, 4]
+for i in a:
+    print(i)
+```
 
 == Functions
 
