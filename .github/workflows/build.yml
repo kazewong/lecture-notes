@@ -17,6 +17,7 @@ jobs:
         with:
           source_file: |
             Engineering/SoftwareEngineeringForDataScience/syllabus.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/problemAnalysis.typ
             Engineering/SoftwareEngineeringForDataScience/lab/versionControl.typ
             Engineering/SoftwareEngineeringForDataScience/lab/python.typ
             Engineering/SoftwareEngineeringForDataScience/lab/julia.typ
@@ -26,6 +27,7 @@ jobs:
         run: |
           mkdir pdfs
           mv Engineering/SoftwareEngineeringForDataScience/syllabus.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/problemAnalysis.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/versionControl.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/python.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/julia.pdf pdfs/
