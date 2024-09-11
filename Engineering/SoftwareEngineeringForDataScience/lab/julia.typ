@@ -33,9 +33,62 @@ For the people who learn `python` as their first programming language, and perha
 
 == Variables
 
+`julia` is similar to `python` in many ways. For example, `a = 1` will define a variable `a` with the value of `1`. As we mentioned, `julia`'s multiple dispatch system relies on the type of the variable to determine which function to call, so it is important to learn how to inspect the type of a particular variable. You can check the type of a variable by using the `typeof` function. If you run `typeof(a)`, it will return `Int64` because `1` is an integer.
+
+To define a list, the basic syntax is similar,  that is `a = [1, "hello", 3.14]`. However, in order to get a list from say a range, the syntax is a bit different. Instead of `a = list(range(1, 10))`, you would write `a = collect(1:10)`. There is a bunch of functions related to collection you can checkout here #link("https://docs.julialang.org/en/v1/base/collections/")[here].
+
+From a `python` background, the biggest difference in defining variables in `julia` is in dictionary. In `python`, you would define a dictionary like this `a = {"key": "value"}`, but in `julia`, you would define a dictionary like this `a = Dict("key" => "value")`. Accessing an element remains the same as `python`
+
+Simliar to `python`, if you have a variable defined by referencing another variable, i.e. `b = a` while `a = [1, 2]`, changing element in `a` will also change `b` automatically.
+
+== Writing Structs
+
+While there is no class in `julia`, it is still useful to be able to bundle a bunch of variables together so you can access them easily. This called composite type in `julia`, and we use the `struct` keyword to define them. For example, you can define a struct like this:
+
+```julia
+struct myStruct
+  name::String
+  somedata::Vector{Int}
+end
+```
+
+Note `::` syntax is used to specify the type of the variable. In this case, `name` is a `String` and `somedata` is a vector of `Int`. You can create an instance of this struct like this:
+
+```julia
+a = myStruct("hello", [1, 2, 3])
+```
+
 == Functions
 
-It is fair to say `julia` centers around writing functions
+It is fair to say `julia` centers around writing functions, and one of its most interesting features is multiple dispatch. In `julia`, you can define a function like this:
+```julia
+function f(x)
+    return x + 1
+end
+```
+Note that `julia` does not care about indentation, however it is still a good practice to indent your code properly.
+
+So far we haven't seen much difference between `python` and `julia` in function definition. However, here comes the interesting bit, a function with the same name but with different argument types will be treated as a different function. For example, you can define a function like this:
+
+```julia
+function f(x::Int)
+    return x + 1
+end
+```
+
+And you can define another function with the same name but with a different argument type like this:
+
+```julia
+function f(x::String)
+    return x * "!"
+end
+```
+
+Now if we call `f(1)`, it will return `2`, and if we call `f("hello")`, it will return `hello!`.
+This is really powerful (and somewhat cursed), since it reduces the coding task to defining your struct and manipulating it with the function with argument that takes that sepcific type. This basically acts as a replace for method in class in `python`.
+
+
+Another difference between `julia` and `python` is the way unnamed function (lambda) are defined. We didn't cover this 
 
 == Control Flow
 
