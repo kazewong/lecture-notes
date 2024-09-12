@@ -120,7 +120,7 @@ You can try to run this counter part in `python` and you will see that `julia` i
 
 Follow the instruction on #link("https://github.com/JuliaLang/julia")[here] to install `julia` on your machine.
 
-== Step 1: Clone the repository
+== Step 1: Clone the class repository
 
 Fork #link("https://github.com/KazeClasses/julia_guide")[this repository] and clone it to your local machine.
 

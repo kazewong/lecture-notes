@@ -37,15 +37,28 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 
 == Variables
 
-== Control flow
 
 == Functions
 
-== Borrowing
+== Control flow
+
+== Borrow checker
 
 = Writing a insertion sort algorithm for the third time
 
+Here we go again to write yet another insertion sort.
+
+== Step 0: Install rust
+
+== Step 1: Clone the class repository
+
+== Step 2: Implement the sorting algorithm
+
+== Step 3: Test the algorithm
+
 = Packaging code
+
+== Step 1: Setting 
 
 = Building documentation
 
