@@ -27,7 +27,7 @@ Nonetheless, `julia` is a fun language to play with. `julia` often offers more f
 
 == Julia has multiple dispatch
 
-For the people who learn `python` as their first programming language, and perhaps engaged in some projects related to `python`, you may find `julia` quite odd in the sense that *it does not have classes*.
+For the people who learn `python` as their first programming language, and perhaps engaged in some projects related to `python`, you may find `julia` quite odd in the sense that *it does not have classes*. Instead, `julia` has a killer feature that is called multiple dispatch, meaning the exact function being execute depends on the type of arugments. This gives `julia` developers a lot of freedom in composing different software. We are going to see more detail about why this is an awesome feature later in this session.
 
 == Julia has a package manager
 
@@ -182,9 +182,13 @@ This is something that took me a while to really understand what do they mean by
 
 = Development tips
 
-== Use the REPL
+== Don't be afraid of for loop and other low level operation
 
-== Use the package manager
+As you have seen in the control flow section, `julia` JIT compiler allows you to implement things like a for-loop without worrying about its performance implication. In `python`, the typical workflow is you try to break down a task into a bunch of functions that someone has implemented a high performance c function underthehood, therefore it is always good to use libraries like `numpy` and `scipy`. However, once in a while you will stumble upon a problem that there is no obvious package to call, and it could be a stuck in `python`. People then turn to tools like `cython` to improve the performance of the performence critical bit of their code. `julia` is try to solve this "two languages problems", which is if you want high performance `python`, sometime you also need to know low level programming languages like `c`. Instead, in `julia` you never need to do that, everything is in `julia`. You are allowed to write for loops and other patterns that may not be encouraged in `python`. This liberates the developers from concerns of design pattern, instead we can focus on really delivering the algoritm.
+
+== Don't be afraid to look into someone's source code.
+
+Another merit of brough by `julia` one language system is you don't need to worry about hitting some other language when trying to dig through someone's code. Again, everything is in `julia`, and what even nicer about this is `julia` is supposed to be composable. Let say you have some function that works on a generic array type
 
 == Working with IDEs
 
@@ -193,4 +197,3 @@ This is something that took me a while to really understand what do they mean by
 == The SciML ecosystem
 
 == Flux
-
