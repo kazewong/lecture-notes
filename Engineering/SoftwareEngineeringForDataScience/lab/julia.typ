@@ -142,13 +142,100 @@ Packaging code in `julia` could take a while to get used to. Instead of creating
 == Step 0: Looking at some examples
 Have a look these three examples: #link("https://github.com/SciML/DifferentialEquations.jl")[DifferentialEquations.jl], #link("https://github.com/FluxML/Flux.jl/tree/master")[Flux.jl], and #link("https://github.com/JuliaGPU/CUDA.jl/tree/master")[CUDA.jl].
 
-== Step 1: Create the main module
+== Step 1: Moving main function to another file
 
-== Step 2: Create a sub-module
+Let's start our packaging process by moving the main functions in our file to another file. In the `src` folder, create a file called `utils.jl`. Move every functions in the `InsertionSort.jl` file to the `utils.jl` file.
+After moving the functions to the `utils.jl` file, make sure you add ```julia export``` statement to the functions you want to export. For example, you can add the following code to the `insertion_sort` function:
+
+```julia
+export insertion_sort!
+```
+
+This will allow the function to be discovered by the main module.
+
+== Step 2: Creating the main module
+
+In your `src` folder, create a file called `InsertionSort.jl`. This file will be the main module of the package. Note that this file will not contain any actual function. Instead, it will mostly contain `include` statements to include the sub-modules.
+
+In the `InsertionSort.jl` file, write the following code:
+
+```julia
+module InsertionSort
+include("insertion_sort.jl")
+end
+```
+
+== Step 3: Adding the package to the project
+
+When you are developing a package in `julia`, you want to observe the changes you make as you go. To do this, you need to add the package to the project in development mode. To do this, start the `julia` REPL, enter the package manager mode by pressing `]`, and run `dev .` to add the package to the project in development mode. This will allow your environment to see the changes you make to the package in real time. Once you are done with development, you can run `free .` to remove the package from development mode.
+
+Once you have added the package to the project in development mode, you can run `using InsertionSort` to use the package in the project. Enter the `julia` REPL and run `using InsertionSort` to check whether the package is working correctly.
 
 = Building documentation
 
-== Documenter.jl
+In almost all `julia` packages, you will find documentation page that looks similar to each other. This is because `julia` has a package called `Documenter.jl` that the community uses to generate their documentation.
+In this section, we are going to learn how to build a documentation page for your package using `Documenter.jl`.
+
+== Step 1: Setting up directory
+
+The first step is to create a directory called `docs` in the root of your project. Inside the `docs` directory, create a file called `make.jl`. This file will contain the configuration for the documentation.
+Also in the `docs` directory, create a directory called `src`. This directory will contain the markdown files for the documentation. Put a markdown file called `index.md` in the `src` directory. This file will be the main page of the documentation.
+
+In the `make.jl` file, write the following code:
+
+```julia
+using Documenter, MyPackage
+makedocs(sitename="MyPackage.jl")
+```
+
+== Step 2: Building the documentation
+
+To build the documentation, start the `julia` REPL, enter the package manager mode by pressing `]`, and run `activate .` to activate the project. Then run `using Documenter` and `include("docs/make.jl")` to build the documentation.
+
+After building the documentation, you will see a `build` directory in the `docs` directory. Inside the `build` directory, you will find an `html` file. Just to check the result immediately, open this file in a browser to see the documentation.
+
+== Step 3: Writing doc strings
+
+The next thing we want to do is to write doc strings for the functions in the package. Doc strings are written in markdown format and are placed right above the function definition. For example, you can write a doc string like this:
+
+```julia
+"""
+Insertion sort algorithm.
+
+This function sorts an array using the insertion sort algorithm.
+
+# Arguments
+- `arr::Vector{Int}`: The array to be sorted.
+
+# Examples
+julia
+arr = [3, 2, 1]
+insertion_sort!(arr)
+println(arr)  \# [1, 2, 3]
+"""
+function insertion_sort!(arr::Vector{Int})
+    # implementation
+end
+```
+
+This is different from `python` in the sense that in `python` you would write the doc string in the function body, while in `julia` you write it right above the function definition. Make sure this is structured correctly, otherwise you will not be able to generate the documentation correctly.
+
+== Step 4: Adding automatic API documentation
+
+The next step is to add automatic API documentation to the documentation page. To do this, let's add another file called `api.md` in the `src` directory. Add the following code to the `api.md` file:
+
+#raw("markdown
+# API
+
+'''@autodocs
+Modules = [InsertionSort]
+'''",
+lang: "markdown")
+
+Now you can build the documentation again to see the new API documentation page. By default, every markdown file within the `src` directory will be included in the documentation with pretty formatting. 
+
+If you just open the `html` file, you may have some buggy issue related to navigation such as wrong navigation. Instead, you can either install ```LiveServer``` then start a server with ``` julia -e 'using LiveServer; serve(dir="docs/build")```. In this 
+session, we will just start a http server with python by running ```python -m http.server --bind localhost --directory ./build```. 
 
 = Writing tests
 
