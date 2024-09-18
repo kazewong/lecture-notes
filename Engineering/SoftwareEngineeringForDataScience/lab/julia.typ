@@ -13,7 +13,7 @@
 
 `julia` is a language which I have a love-hate relationship with. If the first programming language you learned is `python`, I think `julia` offers a fresh take on what you can do with computers while having the interactiveness of `python`. It has a lot of modern features built into the language, such as its just-in-time (JIT) compilation, multiple dispatch, and metaprogramming capabilities. It also comes with its own package manager, which is quite nice to use. This makes `julia` a great "advance" language for data scientists to learn after `python`. However, the `julia` ecosystem is not nearly as mature as `python`, as a lot of its packages are maintained by small communities, and some time they lead to down some dead ends.
 
-Nonetheless, `julia` is a fun language to play with. `julia` often offers more flexibility and performance than `python`, and its ecosystem has a lot of interesting research codes which are often not found in other ecosystem. So in this lab, we are going to go through 
+Nonetheless, `julia` is a fun language to play with. `julia` often offers more flexibility and performance than `python`, and its ecosystem has a lot of interesting research codes which are often not found in other ecosystem. So in this lab, we are going to go through some of `julia`'s key features, and we will also explore how documentation and packaging work in `julia`.
 
 #outline(title: [Outline \ ], depth: 2, indent: 1em)
 
@@ -30,6 +30,8 @@ Nonetheless, `julia` is a fun language to play with. `julia` often offers more f
 For the people who learn `python` as their first programming language, and perhaps engaged in some projects related to `python`, you may find `julia` quite odd in the sense that *it does not have classes*. Instead, `julia` has a killer feature that is called multiple dispatch, meaning the exact function being execute depends on the type of arugments. This gives `julia` developers a lot of freedom in composing different software. We are going to see more detail about why this is an awesome feature later in this session.
 
 == Julia has a package manager
+
+One thing that is quite nice about `julia` is it has a tightly integrated package manager. 
 
 = Basic Syntax
 
@@ -234,7 +236,7 @@ lang: "markdown")
 
 Now you can build the documentation again to see the new API documentation page. By default, every markdown file within the `src` directory will be included in the documentation with pretty formatting. 
 
-If you just open the `html` file, you may have some buggy issue related to navigation such as wrong navigation. Instead, you can either install ```LiveServer``` then start a server with ``` julia -e 'using LiveServer; serve(dir="docs/build")```. In this 
+If you just open the `html` file, you may have some buggy issue related to navigation such as wrong navigation. Instead, you can either install `LiveServer` then start a server with ``` julia -e 'using LiveServer; serve(dir="docs/build")```. In this 
 session, we will just start a http server with python by running ```python -m http.server --bind localhost --directory ./build```. 
 
 = Writing tests
@@ -283,4 +285,5 @@ Another merit of brough by `julia` one language system is you don't need to worr
 
 == The SciML ecosystem
 
+The SciML ecosystem is a collection of packages that are designed to solve scientific machine learning problems. 
 == Flux
