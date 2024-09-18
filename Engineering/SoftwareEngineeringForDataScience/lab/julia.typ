@@ -31,7 +31,7 @@ For the people who learn `python` as their first programming language, and perha
 
 == Julia has a package manager
 
-One thing that is quite nice about `julia` is it has a tightly integrated package manager. 
+One thing that is quite nice about `julia` is it has a tightly integrated package manager. It helps you to manage your dependencies on a project to project level. In a `julia` REPL, you can enter the package manager mode by pressing `]`, and you can add, remove, and update packages in your project. This will also create a `Project.toml` and `Manifest.toml` file in your project directory, which will help you to manage your dependencies.
 
 = Basic Syntax
 
