@@ -251,9 +251,26 @@ There are two levels of writing tests in `julia`: \@test and \@testset. The purp
 
 == Step 1: Write tests for the insertion sort algorithm
 
+The way to test a function in `julia` isusing the test macro `@test`. For example, you can write a test like this:
 
+```julia
+using Test
+
+@test insertion_sort!([3, 2, 1]) == [1, 2, 3]
+```
 
 == Step 2: Group tests together with \@testset
+
+Similar to `python`, you can group tests together to let certain tests fail and still finish other tests. To do this in `julia`, we can use the `@testset` macro. For example, you can write a test set like this:
+
+```julia
+@testset "Insertion sort tests" begin
+    @test insertion_sort!([3, 2, 1]) == [1, 2, 3]
+    @test insertion_sort!([3, 2, 1, 4]) == [1, 2, 3, 4]
+end
+```
+
+Now if you start the REPL and go into package manager mode, you can run `test` to run the tests. You should see a summary of the tests and whether they passed or failed.
 
 == Running tests
 
@@ -263,7 +280,7 @@ You have already tried running tests in the previous exercise. Once again, the w
 
 == All roads lead to Rome
 
-In `python`, the intention of the language is to have only one obvious way to a solution. Although that is often violated and people dunk on their motto, it is still largely true. Creating modules, writing classes, and writing tests, they can all be done in a similar fashion. On the other hand, there are many ways to do the same thing in `julia`. We have seen the three different ways to build your package hierarchy, and the support of metaprogramming in `julia` together with multiple dispatch allows you to come with wild solutions to your problems.
+In `python`, the intention of the language is to have only one obvious way to a solution. Although that is often violated and people dunk on their motto, it is still largely true. Creating modules, writing classes, and writing tests, they can all be done in a similar fashion. On the other hand, there are many ways to do the same thing in `julia`. We have seen the three different ways to build your package hierarchy, and the support of metaprogramming in `julia` together with multiple dispatch allows you to come with wild solutions to your problems. In general, I find the development experience in `julia` to be pretty liberal.
 
 == Type stability
 
@@ -301,12 +318,11 @@ Now when you run `@code_warntype g([1.0, 2.0, 3.0])`, since the compiler is give
 
 Let's benchmark the two functions by running `@btime f()` and `@btime g([1.0, 2.0, 3.0])`. You will see that the second function is much faster than the first one.
 
-
-== Write functions
-
-This is something that took me a while to really understand what do they mean by 
-
 = Development tips
+
+== Use Revise
+
+`julia` has a package called `Revise.jl` that allows you to reload your code without restarting the REPL. Generally if you want to redefine a function, you need to quit hte REPL and enter it again. This could cause you to lose some intermediate variables you may want to keep between session. Instead, you can make your package available to Revise, then any changes you made in the files will be reflected in the REPL. To do this, first add the package you are developing by running `dev .` in the package manager mode. Then run `using Revise` in the REPL to start the Revise package.
 
 == Don't be afraid of for loop and other low level operation
 
@@ -316,11 +332,8 @@ As you have seen in the control flow section, `julia` JIT compiler allows you to
 
 Another merit of brough by `julia` one language system is you don't need to worry about hitting some other language when trying to dig through someone's code. Again, everything is in `julia`, and what even nicer about this is `julia` is supposed to be composable. Let say you have some function that works on a generic array type
 
-== Working with IDEs
-
 = Noteworthy libraries
 
-== Revise
 
 == The SciML ecosystem
 
