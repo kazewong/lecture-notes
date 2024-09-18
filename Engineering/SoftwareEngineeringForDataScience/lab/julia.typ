@@ -251,6 +251,8 @@ There are two levels of writing tests in `julia`: \@test and \@testset. The purp
 
 == Step 1: Write tests for the insertion sort algorithm
 
+
+
 == Step 2: Group tests together with \@testset
 
 == Running tests
@@ -264,6 +266,41 @@ You have already tried running tests in the previous exercise. Once again, the w
 In `python`, the intention of the language is to have only one obvious way to a solution. Although that is often violated and people dunk on their motto, it is still largely true. Creating modules, writing classes, and writing tests, they can all be done in a similar fashion. On the other hand, there are many ways to do the same thing in `julia`. We have seen the three different ways to build your package hierarchy, and the support of metaprogramming in `julia` together with multiple dispatch allows you to come with wild solutions to your problems.
 
 == Type stability
+
+`julia` relies LLVM to compile the code, and knowing the type of the variable can help the compiler specialize the code to make it more performant. Let's look an example from #link("https://m3g.github.io/JuliaNotes.jl/stable/instability/")[here] about type instability:
+
+Suppose you define a function 
+
+```julia
+x = 5.0
+
+function f()
+            s = 0
+            for val in x
+              s = s + val
+            end
+            return s
+       end
+```
+
+since x could be any type, the compiler does not know how to specialize the code, meaning it needs to use a more general code that is slower. There is a built-in macro in `julia` called `@code_warntype` that can help you to check the type stability of your code. If you run `@code_warntype f()`, you will see that some part of the input is highlighted in red, meaning that the compiler is not sure about the type of the variable.
+
+Now we define the exact same function but giving it an argument
+
+```julia
+function g(x)
+           s = zero(eltype(x))
+           for val in x
+              s = s + val
+           end
+           return s
+       end
+```
+
+Now when you run `@code_warntype g([1.0, 2.0, 3.0])`, since the compiler is given a concrete variable that the type is known, the code is specialized and the red highlight is gone.
+
+Let's benchmark the two functions by running `@btime f()` and `@btime g([1.0, 2.0, 3.0])`. You will see that the second function is much faster than the first one.
+
 
 == Write functions
 
@@ -282,6 +319,8 @@ Another merit of brough by `julia` one language system is you don't need to worr
 == Working with IDEs
 
 = Noteworthy libraries
+
+== Revise
 
 == The SciML ecosystem
 
