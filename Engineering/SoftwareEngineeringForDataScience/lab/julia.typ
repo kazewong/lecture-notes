@@ -332,10 +332,20 @@ As you have seen in the control flow section, `julia` JIT compiler allows you to
 
 Another merit of brough by `julia` one language system is you don't need to worry about hitting some other language when trying to dig through someone's code. Again, everything is in `julia`, and what even nicer about this is `julia` is supposed to be composable. Let say you have some function that works on a generic array type
 
-= Noteworthy libraries
+```julia
+function myfunc(arr::AbstractArray)
+    return sum(arr)
+end
+```
 
+If you want it to work on accelerator such as GPU, it might just work for you because `CuArray` is a subtype of `AbstractArray`, meaning you have to do nothing to make it work on GPU.
+
+= Noteworthy libraries
 
 == The SciML ecosystem
 
-The SciML ecosystem is a collection of packages that are designed to solve scientific machine learning problems. 
-== Flux
+The #link("https://sciml.ai/")[SciML] ecosystem is a collection of packages that are designed to solve scientific machine learning problems. They offers a wide range of tools for writing simulations, solving differential equations, optimization, uncertainty quantification, and more. It is great to play with if you are interested in scientific computing.
+
+== Flux and Lux
+
+#link("https://fluxml.ai/")[Flux] and #link("https://lux.csail.mit.edu/dev/")[Lux] are the big two machine learning libraries in `julia`. If you want to build more standard machine learning models, `Flux` should be a better choice. If you want something better integrated with solvers and scientific computing, `Lux` is a better choice.

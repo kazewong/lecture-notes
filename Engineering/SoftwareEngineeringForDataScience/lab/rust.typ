@@ -17,14 +17,6 @@ In case you do not realize how interesting it is, let me break it down for you. 
 
 Beside, I really had a great time coding rust in general. It takes some time to get used to the language, but once you are more familiar with rust, it is a great language to go hard core with. In this lab, we are going to go through the following topics:
 
-// 1. Some basic concept and syntax for `rust`, once again we are going to write an insertion sort algorithm in `rust`.
-// 2. Building your code with `cargo`
-// 3. Writing documentation with `rustdoc`.
-// 4. Writing tests with `cargo`
-// 5. Benchmarking with `criterion`
-// 6. Some best practices and development tips
-// 7. Some noteworthy libraries in `rust`
-
 = Key Concepts
 
 == Rust is a compiled language
@@ -36,7 +28,6 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 = Basic Syntax
 
 == Variables
-
 
 == Functions
 
