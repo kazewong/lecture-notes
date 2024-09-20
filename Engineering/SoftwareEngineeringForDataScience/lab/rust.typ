@@ -35,7 +35,7 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 
 == Borrow checker
 
-= Writing a insertion sort algorithm for the third time
+= We will write a simple MCMC algorithm this time
 
 Here we go again to write yet another insertion sort.
 
@@ -43,17 +43,11 @@ Here we go again to write yet another insertion sort.
 
 == Step 1: Clone the class repository
 
-== Step 2: Implement the sorting algorithm
+== Step 2: Implement the Metroplis-Hastings algorithm
 
 == Step 3: Test the algorithm
 
-= Packaging code
-
-== Step 1: Setting 
-
-= Building documentation
-
-= Writing tests
+= Putting the MCMC algorithm on the Web
 
 = Best practices
 
