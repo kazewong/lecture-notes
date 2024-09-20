@@ -163,7 +163,7 @@ In the `InsertionSort.jl` file, write the following code:
 
 ```julia
 module InsertionSort
-include("insertion_sort.jl")
+include("utils.jl")
 end
 ```
 
