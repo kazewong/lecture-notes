@@ -49,6 +49,15 @@ Here we go again to write yet another insertion sort.
 
 = Putting the MCMC algorithm on the Web
 
+== Step 0: Installing wasm-package
+
+== Step 1: Restructuring the code
+
+== Step 2: Scaffolding the frontend
+
+== Step 3: Calling our binary
+
+
 = Best practices
 
 = Development tips
