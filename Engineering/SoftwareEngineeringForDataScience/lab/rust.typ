@@ -25,6 +25,8 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 
 == Borrow checker for memory management
 
+The biggest innovation rust brings to the table of programming language is the concept of ownership, or more commonly referred as the borrow checker #footnote[Most people encounter the concept of ownership through the borrow checker.].
+
 = Basic Syntax
 
 == Variables
@@ -37,23 +39,64 @@ Beside, I really had a great time coding rust in general. It takes some time to 
 
 = We will write a simple MCMC algorithm this time
 
-Here we go again to write yet another insertion sort.
+To switch things up a bit, instead of coding an insertion sort yet again, we will code a simple Metropolis-Hastings algorithm in rust. More specifically, we are going to sample from a Gaussian distribution with a Gaussian proposal distribution.
 
 == Step 0: Install rust
 
+Follow the instruction on #link("https://www.rust-lang.org/tools/install")[this link]. After installing rust, you should have access to the `cargo` command in the terminal. If you are using VSCode as your IDE, you can also install the `rust-analyzer` extension to get better support for rust.
+
 == Step 1: Clone the class repository
 
-== Step 2: Implement the Metroplis-Hastings algorithm
+Clone the template repo from #link("https://github.com/KazeClasses/rust_guide.git")[this link].
+
+== Step 2: Implement the Metropolis-Hastings algorithm
 
 == Step 3: Test the algorithm
 
+While `rust` is an awesome language and give developer a lot of low level access such as GPU programming, interactive workflow such as making a plot in a data science workflow is not `rust`'s main focus. There are some visualization library in `rust` such as `plotters`, but in order to visualize the result we have generated, the script needed is linked #link("https://github.com/plotters-rs/plotters/blob/master/plotters/examples/normal-dist.rs")[here], which is quite long compared to python. For people who want to try it out, go for it. But this part, we are just going to run a scatter plot with `python` and `matplotlib`.
+
+Once you have implemented algorithm as stated in Step 2, run the following command in the terminal to generate the data:
+
+```bash
+cargo run | test.text
+```
+
+This should run your main function and dump the output to a file called `test.text`. Now, run the following python script to visualize the result:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.loadtxt("test.text")
+plt.scatter(data[:, 0], data[:, 1])
+plt.show()
+```
+
+Now you saw the message saying the code is compiled but not optimized, and you are wondering why. The reason is there are different optimization configurations that offers different trade-offs between compile time and runtime performance. To compile the code with optimization, run the following command:
+
+```bash
+cargo run --release | test.text
+```
+
+This code should run faster than the previous one.
+
 = Putting the MCMC algorithm on the Web
 
-== Step 0: Installing wasm-package
+Now you have familiarized yourself with the basic syntax of `rust`, let's get to the *really* fun part: serving your code as a client-side web application. We are going to compile our `rust` code into `WebAssembly` (`wasm`) and run it in the browser. While `WebAssembly` itself is a programming language, it is more maded to be a compilation target for other languages such as `rust`, `c`, `c++`, meaning you can write in `rust` then compile the code into `wasm`. WebAssembly provides a way to run code in the browser at near-native speed on client side.
+
+== Step 0: Installing wasm-pack
+
+The package we will use to bundle our `wasm` code such that we can use in a normal web development workflow is called `wasm-pack`. To install `wasm-pack`, run the following command:
+
+```bash
+cargo install wasm-pack
+```
 
 == Step 1: Restructuring the code
 
 == Step 2: Scaffolding the frontend
+
+Since we are going to learn more about frontend development in the future session, we are not going to get fancy here. Instead, we are going to create the bare minimum needed to demonstrate we can run our `rust` code in the browser.
 
 == Step 3: Calling our binary
 
@@ -62,4 +105,20 @@ Here we go again to write yet another insertion sort.
 
 = Development tips
 
+== Use linter/formatter/extensions
+
 = Noteworthy libraries
+
+== Bevy
+
+One thing you can do
+
+== Axum/Actix
+
+== wGPU
+
+== candle/burn
+
+== Yew/leptos/dioxus
+
+There are a number of frontend frameworks in `rust` that are under active development. The biggest frontend framework so far is #line("https://yew.rs/")[Yew], which is a frontend framework inspired by `React`. The next two that are pretty similar in community size are #line("https://leptos.dev/")["leptos"] and #line("https://dioxuslabs.com/")[dioxus]. While they all sounds pretty cool and can be fun to play with, none of them have reached version 1.0 yet. This means their API is not yet stable and could cause some hassle in your development. For this reason, I am staying with javascript for frontend development, and only use `rust` whenever I have performance critical functions.
