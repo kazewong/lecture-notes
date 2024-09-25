@@ -82,15 +82,46 @@ let first = a[0];
 
 Note that all the types we have discussed so far are fixed-length, and they are allocated to the stack, which is faster than the heap but do not allow for dynamic resizing.
 
-To create 
-
 If you want to create an "array" with variable length, you can use the `Vec` type:
+
+```rust
+let v: Vec<i32> = Vec::new();
+for i in 1..5 {
+    v.push(i);
+}
+// You can also do this: let v = vec![1, 2, 3, 4, 5];
+```
+
+The `Vec` type is a growable array type that is allocated on the heap. This means that the size of the array can change at runtime, and it is slower than the fixed-length arrays. There are similar data type like `string` and `hashmap` that are also allocated on the heap. See #link("https://doc.rust-lang.org/book/ch08-00-common-collections.html")[here for more information].
 
 == Functions
 
+To write a function in `Rust`, you need to use the `fn` keyword followed by the name of the function and the arguments it takes. Unlike `python`, you need to specify the type of the arguments and the return type of the function, otherwise the compiler will throw an error. Here is an example:
+
+```rust
+fn add(x: i32, y: i32) -> i32 {
+    x + y
+}
+```
+
+Note that the last expression in the function is the return value of the function, and you do not need to use the `return` keyword. You can still use the `return` keyword if you want to return early from the function.
+
 == Control flow
 
+Compared to all the definitions you have seen, the syntax of control flows in `Rust` is actually pretty similar to other languages. For example, to write a `for` loop in `Rust`, you can do the following:
+
+```rust
+for i in 1..5 {
+    println!("{}", i);
+}
+```
+
+This is very similar to the `for` loop in `python` and `julia`. The `1..5` syntax is a range, which can be iterated through.
+Since this is pretty simple and straight forward, we are not going to spend more time on this topic. For more detail on control flow, see #link("https://doc.rust-lang.org/book/ch03-05-control-flow.html")[here].
+
 == Scope and borrowing
+
+Now let's get to the fun part: ownership. This is `Rust` unique way to manage memory, and it is the biggest reason why others consider `Rust` a very safe language.
 
 = We will write a simple MCMC algorithm this time
 
