@@ -74,6 +74,18 @@ Moving on to arrays. The definition of an array in `Rust` is different again. In
 let a: [i32; 5] = [1, 2, 3, 4, 5];
 ```
 
+And the elements of the array can be accessed using the `[]` operator:
+
+```rust
+let first = a[0];
+```
+
+Note that all the types we have discussed so far are fixed-length, and they are allocated to the stack, which is faster than the heap but do not allow for dynamic resizing.
+
+To create 
+
+If you want to create an "array" with variable length, you can use the `Vec` type:
+
 == Functions
 
 == Control flow
