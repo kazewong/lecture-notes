@@ -35,11 +35,50 @@ The biggest innovation Rust brings to the table of programming language is the c
 
 == Variables
 
+=== Scalar types
+
+As opposed to `python` and `julia`, `Rust` requires you to declare the type of a variable when you define it #footnote[While type inference does exist in `Rust`, it is still a good practice to write the type of your variable explicitly.]. Here is an example of how you would declare a variable in `Rust`:
+
+```rust
+let x: i32 = 5;
+```
+
+In this example, we declare a variable `x` of type `i32` and assign it the value `5`. The `let` keyword is used to declare a variable, and the `:` is used to specify the type of the variable. The `i32` type is a 32-bit signed integer. You may be tempted to leave out the type declaration and let the compiler infer the type, but here is an example that shows why it is a good idea to specify the type explicitly:
+
+```rust
+let guess = "42".parse().expect("Not a number");
+```
+
+In this example, we try to convert a string into numeric type, but without specifying what is the type of the variable `guess`, the compiler will not know what type to convert the string to. This will result in a compilation error.
+
+Another thing to pay attention to is mutability. By default, variables in `Rust` are immutable, meaning you cannot change the value of the variable once it is assigned. If you want to make a variable mutable, you need to use the `mut` keyword:
+
+```rust
+let mut x = 5;
+x = 6;
+```
+=== Compound types
+
+Compound types such as tuple and array are also available in `Rust`, and they are quite different from the other languages we have seen so far. Here is an example of how you would declare a tuple in `Rust`:
+
+```rust
+let tup: (i32, f64, u8) = (500, 6.4, "a");
+println!("The value of y is: {}", tup.1);
+```
+
+You have to declare the type of each element in the tuple, and the type of the tuple itself is a combination of the types of its elements. We can access the elements of the tuple using the `.` operator followed by the index of the element we want to access.
+
+Moving on to arrays. The definition of an array in `Rust` is different again. In `python` and `julia`, you can create an array without specifying its length at initialization. However, the compiler will need to know about the length of the array at compile time:
+
+```rust
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+```
+
 == Functions
 
 == Control flow
 
-== Borrow checker
+== Scope and borrowing
 
 = We will write a simple MCMC algorithm this time
 
