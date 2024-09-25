@@ -51,6 +51,26 @@ Clone the template repo from #link("https://github.com/KazeClasses/rust_guide.gi
 
 == Step 2: Implement the Metropolis-Hastings algorithm
 
+The pseudocode for the Metropolis-Hastings algorithm is as follows:
+
++ Start at an arbitrary point `x`
++ Repeat the following steps for `n` iterations:
+  + Sample a candidate point $y$ from a Gaussian distribution with mean $x$ and variance $sigma$, $y tilde N(x, sigma^2)$
+  + Calculate the acceptance probability $p = min(1, p(y) / p(x))$, where $p$ is the target distribution
+  + Sample a uniform random number $u tilde U(0, 1)$
+  + If `u < acceptance probability`, set `x = y`
+  + Store `x` in a list
+
+There should be some starter code in the `sampler.rs` file, which contains the following functions: a struct named `State` to store the current state of the sampler, a function named `long_likelihood` as our target function, implementation of the `State` struct with a `new` function, and a `take _step` function to sample a new state from the proposal distribution. We will implement them one by one in the following section.
+
+=== Step 2.1: Creating a struct for the sampler state
+
+=== Step 2.2: Implementing the target function
+
+=== Step 2.3: Implementing the `new` function in the `State` struct
+
+=== Step 2.4: Implementing the `take_step` function in the `State` struct
+
 == Step 3: Test the algorithm
 
 While `rust` is an awesome language and give developer a lot of low level access such as GPU programming, interactive workflow such as making a plot in a data science workflow is not `rust`'s main focus. There are some visualization library in `rust` such as `plotters`, but in order to visualize the result we have generated, the script needed is linked #link("https://github.com/plotters-rs/plotters/blob/master/plotters/examples/normal-dist.rs")[here], which is quite long compared to python. For people who want to try it out, go for it. But this part, we are just going to run a scatter plot with `python` and `matplotlib`.
@@ -121,4 +141,4 @@ One thing you can do
 
 == Yew/leptos/dioxus
 
-There are a number of frontend frameworks in `rust` that are under active development. The biggest frontend framework so far is #line("https://yew.rs/")[Yew], which is a frontend framework inspired by `React`. The next two that are pretty similar in community size are #line("https://leptos.dev/")["leptos"] and #line("https://dioxuslabs.com/")[dioxus]. While they all sounds pretty cool and can be fun to play with, none of them have reached version 1.0 yet. This means their API is not yet stable and could cause some hassle in your development. For this reason, I am staying with javascript for frontend development, and only use `rust` whenever I have performance critical functions.
+There are a number of frontend frameworks in `rust` that are under active development. The biggest frontend framework so far is #link("https://yew.rs/")[Yew], which is a frontend framework inspired by `React`. The next two that are pretty similar in community size are #link("https://leptos.dev/")["leptos"] and #link("https://dioxuslabs.com/")[dioxus]. While they all sounds pretty cool and can be fun to play with, none of them have reached version 1.0 yet. This means their API is not yet stable and could cause some hassle in your development. For this reason, I am staying with javascript for frontend development, and only use `rust` whenever I have performance critical functions.
