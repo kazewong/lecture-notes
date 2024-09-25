@@ -216,8 +216,6 @@ Since we are going to learn more about frontend development in the future sessio
 
 == Bevy
 
-One thing you can do
-
 == Axum/Actix
 
 == wGPU
