@@ -351,6 +351,12 @@ If you start a runtime with the following command at the root of the project (wh
 
 == Use linter/formatter/extensions
 
+There are great IDE extension for `Rust` that can help you write better code. For example, the `Rust-analyzer` extension for `VSCode` is a great tool that will save you a lot of fustrations. It highlights codes that will rise a compilation error, and it also helps you format your code, plus a bunch of other features. Highly recommended.
+
+== Don't forget `Rust` is a low level language
+
+Coming from `python` or `julia`, you may have several habits on relying on existing packages or try to think in a vectorized way, i.e. "how should I use numpy instead of writing my own code?". This is completely valid, and more often than not encouraged, because there might be people with more experience working on the same algorithm who have made a crate already. However, in the end of the day, the only thing that matters is whether you code does what you want. If you are confident in the vision of your program and in how to implement the corresponding algorithm, doing it yourself maybe faster than looking up a solution, since `Rust`'s community has very different focus compared to other more data science focused languages.
+
 = Noteworthy libraries
 
 These libraries I mention below are not necessary considered packages for data science directly. However, they give you a good sample of what `Rust` is capable of.
@@ -361,7 +367,7 @@ These libraries I mention below are not necessary considered packages for data s
 
 == Axum/Actix
 
-`Axum` and `Actix` are the two most popular web framework in `Rust`.
+`Axum` and `Actix` are the two most popular web framework in `Rust`. If you want to build a backend that handls compute and requests, they are both pretty solid options. From what I have read around, `Axum` seems to have more support around it, tho the first framework I picked up was `Actix` simply because it has a nonstandard standalone documentation page.
 
 == wGPU -> rerun.io
 
@@ -370,6 +376,8 @@ These libraries I mention below are not necessary considered packages for data s
 In preparing this lecture note, I also discovered #link("https://rerun.io/")[rerun.io], which is mostly written in `Rust` and uses `wGPU` for rendering, it is pretty sick.
 
 == candle/burn
+
+`candle` and `burn` are two machine learning libraries that I think they are pretty interesting. `candle` has more stars on GitHub, and it is under the hugging face organization. There are many existing production level examples you can look into, even pretty recent models such as Segment Anything. On the other hand, burn is more experimental and they are trying to really do everything from scratch in `Rust`. For example, they have a lot of worked done on asynchronous execution, which could make it a very interesting option for embedded systems in the long run.
 
 == Yew/leptos/dioxus
 
