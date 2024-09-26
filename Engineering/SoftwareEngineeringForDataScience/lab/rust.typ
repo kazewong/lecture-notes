@@ -219,7 +219,7 @@ Notice the `pub` keyword in front of the struct, this is to make sure one can im
 === Step 2.2: Implementing the target function
 
 For the target distribution, let's just choose a simple Gaussian distribution with mean 0 and variance 1. Instead of specifying the probability function itself, it is often more practical to specify the log of the probability function. Try implementing the `log_likelihood` function that corresponds to
-$ log p(x) = sum_(i=0)^n x_i^2/2 $. This should be easy enough that I don't want to give away the answer here.
+$ log p(x) = -sum_(i=0)^n x_i^2/2 $. This should be easy enough that I don't want to give away the answer here.
 
 === Step 2.3: Implementing the `new` function in the `State` struct
 
