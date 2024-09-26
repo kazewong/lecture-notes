@@ -122,7 +122,9 @@ Since this is pretty simple and straight forward, we are not going to spend more
 
 == Scope and borrowing
 
-Now let's get to the fun part: ownership. This is `Rust` unique way to manage memory, and it is the biggest reason why others consider `Rust` a very safe language.
+Now let's get to the fun part: ownership. This is `Rust` unique way to manage memory, and it is the biggest reason why others consider `Rust` a very safe language. If you come from a `c` background and you maybe somewhat familiar with this syntax, but there should be a significant difference in terms of how `Rust` handle memory compared to `c`.
+
+The basic problem statement of memory management is basically you need to allocate a chunk of address to store some of the values related to your computing task, and once you are done with the task, you should release the memory back to the system.
 
 = We will write a simple MCMC algorithm this time
 
