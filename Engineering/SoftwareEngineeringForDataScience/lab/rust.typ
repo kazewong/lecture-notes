@@ -30,7 +30,7 @@ Another major difference between `Rust` and the other two languages is that `Rus
 == Borrow checker for memory management
 
 The biggest innovation Rust brings to the table of programming language is the concept of ownership, or more commonly referred as the borrow checker #footnote[Most people encounter the concept of ownership through the borrow checker.]. This is to address the age old problem of memory management. There are usually two routes different programming languages take to manage memory: garbage collection and manual memory management. Both `python` and `julia` have a garbage collector that will regularly look for unused memory and release them. This is a very convenient way to manage memory, but it comes with overheads. On the other hand, languages like `c` demands the user to manually manage the memory allocation and deallocation, which could create segmatation fault if not done correctly.
- `Rust` takes a different approach: it uses the concept of ownership to manage memory. The idea is that every value in `Rust` has a variable that is its owner, and there can only be one owner at a time. When the owner goes out of scope, the value is dropped, and the memory is deallocated. This way, `Rust` can guarantee memory safety without the overhead of a garbage collector.
+`Rust` takes a different approach: it uses the concept of ownership to manage memory. The idea is that every value in `Rust` has a variable that is its owner, and there can only be one owner at a time. When the owner goes out of scope, the value is dropped, and the memory is deallocated. We will explore this more in the next section.
 
 = Basic Syntax
 
@@ -152,9 +152,34 @@ There should be some starter code in the `sampler.rs` file, which contains the f
 
 === Step 2.1: Creating a struct for the sampler state
 
+In the `sampler.rs` file, you will see a struct named `State` that is used to store the current state of the sampler. We need three fields in this struct: a random number generator `rng`, an array containing the current state `x`, and the proposal distribution.
+
+I have import some relevant libraries on the top of the file, try to look through them and understand how why they are imported. By the end of this step, your `State` struct should look like this:
+
+```rust
+pub struct State<const N_DIM: usize> {
+    rng: StdRng,
+    pub arr: [f64; N_DIM],
+    proposal_distribution: MultivariateNormal,
+}
+```
+
+Notice the `pub` keyword in front of the struct, this is to make sure one can import the struct from other files. Another fancy syntax I put it is the `const N_DIM: usize`. This is called generics parameters in `Rust`, and it allows you to write functions or struct over a range of types in order to reduce code duplication.
+
 === Step 2.2: Implementing the target function
 
+For the target distribution, let's just choose a simple Gaussian distribution with mean 0 and variance 1. Instead of specifying the probability function itself, it is often more practical to specify the log of the probability function. Try implementing the `log_likelihood` function that corresponds to
+$ log p(x) = sum_(i=0)^n x_i^2/2 $. This should be easy enough that I don't want to give away the answer here.
+
 === Step 2.3: Implementing the `new` function in the `State` struct
+
+The next thing we have to do is to implement the body functions related to the `State` struct. The first function we are going to implement is the `new` function, which is used to initialize the state of the sampler.
+
+To initialize the random number generator, we will use the `StdRng` struct from the `rand` crate. It is always a good practice to set a seed for your random number generator, so that you can reproduce the results later. The function needed for generating such random number generator is `SeedableRng::from_seed`. Here is the #link("https://docs.rs/rand_core/latest/rand_core/trait.SeedableRng.html#tymethod.from_seed")[doc page] to this function.
+
+The next thing we need to do is to initialize the array `arr` with zeros. This step should be trivial enough so answer is not given here.
+
+Finally, we need to initialize the proposal distribution. As shown in the definition for the struct, the `proposal_distribution` is of the type `MultivariateNormal` as defined in `statrs`.
 
 === Step 2.4: Implementing the `take_step` function in the `State` struct
 
