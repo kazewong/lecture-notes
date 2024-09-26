@@ -179,9 +179,23 @@ To initialize the random number generator, we will use the `StdRng` struct from 
 
 The next thing we need to do is to initialize the array `arr` with zeros. This step should be trivial enough so answer is not given here.
 
-Finally, we need to initialize the proposal distribution. As shown in the definition for the struct, the `proposal_distribution` is of the type `MultivariateNormal` as defined in `statrs`.
+Finally, we need to initialize the proposal distribution. As shown in the definition for the struct, the `proposal_distribution` is of the type `MultivariateNormal` as defined in `statrs`. The function signature should look like this:
+
+```rust
+let proposal_distribution = MultivariateNormal::new(mean, var).unwrap();
+```
+where `mean` and `var` are vectors of length `N_DIM` and `N_DIM x N_DIM` respectively. This function returns a `Result` type, which is commonly used for handling potential errors. To extract the actual object we need, we have to unwrap the result.
 
 === Step 2.4: Implementing the `take_step` function in the `State` struct
+
+The last thing we have to implement is the `take_step` function, which is used to sample a new state.
+To sample a propsal state from the proposal distribution, use these follwoing lines:
+
+```rust
+let binding = self.proposal_distribution.sample(&mut self.rng);
+let proposal= binding.as_slice();
+```
+The next thing you need is to compute the log likelihood ratio between the proposed location and the current location, then draw a random number from a uniform distribution to decide whether to accept the proposal. If you decide to accept the proposal, then you have to update the current location to the proposed location. There are some tricky bits here which I want to leave for you to figure out. But if you get stuck in this process, the completed code after this section is in the `MCMC` branch of the template repo.
 
 == Step 3: Test the algorithm
 
