@@ -29,7 +29,8 @@ Another major difference between `Rust` and the other two languages is that `Rus
 
 == Borrow checker for memory management
 
-The biggest innovation Rust brings to the table of programming language is the concept of ownership, or more commonly referred as the borrow checker #footnote[Most people encounter the concept of ownership through the borrow checker.].
+The biggest innovation Rust brings to the table of programming language is the concept of ownership, or more commonly referred as the borrow checker #footnote[Most people encounter the concept of ownership through the borrow checker.]. This is to address the age old problem of memory management. There are usually two routes different programming languages take to manage memory: garbage collection and manual memory management. Both `python` and `julia` have a garbage collector that will regularly look for unused memory and release them. This is a very convenient way to manage memory, but it comes with overheads. On the other hand, languages like `c` demands the user to manually manage the memory allocation and deallocation, which could create segmatation fault if not done correctly.
+ `Rust` takes a different approach: it uses the concept of ownership to manage memory. The idea is that every value in `Rust` has a variable that is its owner, and there can only be one owner at a time. When the owner goes out of scope, the value is dropped, and the memory is deallocated. This way, `Rust` can guarantee memory safety without the overhead of a garbage collector.
 
 = Basic Syntax
 
@@ -267,9 +268,17 @@ These libraries I mention below are not necessary considered packages for data s
 
 == Bevy
 
+#link("https://bevyengine.org/")[Bevy] is a "data-driven" game engine that allows you to build game fully with `Rust`. Since it is still in its early days, I don't usually consider it a fully production ready game engine like `Unreal`, `Unity` or event `Godot`. However, I do find it quite educational and light weight enough to be a platform to add interactibility to a demo. Because everthing is in `Rust`, it is actually great for building data-driven demos, since you can just build your data processing code in `Rust`, and then use `Bevy` to visualize the result.
+
 == Axum/Actix
 
-== wGPU
+`Axum` and `Actix` are the two most popular web framework in `Rust`.
+
+== wGPU -> rerun.io
+
+#link("https://wgpu.rs/")[wGPU] is a graphic library for `Rust` that is based on the WebGPU API. Despite this description as a "graphic library", it is more like a low level API that allows you to interact with the GPU directly#footnote[Similar to Vulkan if people have experience with that.]. When combined with `wasm`, it allows you to ship computation through browser that run on the client's GPU. One example is this #link("https://github.com/simbleau/nbody-wasm-sim")[demon site], which uses your GPU to simulate a 2D n-body problem.
+
+In preparing this lecture note, I also discovered #link("https://rerun.io/")[rerun.io], which is mostly written in `Rust` and uses `wGPU` for rendering, it is pretty sick.
 
 == candle/burn
 
