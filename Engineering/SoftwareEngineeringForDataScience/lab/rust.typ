@@ -125,6 +125,54 @@ Since this is pretty simple and straight forward, we are not going to spend more
 Now let's get to the fun part: ownership. This is `Rust` unique way to manage memory, and it is the biggest reason why others consider `Rust` a very safe language. If you come from a `c` background and you maybe somewhat familiar with this syntax, but there should be a significant difference in terms of how `Rust` handle memory compared to `c`.
 
 The basic problem statement of memory management is basically you need to allocate a chunk of address to store some of the values related to your computing task, and once you are done with the task, you should release the memory back to the system.
+In `c`, it could be done by
+
+```c
+int *x = (int *)malloc(sizeof(int));
+*x = 5;
+free(x);
+```
+
+Here, we allocate the memory space for an integer, assign the value `5` to it, and then free the memory space. However, no matter how experience you are, you may eventually run into some memory issue. For example, if you try to access a memory that has been deallocated, you will get a segmentation fault. For example,
+
+```c
+int *x = (int *)malloc(sizeof(int));
+*x = 5;
+free(x);
+printf("%d\n", *x);
+```
+
+This code will compile, but when you run it, you will get a segmentation fault. This is because the memory space that `x` points to has been deallocated, and you are trying to access it.
+
+In `Rust`, there is a very smart approach to handle this. The idea is that every value in `Rust` has a variable that is its owner, and there can only be one owner at a time. When the owner goes out of scope, the value is dropped, and the memory is deallocated. Here is an example:
+
+```rust
+{
+    let x = 5;
+    println!("{}", x);
+}
+```
+
+In this example, the curly braces define a new scope, and the variable `x` is the owner of the value `5`. When the scope ends, which is when the closing curly brace is reached, the value `5` is dropped, and the memory is deallocated. And if you try to access the value of `x` after the scope ends, you will get a compilation error, so you will find out your mistake way before you hit it in runtime. In this way, the users do not need to worry about memory managment (as much), and we don't have to pay the price of garbage collection.
+
+Now this comes with some counterintuitive behavior for beginners. Let's see how we will 'borrow' a variable in `Rust`:
+
+```rust
+fn modify(x: &mut i32) {
+    *x = 5;
+}
+
+fn main() {
+    let mut x = 0;
+    modify(&mut x);
+    println!("{}", x);
+}
+```
+
+You see the `&` symbol in front of the variable `x` in the `modify` function. This is called a reference, and it is a way to borrow a variable in `Rust`. The `&mut` keyword means that the reference is mutable, which means that the function can modify the value of the variable. The `*` symbol is used to dereference the reference, which means to get the value that the reference points to. In this example, the `modify` function takes a mutable reference to an integer, and it sets the value of the integer to `5`. 
+If you try to remove the `&mut` keyword in the `modify` function, you will get a compilation error, because you are trying to modify a borrowed value, and that is not mutable.
+
+Now there are more intrincate examples to really show the reason why this way to manage memory is out right awsome on the #link("https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html")[official documentation]. I highly encourage you read through that as it will allow you to understand `Rust` deeper. And then #link("https://doc.rust-lang.org/book/ch16-00-concurrency.html")[the concurrency chapter] is my favorite chapter that makes this way of handling memory really shines thorugh.
 
 = We will write a simple MCMC algorithm this time
 
