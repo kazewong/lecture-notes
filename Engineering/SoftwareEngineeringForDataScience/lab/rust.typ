@@ -285,7 +285,7 @@ Now you have familiarized yourself with the basic syntax of `Rust`, let's get to
 The package we will use to bundle our `wasm` code such that we can use in a normal web development workflow is called `wasm-pack`. To install `wasm-pack`, run the following command:
 
 ```bash
-cargo install wasm-pack
+cargo add wasm-pack
 ```
 
 == Step 1: Restructuring the code
