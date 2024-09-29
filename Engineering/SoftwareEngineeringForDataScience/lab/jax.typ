@@ -108,7 +108,12 @@ The implication of this that needed to be transform has to be in `jax`. If you f
 
 == Dynamic allocation is prohibited
 
-In order to efficiently work with accelerators, `jax` aggressively hates any dynamic allocation, i.e. functions that do not know how much memory it will need at compile time. This means in your function, you are almost never allow to something that will change in shape.
+In order to efficiently work with accelerators, `jax` aggressively hates any dynamic allocation, i.e. functions that do not know how much memory it will need at compile time. This means in your function, you are almost never allow to something that will change in shape if you want to `jit` it. For example, say you want to sample from a distribution using MCMC, you may be tempted to write something along the line:
+
+```python
+def step(initial_condition, n)
+
+```
 
 == Long compilation with for loop
 
@@ -120,9 +125,42 @@ While `jax` can provide really good run time performance, and most deep learning
 
 == Equinox
 
+`Equinox` is a library that allows you to build neural network like you would in `PyTorch`. Before I discovered `Equinox`, I was using `Flax`, which is not very intuitive to me, since model parameters are external to the model, and calling functions from a particular layer is not very ergonomic. `Equinox` mirror `PyTorch` interface quite well, while preserving some of the perks one may want to use in `jax`. For example:
+
+```python
+import equinox as eqx
+
+class MyLayer(eqx.Module):
+  weights: Float[Array, "n_out n_in"]
+  biases: Float[Array, " n_out"]
+
+  def __init__(self,
+    weights: Float[Array, "n_out n_in"]
+    biases: Float[Array, " n_out"]
+  )
+    self.weights = weights
+    self.biases = biases
+
+  def __call__(self, x: Float[Array, " n_in"]):
+    return self.weights @ x + self.biases
+
+weights = jax.random.uniform(jax.random.PRNGKey(0), shape = (5, 10))
+biases = jax.random.uniform(jax.random.PRNGKey(1), shape = (5))
+layer = MyLayer()
+
+test_input = jnp.arange(10)
+layer(test_input)
+```
+
+This is a very simple example to code your own layer, and here the variable `layer` are fully compatible with `jit`, `grad` and `vmap`. Further down the road if you continue to use `jax`, your model is also fully compatible with all the distributed training tools that `jax` provides.
+
 == Diffrax
 
 = Modeling a pendulum
+
+Modeling dynamic system with deep neural network is getting a lot of attention because of its implications. Many infrastructures in our society are designed with very principle models, from turbines to electrical transformer (Not to be confused with the deep learning architecture). If deep learning can improve these models performance, it will lead to better infrastructure hence has huge societal impact.
+
+In this section, we are going to attempt to solve one of simplest dynamic problem: forward modeling a pendulum system. Now instead of providing the position and velocity of the pendulum to you, let say your lab mate is also very deep learning brain, and the person provides you image of the pendulum instead.
 
 == Step 1: Solving the dynamics
 
@@ -130,11 +168,40 @@ While `jax` can provide really good run time performance, and most deep learning
 
 == Step 3: Creating our data
 
-= Building a neural network with `Equinox`
+= Building an emulator with `Equinox`
 
-While I love using `jax` for scientific computing, in the past I found using it for building neural network quite unintuitive and clumpsy. `jax` relies on the computation we want to execute being a pure function in order to apply its code transformation capbility, so 
+Now we have our data from the previous section, let's build an emulator to model this problem. Our task is defined to be: given a snapshot of the current system, predict how would it look like in the coming time step.
 
-= Learning the coefficient of an ODE
+Since our model is 
+
+== Step 1: 
+
+= Combining VAE and ODE for better Modeling
+
+== Step 1: Building a VAE
+
+== Step 2: 
+
+== A slight rant
+
+Since I have a physics background, and I have worked on some simulations before, I have a stroke everytime there are some obviously oblivious "machine learning experts" claim their network can accelerate simulations for orders of magnitudes. I once believed in that, only to later find out the field of deep learning is filled with bogus claims and these experts have no idea what they are talking about. The setting they provide is usually follow the pattern shown here:
+
++ There are some benchmark datasets they either download from some where or generated from some codes
++ The claimed SOTA code is slow.
++ They use some neural networks to model the simulation end-to-end, i.e. emulating the simulations.
++ Loss goes down, and they show some pictures of the simulations saying they look the same.
++ Claim victory. 
+
+If you are coming from a machine learning background, this is basically standard practice. Propose some new architecture, show improvement on benchmark metrics, then you can publish in a big conference. As long as you have enough buzzwords in your paper, you should make it to a big conference with relative ease.
+And as a data science aligned person, you may have the impulsion of slapping a deep learning model to solve any problem, may it be CNN, graph, normalizing flow, or LLM. After all, that's what you learn in school. Unfortunately, despite all the hype you have heard about deep learning, as of September 2024, there are almost no deep learning solutions that are state-of-the-art, and in fact, most ML solutions are far from SOTA #footnote[For interested students, there is a fun recent paper about deep learning in CFD.].
+
+The problem is, these days training neural networks has become so fast and easy that people forgot neural network has the following disadvantage:
+
++ They are not accurate, especially in a small data regime.
++ They are expensive. A GPU is often needed to iterate through a dataset.
++ They are often uncontrollable. I have full control and guaruntee over a RK4 solver, but I cannot say the same about even an MLP.
+
+
 
 = Best practices
 
