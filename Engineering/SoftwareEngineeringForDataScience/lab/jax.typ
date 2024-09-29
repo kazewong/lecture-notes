@@ -100,13 +100,19 @@ While `jax` offers a lot of good features that you should use, it does have some
 
 == Jax only
 
-Now you must be wondering w
+Now you may be wondering how the compiler knows about the gradient of the function you have just coded up, while you are pretty this is a completely original piece code.The answer lies in the fact that ultimately the functions or "primitives" you are allowed to use to construct your original function be known to `jax` already. For example, if you have a function that uses `np.sin`, you must replace it with something `jax` is aware of its internel, in this case `jnp.sin`. If you have functions which `jax` do not know the internel of the function, then `jax` will not be able to convert the function automatically.
+
+The implication of this that needed to be transform has to be in `jax`. If you find a package online that is pretty neat, but it does not use `jax` as its dependencies, you either need to expose the internal of the code to `jax`, or just rewrite the thing in `jax`. 
 
 == Control flows
 
-== Index replacement
+== Dynamic allocation is prohibited
+
+In order to efficiently work with accelerators, `jax` aggressively hates any dynamic allocation, i.e. functions that do not know how much memory it will need at compile time. This means in your function, you are almost never allow to something that will change in shape.
 
 == Long compilation with for loop
+
+While `jax` can provide really good run time performance, and most deep learning practitioners will not be acutely aware of the compilation overhead, the compilation overhead can be pretty annoying when it comes to scientific computing. The difference between deep learning and scientific computing is despite being compute heavy, deep neural network are very simple program. The core of many neural network are just matrix multiplication, so there are not many lines to the program. On the other hand, scientific programs often come with a wide variety of forms, and there could be many interdependent modules, hence often way more lines of code involved. At its core, `jax`'s `jit` system is still running on `python`, and overhead related to `python` could make compilation slow. To make it worse, for loops are quite common in scientific computing, and if one naively write a for loop and trying to compile it in `jax`, `jax` will unroll the whole for loop and inline everything. This means the compilation time of your program scales linear as the number of loops you have. One example is when I first tried `jax` in 2018, I was writing a numerical relativity simulation in `jax`, hoping to capitalize on the use of accelerator from `jax`. While the simulation runtime is much faster than alternatives (30 minutes vs a couple of hours), the compilation time is about 2 hours long, which completely defeat the point of having a fast code. In a later section, we will see what is the recommended way to write such operation.
 
 = Ecosystem
 
