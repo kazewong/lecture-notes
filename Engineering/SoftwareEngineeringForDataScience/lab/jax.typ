@@ -160,9 +160,11 @@ This is a very simple example to code your own layer, and here the variable `lay
 
 Modeling dynamic system with deep neural network is getting a lot of attention because of its implications. Many infrastructures in our society are designed with very principle models, from turbines to electrical transformer (Not to be confused with the deep learning architecture). If deep learning can improve these models performance, it will lead to better infrastructure hence has huge societal impact.
 
-In this section, we are going to attempt to solve one of simplest dynamic problem: forward modeling a pendulum system. Now instead of providing the position and velocity of the pendulum to you, let say your lab mate is also very deep learning brain, and the person provides you image of the pendulum instead.
+In this section, we are going to attempt to solve one of simplest dynamic problem: forward modeling a pendulum system. Now instead of providing the position and velocity of the pendulum to you, let say your lab mate is also very deep learning brain, and the person provides you image of the pendulum instead. We are going to simulate a dataset of image of pendulum, then model it through two path ways: one we are only going to use a standard ML practice, another one we are going to combine ML with traditional ODE model.
 
 == Step 1: Solving the dynamics
+
+A pendulum system can be modeled as a second order ODE
 
 == Step 2: Rendering an animation
 
@@ -177,6 +179,8 @@ Since our model is
 == Step 1: 
 
 = Combining VAE and ODE for better Modeling
+
+
 
 == Step 1: Building a VAE
 
@@ -201,7 +205,7 @@ The problem is, these days training neural networks has become so fast and easy 
 + They are expensive. A GPU is often needed to iterate through a dataset.
 + They are often uncontrollable. I have full control and guaruntee over a RK4 solver, but I cannot say the same about even an MLP.
 
-
+These properties are often overlooked when an ML team is given a problem. We raise a whole generation of students and engineers that can only solve problem through neural network, GPUs, and more data. But real life problems come with constraints that may not allow you to do so. GPUs cost money, electricity costs money, collecting data costs money, and ML engineers are massively overpriced. Let's go back to the pendulum system for a second: the inaccuracy in ML makes the CNN solution unreliable. You may argue you just need more data and maybe data augmentation to make the CNN works better, but that costs money and time. A competent engineer who actually care about solving the problem should think about how to combine all the tools one has access to and solve the problem in the fastest and cheapest way possible. In this case, running the experiment is very cheap, now instead of collecting the images, I rather just measure the position and velocity of the pendulum, probably through attaching a string to readout through a smooth pulley. Once I have the data, I don't even need a computer to create a model that will certainly beat any of the machine learning model here, it's called physics buddy.
 
 = Best practices
 
