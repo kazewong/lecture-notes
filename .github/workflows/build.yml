@@ -22,6 +22,7 @@ jobs:
             Engineering/SoftwareEngineeringForDataScience/lab/python.typ
             Engineering/SoftwareEngineeringForDataScience/lab/julia.typ
             Engineering/SoftwareEngineeringForDataScience/lab/rust.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/jax.typ
 
       - name: MoveFiles
         run: |
@@ -32,6 +33,7 @@ jobs:
           mv Engineering/SoftwareEngineeringForDataScience/lab/python.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/julia.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/rust.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/jax.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
