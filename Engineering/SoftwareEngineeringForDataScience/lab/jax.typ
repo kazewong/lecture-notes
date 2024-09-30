@@ -1,7 +1,7 @@
 #set page(
   paper: "us-letter",
   header: align(center, text(17pt)[
-    *Jax*
+    *Introduction to Jax*
   ]),
   numbering: "1",
 )
@@ -11,7 +11,7 @@
 
 = Foreword
 
-My first encounter with `Jax` was in 2018
+My first encounter with `Jax` was in 2018. I was told that `jax` can be very useful for large scale trying to write a numerical relativity simulation in 
 
 = What is Jax
 
@@ -180,11 +180,13 @@ Since our model is
 
 = Combining VAE and ODE for better Modeling
 
-
+Now we have seen what a black box model is capable of, let's see if we can do better if we combine machine learning and more traditional modeling tools such as an ODE. There is two part to this problem: first, since the dimensionality of the our data is very high (the number of pixel), having an ODE to model this is going to be pretty nightmarish. So we are going to use a VAE to compress the dimensionality of the data#footnote[If I am given this problem and I need to solve it like my life depends on it, I would rather use a pose estimation model like YOLO instead of modeling in the latent space. But this is a good example to show how we can combine different libraries in `jax` to come up with a good solution.]. The next thing we are going to do is to solve a neural ode in the latent space, then decode back into the image space.
 
 == Step 1: Building a VAE
 
-== Step 2: 
+== Step 2: Modeling the latent space with neural ODE
+
+== Step 3: Projecting back into the image space.
 
 == A slight rant
 
