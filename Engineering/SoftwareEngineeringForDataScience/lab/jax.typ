@@ -160,15 +160,51 @@ This is a very simple example to code your own layer, and here the variable `lay
 
 Modeling dynamic system with deep neural network is getting a lot of attention because of its implications. Many infrastructures in our society are designed with very principle models, from turbines to electrical transformer (Not to be confused with the deep learning architecture). If deep learning can improve these models performance, it will lead to better infrastructure hence has huge societal impact.
 
-In this section, we are going to attempt to solve one of simplest dynamic problem: forward modeling a pendulum system. Now instead of providing the position and velocity of the pendulum to you, let say your lab mate is also very deep learning brain, and the person provides you image of the pendulum instead. We are going to simulate a dataset of image of pendulum, then model it through two path ways: one we are only going to use a standard ML practice, another one we are going to combine ML with traditional ODE model.
+In this section, we are going to attempt to solve one of simplest dynamic problem: forward modeling a pendulum system. Now instead of providing the position and velocity of the pendulum to you, let say your lab mate is also very deep learning brain, and the person provides you videos of the pendulum instead. We are going to simulate a dataset of image of pendulum, then model the system with a neural network. We are going to build a basic CNN to emulate the system. There is also some note on a more involved solution that combines a VAE and a neural ODE to model the system, but I figure we will not have enough time in the class so I am leaving it as optional.
 
 == Step 1: Solving the dynamics
 
-A pendulum system can be modeled as a second order ODE
+A pendulum system can be modeled as the following second order ODE:
+
+$ frac(d^2 theta, d t ^2) = -frac(g,l)sin theta $
+
+where $g$ is the acceleration due to gravity, $l$ is the length of the pendulum, and $theta$ is the angle of the pendulum. When implementing a ODE solver, we often favor solving a coupled first order ODE instead of the second order ODE, so we are going to rewrite the equation as:
+
+$ frac(d theta, d t) &= omega \
+frac(d omega, d t) &= -frac(g,l)sin theta
+$
+
+We are now ready to solve this system forward in time with `diffrax`. Take a look of the example here #link("https://github.com/patrick-kidger/diffrax?tab=readme-ov-file#quick-example")[here], and implement the `simulate_pendulum` function in `generate_data.py` in your template code.
+
+The function signature of `simulate_pendulum` is given to you, and your task is to create the relevent objects in the function and fill out the line
+
+```python
+sol = dx.diffeqsolve(
+  ...
+)
+```
+
+Make sure to include `args` such as the length of the pendulum and gravity, and remember to create `dx.Saveat` object to save the trajectory of the pendulum.
 
 == Step 2: Rendering an animation
 
+The next step is to render the simulation into images which we will use as our data. Instead of actually generating the image and save as a png, we are only going to save the output of the simulation as a `jax.numpy` array. This allows us to `vmap` over the rendering function later. You are required to fill out the `render_pendulum` function in the `generate_data.py` file.
+
+Once again the function signature of `render_pendulum` is given to you. Here is the pseudo code of the function:
+
++ Generate a grid denotating the position of each pixel with `jnp.meshgrid`
++ Given the angle of the pendulum, compute the coordinate of the pendulum with respect to the center of the image
++ Compute the distance from each pixel to the pendulum with `jnp.linalg.norm`, and set the pixel's value to be 1 if the distance is less than the radius of the pendulum, and 0 otherwise.
++ (Optional) Plot the image to see whether the pendulum is rendered correctly.
+
 == Step 3: Creating our data
+
+Now we have the simulation code and rendering code, we simply have to loop over them to generate a dataset for our machine learning model. You are required to fill out the `generate_dataset` function in the `generate_data.py` file. You may notice the function signature is a bit odd, that we require two input frames and only predict one output frames (as seen in the channel). Think a bit about why this is the case, and you are also welcome to modify the function to take one input frame and output one frame and see what happens.
+
+The thing you have to pay attention to in this function is you should use `vmap` to render the pendulum frames instead of a for loop. Another thing is since we don't necessary have to jit this complete function #footnote[You are welcome to jit the whole thing, but that is a bit more involved so we are not going to do it here.], you can use non-`jax` object such as a list.
+
+Finally, to ensure reproducibility, the random number system in `jax` works a bit differently than `numpy`. You should use `jax.random.PRNGKey` to generate random number in `jax`. Instead of `np.random.uniform`, you have to provide an additional key to the random generator, which can be generated using `jax.random.PRNGKey(your_integer)`, which acts as a seed. And instead of manually inputing all the key, you can use `jax.random.split` to generate a list of keys, then use the keys in your function. You can find more information about the random number system in `jax` #link("https://jax.readthedocs.io/en/latest/random-numbers.html")[here].
+
 
 = Building an emulator with `Equinox`
 
@@ -178,7 +214,7 @@ Since our model is
 
 == Step 1: 
 
-= Combining VAE and ODE for better Modeling
+= (Optional) Combining VAE and ODE for better Modeling
 
 Now we have seen what a black box model is capable of, let's see if we can do better if we combine machine learning and more traditional modeling tools such as an ODE. There is two part to this problem: first, since the dimensionality of the our data is very high (the number of pixel), having an ODE to model this is going to be pretty nightmarish. So we are going to use a VAE to compress the dimensionality of the data#footnote[If I am given this problem and I need to solve it like my life depends on it, I would rather use a pose estimation model like YOLO instead of modeling in the latent space. But this is a good example to show how we can combine different libraries in `jax` to come up with a good solution.]. The next thing we are going to do is to solve a neural ode in the latent space, then decode back into the image space.
 
