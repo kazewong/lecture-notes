@@ -208,11 +208,29 @@ Finally, to ensure reproducibility, the random number system in `jax` works a bi
 
 = Building an emulator with `Equinox`
 
-Now we have our data from the previous section, let's build an emulator to model this problem. Our task is defined to be: given a snapshot of the current system, predict how would it look like in the coming time step.
+Now we have our data from the previous section, let's build an emulator to model this problem. Our task is defined to be: given a snapshot of the current system, predict how would it look like in the coming time step. Since our data is in the form of images, let's try to build a convolutional neural network to model our dataset.
 
-Since our model is 
+== Step 1: Buidling the model
 
-== Step 1: 
+Building a model in `Equinox` is very similar to building a model in `PyTorch`. You should find the starter code in `models.py`. Let's see what the essential components for our model:
+
++ You should see the variable `layers` as class variable. This is where you can define relevant variables to use in your class. For this tutorial, `layers` should be sufficient. 
++ In the `__init__` function, you should put the code which creates the layers of your model. For this specific tutorial, we will use the `eqx.nn.Conv2d` layer and `jnp.tanh` as our activation. Checkout the #link("https://docs.kidger.site/equinox/api/nn/conv/")[documentation] for more information. You may also need #link("https://docs.kidger.site/equinox/api/nn/sequential/#equinox.nn.Lambda")[Lambda]
+
+After that, you just need to implement the `__call__` function, which is the forward pass of your model. Since we have access to `jit`, it is actually okay to just loop through the layers.
+
+== Step 2: Writing the training loop
+
+You should be able to find the template code in the `train_models.py` file. There are a couple of things you have to implement for the training loop to work:
+
++ Implement a mean square error as your loss function in `loss_fn`. There is a tricky bit related to how you should handle a batch of data. It is not too difficult to figure out so I will leave that as a puzzle.
++ In the main train function, you need to define an optimizer. We will use `optax` to define our optimizer, you can find information #link("https://optax.readthedocs.io/en/latest/getting_started.html#basic-usage-of-optax")[here].
++ You will have to implement the `make_step` function. This could be a bit involved, so I leave a lot of hints in the body of the function. The idea here is this function will take your model, optimization state, and a batch of data as input, then spit out a new model, new optimization state, and the loss.
++ Finally, you have to loop over a certain number of epochs to train you model.
+
+== Step 3:Train and evaluation
+
+Once you have completed the training loop, it is time to generate the data and train your model. Generate a small amount of training data using functions you have defined in `generate_data.py`, then train your model with the training loop. After you have trained your model, try making a simulation of the pendulum and compared it with a true simulation.
 
 = (Optional) Combining VAE and ODE for better Modeling
 
