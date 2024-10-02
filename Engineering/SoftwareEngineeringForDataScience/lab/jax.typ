@@ -11,15 +11,17 @@
 
 = Foreword
 
-My first encounter with `Jax` was in 2018. I was told that `jax` can be very useful for large scale trying to write a numerical relativity simulation in 
+My first encounter with `Jax` was in 2018. I was told that `jax` can be very useful for large scale trying to write a numerical relativity simulation in `jax` such that it can leverage modern accelerators to scale the compute. At the time the development experience was horrible, a lot of the documentation was pretty arcane and it was quite hard for me to debug the code. In the end the code was made, but it was nothing more than a fun side project for me to try out `jax`. Over the years, `jax` has seen a lot of community effort in improving its usability and expanding its capability. There is a growing community which is interested in adding `jax` into their scientific computing workflow, and I basically use `jax` for most of my deep learning and scientific computing projects. In this tutorial, hopefully I will be able to convert you to switch to `jax`, since I think that is straightly beneficial.
 
 = What is Jax
 
 == python on steroid
 
-Syntax-wise `jax` is `python`, even though there are patterns that are encouraged and discouraged in `jax` that requires a different mindset comparing to a normal `python` code.
+`jax` is a code transformation library that can do a lot of magic behind the scene, and we will get to that very soon. Syntax-wise `jax` is `python`, even though there are patterns that are encouraged and discouraged in `jax` that requires a different mindset comparing to a normal `python` code, you are allowed to write `numpy`-like code and enjoy all the benefits `jax` has to offer. This is a huge advantage comparing to other options such as writing `CUDA` code, since it basically does not require you to learn a new language.
 
 == XLA
+
+One of the original advantage of `jax` is it is codeveloped with `XLA`, which stands for accelerated linear algebra. `XLA` is a compiler that is designed to compile efficient code for accelerators, such as GPUs and TPUs. The idea is to take a high level code, then compile it into a low level code that can be executed on the accelerator. It provides almost hand-optimized `CUDA` code performance in a majority of cases, while not requiring the user to learn how to program in `CUDA`. These days `XLA` has moved on to a standalone project which in principle can be integrated with `PyTorch`, but I think `jax` integration is still the tightest.
 
 = Core features
 
@@ -91,7 +93,7 @@ y_batch = y[None].repeat(10, axis=0)
 jax.vmap(my_function)(x_batch, y_batch)
 ```
 
-`jax.vmap` takes a function as an argument then return a function that add a batch dimension to all of the function's argument, and return that new function as its result. If you want to map over different axis of your input, you can use the `in_axes` argument in `vmap` You can find more detail in the #link("")[link]. 
+`jax.vmap` takes a function as an argument then return a function that add a batch dimension to all of the function's argument, and return that new function as its result. If you want to map over different axis of your input, you can use the `in_axes` argument in `vmap` You can find more detail in the #link("https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html")[link]. 
 If you have ever come across the function `np.vectorize`, you can read from their documentation that `np.vectorize` is actually just a for-loop. While `vmap` achieve the same thing in terms of function signature, the underlying computation is completely different. Since `np.vectorize` is essentially a for-loop, the runtime of the vectorized function is linear in the batch dimension. However, `vmap` add extra annotation to the function before dispatching it to the `XLA`, telling the runtime the newly added batch axis can be parallelized, a vmapped function could be executed just as fast as the original function in most cases, as long as you are not memory bounded by your resource. This means we can acheive much higher throughput while not paying extra time cost. The cost we have to be mindful here is memory, since you are essentially parallelizing over one axis, you are computing more stuff at one time, meaning you will need more memory to store the input and the result.
 
 = Sharp bits
@@ -106,14 +108,20 @@ The implication of this that needed to be transform has to be in `jax`. If you f
 
 == Control flows
 
+Writing control flows in `jax` could be a bit tricky as well. Some of the control flow such as `if` is not allowed if you want to `jit` a function. You may want to consult #link("https://jax.readthedocs.io/en/latest/notebooks/Common_Gotchas_in_JAX.html#control-flow")[this page] if you want to add control flows to your function. In general, you should compose control flows using the primitives provided in #link("https://jax.readthedocs.io/en/latest/jax.lax.html#control-flow-operators")[here].
+
 == Dynamic allocation is prohibited
 
 In order to efficiently work with accelerators, `jax` aggressively hates any dynamic allocation, i.e. functions that do not know how much memory it will need at compile time. This means in your function, you are almost never allow to something that will change in shape if you want to `jit` it. For example, say you want to sample from a distribution using MCMC, you may be tempted to write something along the line:
 
 ```python
-def step(initial_condition, n)
-
+def step(x, n):
+  for i in jnp.arange(n):
+      x += i
+  return x
 ```
+
+This will fail to compile if you try to `jit`, the reason is the size of the `samples` list is not known at compile time, and the compiler cannot allocate memory for it. The way to fix this is to use `jax.lax.scan`, which we will see an example of this later.
 
 == Long compilation with for loop
 
@@ -122,6 +130,8 @@ While `jax` can provide really good run time performance, and most deep learning
 = Ecosystem
 
 == jaxtyping
+
+`jaxtyping` is a package to add type hints for `jax` arrays and `pytree`. Instead of annotating an array as `jnp.ndarray`, you can do something like `Float[Array, "n m"]`, which is a type hint for a 2D array with `n` rows and `m` columns. This is very useful since shape mismatch is one of the most common error in deep learning workflows, and having a type hint for the shape of the array can help you catch the error early. You can find more information about `jaxtyping` #link("https://github.com/patrick-kidger/jaxtyping")[here].
 
 == Equinox
 
@@ -232,15 +242,15 @@ You should be able to find the template code in the `train_models.py` file. Ther
 
 Once you have completed the training loop, it is time to generate the data and train your model. Generate a small amount of training data using functions you have defined in `generate_data.py`, then train your model with the training loop. After you have trained your model, try making a simulation of the pendulum and compared it with a true simulation.
 
-= (Optional) Combining VAE and ODE for better Modeling
+// = (Optional) Combining VAE and ODE for better Modeling
 
-Now we have seen what a black box model is capable of, let's see if we can do better if we combine machine learning and more traditional modeling tools such as an ODE. There is two part to this problem: first, since the dimensionality of the our data is very high (the number of pixel), having an ODE to model this is going to be pretty nightmarish. So we are going to use a VAE to compress the dimensionality of the data#footnote[If I am given this problem and I need to solve it like my life depends on it, I would rather use a pose estimation model like YOLO instead of modeling in the latent space. But this is a good example to show how we can combine different libraries in `jax` to come up with a good solution.]. The next thing we are going to do is to solve a neural ode in the latent space, then decode back into the image space.
+// Now we have seen what a black box model is capable of, let's see if we can do better if we combine machine learning and more traditional modeling tools such as an ODE. There is two part to this problem: first, since the dimensionality of the our data is very high (the number of pixel), having an ODE to model this is going to be pretty nightmarish. So we are going to use a VAE to compress the dimensionality of the data#footnote[If I am given this problem and I need to solve it like my life depends on it, I would rather use a pose estimation model like YOLO instead of modeling in the latent space. But this is a good example to show how we can combine different libraries in `jax` to come up with a good solution.]. The next thing we are going to do is to solve a neural ode in the latent space, then decode back into the image space.
 
-== Step 1: Building a VAE
+// == Step 1: Building a VAE
 
-== Step 2: Modeling the latent space with neural ODE
+// == Step 2: Modeling the latent space with neural ODE
 
-== Step 3: Projecting back into the image space.
+// == Step 3: Projecting back into the image space.
 
 == A slight rant
 
@@ -265,12 +275,37 @@ These properties are often overlooked when an ML team is given a problem. We rai
 
 = Best practices
 
+== Think like a GPU
+
+If you intend to run something on the GPU, it is helpful to think like a GPU. The way GPU (or other typical accelerators) work is through "packing" compute, meaning they usually manipulate a large batch of data at once. The clock speed of a GPU core is usually slower than a CPU core, but the GPU has many more cores. So when you write a program in jax, you should thinkg about how to execute as many unit of compute in parallel as possible. Say if your GPU can do 100 units of compute per cycle, if you do not saturate that bandwidth, the extra cycles are simply "wasted". So when you write a `jax` program, you should always ask yourself whether the way you write it is designed for a GPU.
+
 == Avoiding in-place mutation
+
+Speaking of think like a GPU, you should avoid in-place mutation. In-place mutation is when you change the value of a variable without creating a new variable, usually happens when you mutate the values within an array, i.e. `x[0] = 1`. You can see how this is not very GPU friendly, since it requires the computer to go to a very specific location and operate locally, instead of applying a lot of changes everywhere. In `jax`, in-place mutation is not allowed, and if you try to do so, you will get an error. If you have to mutate some values, instead of `x[0] = 1`, you have to do `x = x.at[0].set(1)`.
 
 == Scan your for loop
 
-== Think like a GPU
+We have mentioned writing a for-loop can result in long compilation time when `jit`-ing the function. One way to avoid this is to use `jax.lax.scan`. `jax.lax.scan` is a function that allows you to write a for-loop in a way that is more friendly to the compiler. Essentially it is telling the compiler it doesn't not have to unroll the loop and just compile the body of the loop once. The syntax of `jax.lax.scan` is a bit weird. While the official documentation is #link("https://jax.readthedocs.io/en/latest/_autosummary/jax.lax.scan.html")[here], here is an example of how you can use it:
+
+```python
+import jax
+import jax.numpy as jnp
+
+def body(carry, x):
+  return carry + x, carry
+
+def scan_example(x):
+  return jax.lax.scan(body, 0, x)
+
+scan_example(jnp.arange(10))
+```
+
+The output of the function is `(45, array([0, 1, 3, 6, 10, 15, 21, 28, 36, 45]))`. The first element of the tuple is the aggregated value of the loop, and the second element is the value of the loop at each step.
 
 == jit at top level
 
+When you transform a function with `jit`, it looks through your code and try to optimize the code before compiling it. So if you `jit` at the highest level possible, the compiler has more information to compile more efficient code. Because of this, usually I save the `jit` until the very last moment.
+
 == check your gradient
+
+Sometime you may have some wacky result in script and you have checked everything you have thought off. You may have printed the value of the function and see not problem at all. The thing is sometimes the function itself can be well defined by the gradient can be `nan`. For example, if you use the function `nansum`, which sum the array while ignoring `nan`, the gradient of the final function can be broken and may not be as useful as intended.
