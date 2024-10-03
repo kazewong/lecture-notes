@@ -164,7 +164,14 @@ layer(test_input)
 
 This is a very simple example to code your own layer, and here the variable `layer` are fully compatible with `jit`, `grad` and `vmap`. Further down the road if you continue to use `jax`, your model is also fully compatible with all the distributed training tools that `jax` provides.
 
-== Diffrax
+
+== optax
+
+`optax` is a library that provides a lot of optimization algorithms for `jax`. You will find a lot of the common optimization algorithms such as `adam` in `optax`. Using optax is slightly different from `PyTorch`, in the sense that the optimizer states need to be initialized and passed around explicitly, and you have to do something like `params = optax.apply_updates(params, updates)` to change the parameers. We will see an example of how to use `optax` in the next section.
+
+== diffrax
+
+`diffrax` is library for solving differential equations in `jax`. There are a bunch of cool features and solvers in `diffrax`. And here is the coolest thing about having `jax` libraries: most of the code should be composable with all the `jax` features we have seen. This means your _solvers_ and _optimizer_ are vmappable, jittable, and probably differentiable. This implies you can train multiple neural networks at the same time on a single GPU, and many more cool stuffs.
 
 = Modeling a pendulum
 
