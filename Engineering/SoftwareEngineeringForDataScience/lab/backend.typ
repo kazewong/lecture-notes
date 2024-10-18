@@ -1,24 +1,33 @@
 #set page(
   paper: "us-letter",
   header: align(center, text(17pt)[
-    *Database and data engineering*
+    *Building an API server*
   ]),
   numbering: "1",
 )
 
-#import "../style.typ": style_template
+#import "./style.typ": style_template
 #show: doc => style_template(doc,)
 
-= Background
+= Foreword
 
 In my experience, collecting and interfacing with data are usually by far the most difficult part of a project, and the single most significant factor which determine whether some downstream application will work or not. 
 
-= postgresql
 
-= data management software
+= Building a minimal server with flask
 
-= Exercises
+== RESTful API
 
-= Conclusion
+== Building routes
 
-= References
+== Environment variables
+
+
+
+= Backend as a service product
+
+== Firebase 
+
+== Supabase
+
+== AWS amplify
