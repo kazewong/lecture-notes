@@ -126,12 +126,112 @@ Isn't this simple? We will go through the basic of Svelte in the next section.
 
 = Buidling your website with SvelteKit
 
-== Write your first component
+== Setting up the project
+
+Make sure you have `node` and `npm` installed on your machine. You can check if you have them installed by running `node -v` and `npm -v` in your terminal. If you don't have them installed, you can download them from #link("https://nodejs.org/en/download/")[here]. Then you should be able to find the step by step guide for this tutorial on #link("https://github.com/KazeClasses/svelte_guide/tree/main")[this repository].
+
+== Write a Hero page for yourself
+
+In this session, we are going to write a simple hero page for yourself. A hero page is the first page that the user sees when they visit your website. We are going to write a simple hero page that explores a number of svelte features following the steps below:
+
+=== Defining and using a variable
+
+The first thing we are going to do is to checkout the basic of writing a svelte file such as defining variables and showing them to the user. Look at your `src/routes/+page.svelte` file, and you should see some bolier plate codes like:
+
+```html
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+```
+
+Replace them with the following code:
+
+```html
+<script>
+  let name = 'world';
+</script>
+
+<h1>Hello {name}!</h1>
+```
+
+If you have `npm run dev` running in your terminal, you should see the changes in your browser. You should see a heading that says "Hello world!". You can change the value of `name` to anything you want, and the heading will change accordingly.
+
+=== Importing components
+
+Sometimes you may find yourself reusing the same code in different places. In this case, you can create a component and reuse it. And you may find yourself wanting to pass some data to the component. In this case, you can use props. Let's create a component that takes a `name` prop and display it. Create a new file `src/components/Hello.svelte` and write the following code:
+
+```html
+<script>
+  export let name;
+</script>
+
+<h1>Hello {name}!</h1>
+```
+
+Then you can use this component in your `src/routes/+page.svelte` file like this:
+
+```html
+<script>
+  import Hello from '$lib/components/Hello.svelte';
+</script>
+
+<Hello name="world" />
+<Hello name="svelte" />
+```
+
+=== Logics
+
+In some situation you may want to display different content or style based on some condition. You can use `if` statement to do this. Let's say you want to display a different message based on the value of `name`. You can do this like this:
+
+```html
+<script>
+  let name = 'world';
+</script>
+  
+{#if name === 'world'}
+  <h1>Hello {name}!</h1>
+{:else}
+  <h1>I don't say hello to anyone else</h1>
+{/if}
+```
+
+Try changing this snippet to work with the `Hello` component we created earlier. There are more logics you can use in Svelte, such as `each`, `await`, `then`, `catch`, etc. You can find more information about them in the #link("https://svelte.dev/docs/logic-blocks")[Svelte documentation].
+
+=== Events and binding
+
+Now it is time to add a bit of interactivity to our page. Let's add a button that track the number of times it is clicked. You can do this like this:
+
+```html
+<script>
+  let count = 0;
+
+  function handleClick() {
+    count += 1;
+  }
+</script>
+
+<button on:click={handleClick}>
+  Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+```
+
+This is a way to let data flow from the javascript to the html for display. However, sometimes you may want to go the other way around
+Another common use case is to bind the value of an input field to a variable. You can do this like this:
+
+```html
+<script>
+  let name = '';
+</script>
+
+<input bind:value={name} placeholder="Enter your name" />
+<p>Hello {name}!</p>
+```
+
+Now given the code above, try to make a page that says hello to the user when they enter their name in the input field, together with a poke button. If the poke button is poked more than 10 times, the page should say "You are annoying".
 
 == Setting up routes
 
-== Interactivity
+== Loading data
 
-== Animation
+== Forms
 
-= Design pattern
+
