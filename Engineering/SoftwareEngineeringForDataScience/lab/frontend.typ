@@ -230,6 +230,63 @@ Now given the code above, try to make a page that says hello to the user when th
 
 == Setting up routes
 
+Often we want to have multiple pages in our website. This is usually done through the concept of route. A route is a path that the user can visit to see a different page. In SvelteKit, you can define routes in the `src/routes` folder. If you want to create a new page, you would create a new folder in the `src` folder, then add a `+page.svelte` file in it. To test this out, let's try to add a simple navigation bar to our website.
+
+=== Creating a navigation bar
+
+Create a new file `src/components/Navbar.svelte` and write the following code:
+
+```html
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+```
+
+Then you can include this component in your `src/routes/+page.svelte` file like this:
+
+```html
+<script>
+  import Navbar from '$lib/components/Navbar.svelte';
+</script>
+
+<Navbar />
+```
+
+Now you should see a navigation bar at the top of your page. If you click on the "About" link, you should see a 404 page. This is because we have not defined the route for the "About" page yet. Let's do that now.
+
+=== Defining the About page
+
+Create a new folder `src/routes/about` and add a `+page.svelte` file in it. Write the following code in the `src/routes/about/+page.svelte` file:
+
+```html
+<h1>About page</h1>
+<p>This is the about page</p>
+```
+
+Now if you click on the "About" link in the navigation bar, you should see the about page. In your browser, you should see the URL change to `http://localhost:5173/about`.
+
+== Layouts
+
+If you have navigate to the "About" page, you may notice that the navigation bar is missing. This is because the layout of the "About" page is different from the layout of the "Home" page. A layout file defines the layout of a page, such as the header, footer, and navigation bar. In SvelteKit, a layout file for a route can be defined with the `+layout.svelte` file in the route folder. And the layout file will be applied to all the child routes of the route folder. Let's create a layout file for our website. Let's move our navbar to the top level layout file.
+
+Create a new file `src/routes/+layout.svelte` and move the navbar code to it:
+
+```html
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<slot />
+```
+
+The `<slot />` tag is where the content will be inserted. Now you can remove the navbar from the `src/routes/+page.svelte` file. If you navigate to the "About" page now, you should see the navigation bar at the top of the page.
+
 == Loading data
 
 == Forms

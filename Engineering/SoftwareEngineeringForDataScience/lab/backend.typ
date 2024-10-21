@@ -22,12 +22,6 @@ In my experience, collecting and interfacing with data are usually by far the mo
 
 == Environment variables
 
+= Exporting neural network models
 
-
-= Backend as a service product
-
-== Firebase 
-
-== Supabase
-
-== AWS amplify
+= Integrating docker service 
