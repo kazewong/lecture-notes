@@ -15,6 +15,8 @@ In this session, we are going to learn about how to build a modern web app front
 This is probably the most important part of this course. One reason is because the frontend is what your users see and interact with, so by extension it is what your user care. No matter how great your package is, if the user cannot use it or do not want to use it, it is not a good software. I am over commiting the term "frontend" here, because I am not only talking about the user interface, but also the user experience. The user interface is what the user see, while the user experience is how the user feel when they are using your software. A lot of scientific software do not aim to have a web frontend to it, and that is completely legitimate since the targeted users are other scientists and researchers who will look into their code. Nonetheless, a good user experience is not excusable even for the packages that do not require a web frontend.
 Another reason, perhaps a more legitimate reason, is because there are simply too many options to build your frontend. There are many javascript frameworks to choose from, `React`, `Angular`, `Vue` are the top three javascript frames, and I have dealt with all three of them. You can also write your frontend with `rust`, and there are frameworks like `yew`, `leptos`, `dioxus`. Recently `python` make a big splash in frontend development because of `FastHTML`. This list goes on and on. Then once your are done with choosing your javascript frameworks, it is time to choose your CSS framework. There are `Bootstrap`, `Tailwind`, `Material-UI` just to name a few. *Then*, you can choose your *metaframework* to handle routing and bundle your website, popular choices are `Next.js`, `Gatsby`, `Nuxt.js`, and here we go again. The point is, there are way too many choices, and I have spent so many hours just crawling through this holy war battlefield to try to build my frontend for some projects. In the end, it does not matter to the customer what framework you choose, as long as it works and it looks good, it is a good frontend. The reason I think this session is the most important one, it is because it has the biggest margin of time saving for you. Out of all the experience, I find `Svelte` to be the most fun to work with, and can convert what I think into what I see the most efficiently, so we are going to stick with the `Svelte` framework.
 
+*After I made this note, Svelte 5 came out and change some of its syntax. I migrated some of the Svelte part to Svelte 5, but there could be bug here and there. If things go south, then consult the Svelte tutorial.*
+
 = Key concept
 
 There are 3 main components in building a frontend: HTML, CSS, and Javascript. HTML defines the structure and content of the web page, CSS defines the style of the web page, and Javascript defines the interactivity of the web page.
@@ -116,7 +118,7 @@ Fundamentally Javascript is a language, but really when you hear about Javascrip
 
 ```html
 <script>
-  let name = 'world';
+  let name = $state('world');
 </script>
 
 <h1>Hello {name}!</h1>
@@ -147,7 +149,7 @@ Replace them with the following code:
 
 ```html
 <script>
-  let name = 'world';
+  let name = $state('world');
 </script>
 
 <h1>Hello {name}!</h1>
@@ -161,7 +163,7 @@ Sometimes you may find yourself reusing the same code in different places. In th
 
 ```html
 <script>
-  export let name;
+  let {name} = $props();
 </script>
 
 <h1>Hello {name}!</h1>
@@ -275,20 +277,19 @@ If you have navigate to the "About" page, you may notice that the navigation bar
 Create a new file `src/routes/+layout.svelte` and move the navbar code to it:
 
 ```html
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-  </ul>
-</nav>
+<script>
+  import Navbar from '$lib/components/Navbar.svelte';
+</script>
+
+<Navbar />
 
 <slot />
 ```
 
 The `<slot />` tag is where the content will be inserted. Now you can remove the navbar from the `src/routes/+page.svelte` file. If you navigate to the "About" page now, you should see the navigation bar at the top of the page.
 
-== Loading data
-
-== Forms
+= Adding your portrait and style
 
 
+
+= Add a plot
