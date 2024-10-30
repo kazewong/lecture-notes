@@ -397,8 +397,7 @@ Now we are going to add some style to our website with `Tailwind CSS`.
 1. Follow steps 4 -7 in the #link(
     "https://tailwindcss.com/docs/guides/sveltekit",
   )[Tailwind CSS documentation] to install Tailwind CSS in your project.
-2. You should see the font becomes very different already once you run `npm run
-  dev`.
+2. You should see the font becomes very different already once you run `npm run dev`.
 3. Now let's try to change the font size of the hello world heading to 4xl. You can
   do this by adding the `text-4xl` class to the heading like this:
 
@@ -412,8 +411,8 @@ Now we are going to add some style to our website with `Tailwind CSS`.
 ```html
 <h1 class="text-4xl text-blue-500">Hello {name}!</h1>
 ```
-5. The next thing we can do is to center the heading. You can do this by adding
-  the `text-center` class to it:
+5. The next thing we can do is to center the heading. You can do this by adding the
+  `text-center` class to it:
 
 ```html
 <h1 class="text-4xl text-center text-blue-500">Hello {name}!</h1>
@@ -421,7 +420,19 @@ Now we are going to add some style to our website with `Tailwind CSS`.
 
 = Adding a reactive plot
 
-Now we are going to add a plot to the main page,
+Now we are going to add a plot to the main page using D3.js.
+
+1. Here is an example on #link("https://svelte.dev/playground/bar-chart?version=5.1.4")[Svelte's website]. Copy this to your `src/routes/+page.svelte` file.
+
+2. The next step is to install `d3` and `d3-scale` in your project. You can do this by running the following command in your terminal:
+
+```bash
+npm install d3 d3-scale
+```
+
+3. After this, add an input field to the page that allows the user to change the data of the plot. Bind the input to one of the birth rate and choose number input type.
+
+4. Click and see if it works!
 
 = Other tools
 
