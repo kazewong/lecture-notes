@@ -24,6 +24,7 @@ jobs:
             Engineering/SoftwareEngineeringForDataScience/lab/rust.typ
             Engineering/SoftwareEngineeringForDataScience/lab/jax.typ
             Engineering/SoftwareEngineeringForDataScience/lab/containerization.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/frontend.typ
 
       - name: MoveFiles
         run: |
@@ -36,6 +37,7 @@ jobs:
           mv Engineering/SoftwareEngineeringForDataScience/lab/rust.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/jax.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/containerization.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/frontend.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
