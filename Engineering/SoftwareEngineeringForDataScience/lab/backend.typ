@@ -15,13 +15,15 @@ In my experience, collecting and interfacing with data are usually by far the mo
 
 = What do we need from a basic backend?
 
-== 
+A backend contains much of the business logic of an online application. Tasks which require more computing power than a clients device can provide should take place on a backend, as well as tasks which require sensitive data that we do not want to expose to the user. The backend may include a database and any database queries.
 
 = Building an image classifier backend with flask and yolo
 
+First, we'll set up the basic structure of our Flask application. Create a directory `yolo`. Inside this directory, create the following files.
+
 == Step 1: Setting up the Flask application
 
-First, we'll set up the basic structure of our Flask application. Create a file named `__init__.py` with the following content:
+Create a file named `__init__.py` with the following content:
 
 ```python
 import os
@@ -63,8 +65,9 @@ This sets up the basic Flask application, registers blueprints for database and 
 
 == Step 2: Creating the database service
 
-Next, we'll create a database.py file to handle database operations:
+Next, we'll create a `database.py` file to handle database operations:
 
+```python
 from flask import Blueprint, request, jsonify, current_app
 import psycopg
 import psycopg.rows
@@ -107,12 +110,15 @@ def add_class():
             (data.get("class"),)
         )
     return jsonify({"message": "Class added successfully"}), 201
+```
+
 This service provides routes for creating a table, getting all classes, and adding a new class.
 
 == Step 3: Implementing the classifier service
 
-Create a classifier.py file for the image classification functionality:
+Create a `classifier.py` file for the image classification functionality:
 
+```python
 from flask import Blueprint, request, jsonify
 from ultralytics import YOLO
 import io
@@ -146,12 +152,17 @@ def classify():
         formatted_results.append(formatted_result)
     
     return jsonify(formatted_results)
+```
+
 This service provides a route for classifying images using the YOLO model.
 
-== Step 4: Setting up the environment
+= Setting up the environment and running the services
 
-Create a docker-compose.yml file to set up the required services:
+== Step 4: Docker Compose file
 
+Back in the top-level directory, create a docker-compose.yml file to set up the required services:
+
+```yaml
 services:
   postgrest:
     image: postgrest/postgrest
@@ -160,8 +171,6 @@ services:
     environment:
       PGRST_DB_URI: postgres://app_user:password@db:5432/app_db
       PGRST_OPENAPI_SERVER_PROXY_URI: http://127.0.0.1:3000
-    depends_on:
-      - db
 
   postgres:
     image: postgres
@@ -179,18 +188,39 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: your_email@example.com
       PGADMIN_DEFAULT_PASSWORD: your_password
+```
+
 This sets up PostgreSQL, PostgREST, and pgAdmin services.
 
-== Step 5: Running the application
+== Step 5: Install the package manager UV
+
+For this lab, we will use the package manager UV to manage our virtual environment and python packages. See https://docs.astral.sh/uv/getting-started/installation/ for installation instructions. If you are on Mac or Linux, you will run:
+
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+After UV is installed, we can download all the dependencies specified in the `pyproject.toml` file by running `uv sync`. Then activate the environment with `source .venv/bin/activate`.
+
+There is one package which requires a little more, so run `uv pip install "psycopg[binary]"`
+
+=== Alternate method
+
+If uv has errors, you can do this manually.
+
+`pip install "psycopg[binary]"`
+
+then
+
+`pip install flask flask-cors ultralytics pillow`
+
+== Step 6: Running the application
 
 Start the Docker services:
 
-docker-compose up -d
-Install the required Python packages:
+`docker-compose up -d`
 
-pip install flask flask-cors psycopg ultralytics pillow
 Set up the environment variables (you may want to create a .env file):
 
+```
 export FLASK_APP=your_app_name
 export FLASK_ENV=development
 export POSTGRES_HOST=localhost
@@ -198,12 +228,12 @@ export POSTGRES_PORT=5432
 export POSTGRES_USER=app_user
 export POSTGRES_PASSWORD=password
 export POSTGRES_DB=app_db
+```
+
 Run the Flask application:
 
-flask run
-Your image classifier backend is now up and running! You can use the /database endpoints to manage classes and the /classifier/classify endpoint to classify images.
+`flask --app yolo run` (or `python3 -m flask --app yolo run`)
 
-// ... existing code ...
+In a new terminal tab, run the frontend. Navigate to the frontend directory, then do `npm install` and `npm run dev`. It will tell you the URL to go to, mine was `http://localhost:5173/`
 
-
-This tutorial provides a step-by-step g
+Your image classifier backend is now up and running! Navigate to that url, plug in your favorite image and see what it classifies it as.
