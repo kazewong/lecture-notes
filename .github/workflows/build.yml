@@ -25,6 +25,7 @@ jobs:
             Engineering/SoftwareEngineeringForDataScience/lab/jax.typ
             Engineering/SoftwareEngineeringForDataScience/lab/containerization.typ
             Engineering/SoftwareEngineeringForDataScience/lab/frontend.typ
+            Engineering/SoftwareEngineeringForDataScience/lab/backend.typ
 
       - name: MoveFiles
         run: |
@@ -38,6 +39,7 @@ jobs:
           mv Engineering/SoftwareEngineeringForDataScience/lab/jax.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/containerization.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/frontend.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/backend.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy
