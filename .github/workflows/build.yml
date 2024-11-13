@@ -26,7 +26,7 @@ jobs:
             Engineering/SoftwareEngineeringForDataScience/lab/containerization.typ
             Engineering/SoftwareEngineeringForDataScience/lab/frontend.typ
             Engineering/SoftwareEngineeringForDataScience/lab/backend.typ
-
+            Engineering/SoftwareEngineeringForDataScience/lab/manim.typ
       - name: MoveFiles
         run: |
           mkdir pdfs
@@ -40,6 +40,7 @@ jobs:
           mv Engineering/SoftwareEngineeringForDataScience/lab/containerization.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/frontend.pdf pdfs/
           mv Engineering/SoftwareEngineeringForDataScience/lab/backend.pdf pdfs/
+          mv Engineering/SoftwareEngineeringForDataScience/lab/manim.pdf pdfs/
   
       # Deploy to local repo
       - name: Deploy

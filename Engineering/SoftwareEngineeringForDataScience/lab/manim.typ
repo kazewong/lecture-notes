@@ -11,15 +11,23 @@
 
 = Intro
 
-Visualizations are essential when trying to communicate scientific results. While text is often required to be mathematically precise, giving intuition and an initial understanding is far easier with a good picture. The `manim` package allows us to take this one step further with animations of mathematical concepts. If you have seen the Youtube channel 3blue1brown (https://www.youtube.com/c/3blue1brown), these animations will look familiar because that is what he uses. Today we will learn some of the basics.
+Visualizations are essential when trying to communicate scientific results. While text is often required to be mathematically precise, giving intuition and an initial understanding is far easier with a good picture. The `manim` package allows us to take this one step further with animations of mathematical concepts. If you have seen the Youtube channel #link("https://www.youtube.com/c/3blue1brown")[3blue1brown], these animations will look familiar because that is what he uses. Today we will learn some of the basics.
 
 == Installation
 
-Follow the installation instructions at https://docs.manim.community/en/stable/installation.html. If you have `conda`, I recommend that. Otherwise you can install it directly. 
+The starting code for this lab comes with a `pyproject.toml` file that specifies the `manim` package as a dependency. On top of that, we are also going to use `jax` in this lab, which is also included in the pyproject.toml file.
 
-To ensure `manim` is installed correctly, on the command line run `manim --version`.
+=== python environment
+If you decided to use `virtualenv` for this lab, that is to create an environment with `python -m venv [ENV_NAME]` and activate it with `source [ENV_NAME]/bin/activate`, then you can install the dependencies with `pip install -r pyproject.toml`.
 
-After installing `manim`, clone the class repo, then navigate into it.
+If you have `uv` installed, you can also use `uv` to install the dependencies with `uv sync` to create the environment.
+
+=== Extras
+There will be some additional dependencies that you need depending on your operation system, check out the instruction on #link("https://docs.manim.community/en/stable/installation.html")[manim's website] to make sure you have all the prerequisites installed.
+
+// NO CONDA IS ALLOWED, CONDA IS EVIL
+
+To ensure `manim` is installed correctly, on the command line run `manim --version`. You should see some text like `Manim Community v[Version]`. 
 
 = Basic Examples
 
