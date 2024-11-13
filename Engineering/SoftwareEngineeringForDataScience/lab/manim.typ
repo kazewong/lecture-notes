@@ -89,6 +89,52 @@ Construct 4 different shapes in grid with different colors and rotations. Make s
 
 Update the `CircleConvergence` script to display the area of the n-gon as it trasnforms, which is an estimate of $pi$. As the number of sides increase, the area should approach $pi$. You can do this with a text object `label = mn.Text(f'pi estimate{area:0.5f}')` which is created with `mn.Write(label)` inside a play call.
 
+== Changing rendering configuration
+
+You may notice the output video is kind of low res and choppy, that is not because of manim sucks but because of the default rendering configuration. You can change the rendering configuration by creating a `manim.cfg` file in the same directory as your script. Here is an example of a `manim.cfg` file:
+
+= Animating your gradient decent with `jax` and `manim`
+
+Here is #link("https://docs.manim.community/en/stable/examples.html#argminexample")[a relevant example] from the `manim-community` gallery: 
+
+== Step 1: Create the target function with `jax`
+
+The first step is to create the target function that you want to minimize. Go ahead and pick you favorite function that has a scalar input and a scalar output. You can use `jax` to create the function such that later on when we need the gradient, you can just use `jax.grad` to get the gradient.
+
+Once you have define the function. Let's create the axes and plot the function itself
+
+// Add instruction
+
+== Step 2: Initialize a point in the domain
+
+Next, let's draw an initialization point in the domain. The first step is to set a seed at the top of the file to make sure we can reproduce the result every tim we run the script.
+
+Then draw a random number that lives on the x-axis, evaluate the function at that point and draw a point at that location in manim
+
+// Add instruction
+
+== Step 3: Render the gradient vector
+
+The next step is to evaluate the gradient and draw it in manim. #link("https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowArrow.html#growarrow")[This link] could be useful for that.
+
+If you want to be fancy, you can first draw the original gradient vector, then scale it by the step size. You can also highlight the gradient vector using `manim`'s `indication` function.
+
+// Add instruction
+
+== Step 4: Update the point
+
+Once we have show the audience how the gradient look like, let's use the gradient to update the point.
+
+// Add instruction
+
+== Step 5: Speed up the animation
+
+In order to converge, we probably need to run thousands of steps. It would be a pain to keep it at the same speed when we are illustrating the idea for that long. So the last step is to speed up the animation.
+
+The can be done by choosing the run time of the animation to be shorter than the actual time it takes to run the animation.
+
+// Add instruction
+
 == Further Animations
 
 What would you like to animate?
