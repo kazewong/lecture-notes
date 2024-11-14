@@ -109,68 +109,58 @@ Here is #link("https://docs.manim.community/en/stable/examples.html#argminexampl
 
 The first step is to create the target function that you want to minimize. Go ahead and pick your favorite function that has a scalar input and a scalar output. You can use `jax` to create the function such that later on when we need the gradient, you can just use `jax.grad` to get the gradient.
 
-Once you have define the function. Let's create the axes and plot the function itself
-
 == Step 2: Plot the static elements
 
-We need to add the axes, labels, and the graph of the target function. Pick sensible values for the ranges of your graph depending on your chosen target function.
+We need to add the axes, labels, and the graph of the target function. Pick sensible values for the ranges of your graph depending on your chosen target function. Construct axes with https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.Axes.html
 
 ```py
-ax = mn.Axes(
-    x_range=[min_x, max_x, x_ticks], 
-    y_range=[min_y, max_y, y_ticks], 
-    axis_config={"include_tip": False},
+ax = mn.Axes( 
+  # fill in
 )
-labels = ax.get_axis_labels(x_label="x", y_label="f(x)")
-graph = ax.plot(target_function, color=mn.MAROON)
+graph = ax.plot( # ...
 ```
-Since these are static elements, we can add them with `self.add(ax, labels, graph)`, rather than animating them.
+Then plot the target function using `ax.plot`.
+Since these are static elements, we can add them with `self.add(ax, graph)`, rather than animating them.
 
 == Step 3: Initialize a point in the domain
 
-Next, let's draw an initialization point in the domain. Generate a random number in the x domain using jax.random, or pick a point. We will use a `ValueTracker` to allow for animating this point along the target function curve.
+Next, let's draw an initialization point in the domain. Generate a random number in the x domain using jax.random, or pick a point. Use the target_function to get the associated y value.
+
+To plot this point, we will use the `Dot` class. It takes a Point3D in the constructor, which we need to convert from the x/y coordinates on the axes using the function `ax.coords_to_point(x,y)` or `ax.c2p(x,y)` for short. Add the point to the scene.
+
+== Step 4: Calculate the gradient
+
+Calculate the gradient at the initial point using `jax.grad` on `target_function`, and the update step of gradient descent. Use a manim `Arrow` to represent the gradient update from the point at iteration $x_i$ to $x_(i+1)$. When making the arrow, make sure to again use ax.c2p to convert x/y coordinates to points, and use `buff=0`. It will look something like:
+
+```py
+current_grad = # calculate gradient
+new_x = # update step of gradient descent
+arrow = mn.Arrow(
+  # arrow constructor arguments
+)
+```
+
+After this, you can create the arrow to show where the point will be going in that animation.
+
+== Step 5: Point tracker
+
+We will use a `ValueTracker` to allow for animating this point along the target function curve.
 
 ```py
 t = mn.ValueTracker(initial_x)
 ```
 
-To plot this point, we will use the `Dot` class. It takes a Point3D as a constructor, which we need to convert from the x/y coordinates on the axes using the function `ax.coords_to_point(x,y)` or `ax.c2p(x,y)` for short. Put this together it will be, for the appropriate `x,y`:
+Additionally, we need to make our `Dot` object follow the curve as it is updated. To do this, we will use the `add_updater` function as in https://docs.manim.community/en/stable/examples.html#argminexample. 
 
-```py
-dot = mn.Dot(point=ax.c2p(x,y))
-```
+== Step 6: Run the gradient descent
 
-Finally, we have to set dot to update properly as the value tracker changes:
+Now we will run the gradient descent. We want to loop $n$ times, and in each step, calculate the gradient, calculate the update step of gradient descent, animate gradient vector, then move the point with `self.play(t.animate.set_value(new_x))`. If the updater was set properly on the dot, it will follow the tracker. To move the gradient arrow each time, you can call `arrow.put_start_and_end_on` with the appropriate arguments.
 
-```py
-dot.add_updater(
-    lambda x: x.move_to(ax.c2p(t.get_value(), target_function(t.get_value()))),
-)
-```
-
-== Step 4: Run the gradient descent
-
-Now we will run the gradient descent. Recall that the formula is $x_(i+1) = x_i - eta nabla f(x_i)$ where $eta$ is the learning rate. Loop this for some number of steps, and in each step, animate the following:
-
-=== Step 4a: Render the gradient vector
-
-The next step is to evaluate the gradient and draw it in manim. #link("https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowArrow.html#growarrow")[This link] could be useful for that.
-
-If you want to be fancy, you can first draw the original gradient vector, then scale it by the step size. You can also highlight the gradient vector using `manim`'s `indication` function. Make sure when you create the arrow to use `ax.c2p` to get the proper locations for the start and end points. Also make sure to create `Arrow` with `buff=0`.
-
-=== Step 4b: Update the point
-
-Once we have shown the audience how the gradient look like, let's use the gradient to update the point. This is down in a single step with `self.play(t.animate.set_value(x_next))` where `x_next` is the next x value.
-
-=== Step 4c: Remove the gradient vector
-
-You can remove the old gradient vector with the `self.remove` function.
-
-== Step 5: Speed up the animation
+== Step 7: Speed up the animation
 
 In order to converge, we probably need to run thousands of steps. It would be a pain to keep it at the same speed when we are illustrating the idea for that long. So the last step is to speed up the animation.
 
-The can be done by choosing the run time of the animation to be shorter than the actual time it takes to run the animation.
+The can be done by setting the `run_time` argument of `self.play` to a smaller value.
 
 == Further Animations
 
