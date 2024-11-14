@@ -91,49 +91,86 @@ Update the `CircleConvergence` script to display the area of the n-gon as it tra
 
 == Changing rendering configuration
 
-You may notice the output video is kind of low res and choppy, that is not because of manim sucks but because of the default rendering configuration. You can change the rendering configuration by creating a `manim.cfg` file in the same directory as your script. Here is an example of a `manim.cfg` file:
+You may notice the output video is kind of low res and choppy, that is not because of manim sucks but because of the default rendering configuration. You can change the rendering configuration by creating a `manim.cfg` file in the same directory as your script. Here is an example of a `manim.cfg` file that calls the `-pql` flags that we were using before:
 
-= Animating your gradient decent with `jax` and `manim`
+```
+[CLI]
+preview = True
+quality = low_quality
+```
 
-Here is #link("https://docs.manim.community/en/stable/examples.html#argminexample")[a relevant example] from the `manim-community` gallery: 
+Modify the `manim.cfg` to set the `background_color` to `WHITE` and the quality to `high_quality`. Then you can run `manim <file.py> <Scene class>` to render the new content.
+
+= Animating your gradient descent with `jax` and `manim`
+
+Here is #link("https://docs.manim.community/en/stable/examples.html#argminexample")[a relevant example] from the `manim-community` gallery.
 
 == Step 1: Create the target function with `jax`
 
-The first step is to create the target function that you want to minimize. Go ahead and pick you favorite function that has a scalar input and a scalar output. You can use `jax` to create the function such that later on when we need the gradient, you can just use `jax.grad` to get the gradient.
+The first step is to create the target function that you want to minimize. Go ahead and pick your favorite function that has a scalar input and a scalar output. You can use `jax` to create the function such that later on when we need the gradient, you can just use `jax.grad` to get the gradient.
 
 Once you have define the function. Let's create the axes and plot the function itself
 
-// Add instruction
+== Step 2: Plot the static elements
 
-== Step 2: Initialize a point in the domain
+We need to add the axes, labels, and the graph of the target function. Pick sensible values for the ranges of your graph depending on your chosen target function.
 
-Next, let's draw an initialization point in the domain. The first step is to set a seed at the top of the file to make sure we can reproduce the result every tim we run the script.
+```py
+ax = mn.Axes(
+    x_range=[min_x, max_x, x_ticks], 
+    y_range=[min_y, max_y, y_ticks], 
+    axis_config={"include_tip": False},
+)
+labels = ax.get_axis_labels(x_label="x", y_label="f(x)")
+graph = ax.plot(target_function, color=mn.MAROON)
+```
+Since these are static elements, we can add them with `self.add(ax, labels, graph)`, rather than animating them.
 
-Then draw a random number that lives on the x-axis, evaluate the function at that point and draw a point at that location in manim
+== Step 3: Initialize a point in the domain
 
-// Add instruction
+Next, let's draw an initialization point in the domain. Generate a random number in the x domain using jax.random, or pick a point. We will use a `ValueTracker` to allow for animating this point along the target function curve.
 
-== Step 3: Render the gradient vector
+```py
+t = mn.ValueTracker(initial_x)
+```
+
+To plot this point, we will use the `Dot` class. It takes a Point3D as a constructor, which we need to convert from the x/y coordinates on the axes using the function `ax.coords_to_point(x,y)` or `ax.c2p(x,y)` for short. Put this together it will be, for the appropriate `x,y`:
+
+```py
+dot = mn.Dot(point=ax.c2p(x,y))
+```
+
+Finally, we have to set dot to update properly as the value tracker changes:
+
+```py
+dot.add_updater(
+    lambda x: x.move_to(ax.c2p(t.get_value(), target_function(t.get_value()))),
+)
+```
+
+== Step 4: Run the gradient descent
+
+Now we will run the gradient descent. Recall that the formula is $x_(i+1) = x_i - eta nabla f(x_i)$ where $eta$ is the learning rate. Loop this for some number of steps, and in each step, animate the following:
+
+=== Step 4a: Render the gradient vector
 
 The next step is to evaluate the gradient and draw it in manim. #link("https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowArrow.html#growarrow")[This link] could be useful for that.
 
-If you want to be fancy, you can first draw the original gradient vector, then scale it by the step size. You can also highlight the gradient vector using `manim`'s `indication` function.
+If you want to be fancy, you can first draw the original gradient vector, then scale it by the step size. You can also highlight the gradient vector using `manim`'s `indication` function. Make sure when you create the arrow to use `ax.c2p` to get the proper locations for the start and end points. Also make sure to create `Arrow` with `buff=0`.
 
-// Add instruction
+=== Step 4b: Update the point
 
-== Step 4: Update the point
+Once we have shown the audience how the gradient look like, let's use the gradient to update the point. This is down in a single step with `self.play(t.animate.set_value(x_next))` where `x_next` is the next x value.
 
-Once we have show the audience how the gradient look like, let's use the gradient to update the point.
+=== Step 4c: Remove the gradient vector
 
-// Add instruction
+You can remove the old gradient vector with the `self.remove` function.
 
 == Step 5: Speed up the animation
 
 In order to converge, we probably need to run thousands of steps. It would be a pain to keep it at the same speed when we are illustrating the idea for that long. So the last step is to speed up the animation.
 
 The can be done by choosing the run time of the animation to be shorter than the actual time it takes to run the animation.
-
-// Add instruction
 
 == Further Animations
 
